@@ -230,9 +230,8 @@ library(tidyverse)
 #   rename(year = NULL.V1, Q1 = NULL.V2, Q2 = NULL.V3, Q3 = NULL.V4, Q4 = NULL.V5) %&gt;%
 #   filter(year != &quot;&quot;) %&gt;%
 ## I could not manage to tidy the data in R, so i did it in excel. 
-library(readxl) #I could not manage to do it with dplyr. </code></pre>
-<pre><code>## Warning: package &#39;readxl&#39; was built under R version 3.4.3</code></pre>
-<pre class="r"><code>USCSI &lt;- read_excel(&quot;ACSI.xlsx&quot;)
+library(readxl) #I could not manage to do it with dplyr. 
+USCSI &lt;- read_excel(&quot;ACSI.xlsx&quot;)
 ## Plot Quick Plot 
 library(ggplot2)
 qplot(DATE, ACSI, data = USCSI, geom = c(&quot;point&quot;, &quot;line&quot;))</code></pre>
