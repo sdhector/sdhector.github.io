@@ -1,5 +1,5 @@
 ---
-title: "My Website"
+title: "Hector Sanchez, Professional Website"
 ---
 
-Hello, Website!
+Hello, my name is Hector Sanchez. I have made this website to share my professional experience, as well as my thoughts and future projects. I am getting started with this technology, so expect this to evolve over time. 

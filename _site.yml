@@ -7,3 +7,6 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Customer Satisfaction"
+      href: Satisfaction.html
+      

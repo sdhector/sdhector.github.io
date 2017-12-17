@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Hector" />
+
+<meta name="date" content="2017-12-17" />
+
+<title>satisfaction</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="Satisfaction.html">Customer Satisfaction</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">satisfaction</h1>
+<h4 class="author"><em>Hector</em></h4>
+<h4 class="date"><em>December 17, 2017</em></h4>
+
+</div>
+
+
+<div id="a-skeptical-analysis" class="section level2">
+<h2>A Skeptical analysis:</h2>
+<div id="using-demographics-weather-and-economic-variables-to-explain-satisfaction." class="section level3">
+<h3>Using demographics, weather, and economic variables to explain satisfaction.</h3>
+</div>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>Customer Satisfaction is as popular a metric as it’s an obscure one. By that I mean that the dynamics of it are unknown, or at best there is no agreement on them; no practical difference between those two, really.</p>
+<p>Apparently, there are many governments that are openning their data to the public driven by the need to be “open”. A quick google search for “Customer Satisfaction Dataset” gives several websites with datasets. This means that a lot of fun can be had trying out the following theory: customer satisfaction indices are random, provide no information about the business operations and it’s apparent movements are driven by three groups of uncontrollable variables: The Economic Environment, The Weather, and Demographics.</p>
+<p>The first analysis done by us in this regard used the American Satisfaction Index. The authors in fact identify a relationship between the U.S. Overall Customer Satisfaction Index, but they argue that the causality is that satisfaction causes economic progress.</p>
+<p>To see this, let us download the U.S. Overall Customer Satisfaction (USOCS) file from (<a href="http://www.theacsi.org/images/stories/images/nationalquarterlyscores/acsi_national_scores-dec.xls" class="uri">http://www.theacsi.org/images/stories/images/nationalquarterlyscores/acsi_national_scores-dec.xls</a>). After “tidying” the data, we can replicate the following plot given by theacsi.org.</p>
+<pre class="r"><code>##Download the data
+library(XML)
+URL = &quot;http://www.theacsi.org/national-economic-indicator/us-overall-customer-satisfaction&quot;
+tables = readHTMLTable(URL)
+USCSI = as.data.frame(tables)
+##Tidy the data
+library(tidyverse)
+# USCSI %&gt;%
+#   rename(year = NULL.V1, Q1 = NULL.V2, Q2 = NULL.V3, Q3 = NULL.V4, Q4 = NULL.V5) %&gt;%
+#   filter(year != &quot;&quot;) %&gt;%
+## I could not manage to tidy the data in R, so i did it in excel. 
+library(readxl) #I could not manage to do it with dplyr. </code></pre>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>USCSI &lt;- read_excel(&quot;ACSI.xlsx&quot;)
+## Plot Quick Plot 
+library(ggplot2)
+qplot(DATE, ACSI, data = USCSI, geom = c(&quot;point&quot;, &quot;line&quot;))</code></pre>
+<p><img src="satisfaction_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Now, let us download the Real US GDP Per-Capita from the Federal Reserve Economic Database (FRED) and create a similar time plot for the same period.</p>
+<pre class="r"><code># library(tidyquant) #This package allows to call data directly from FRED. 
+# gdp &lt;- tq_get(x = &quot;A939RX0Q048SBEA&quot;,get =&quot;economic.data&quot; , from = &quot;1994-03-01&quot;, to = &quot;2017-04-01&quot;)
+# qplot(x = date, y = price , data = gdp, geom = c(&quot;point&quot;,&quot;line&quot;))</code></pre>
+<p>They obviously share a common trend, but the satisfaction index exhibits more volatility, apparently. Let’s combine them together such that we can better discern the correlation visually. (It happens that ggplot2 doesn’t like two axis plots, so I had to normalize these variables)</p>
+<pre class="r"><code># df &lt;- 
+# bind_cols(gdp,USCSI) %&gt;%
+#   select(date, price, sat = ACSI) %&gt;%
+#   mutate(gdp = as.numeric(price)) %&gt;%
+#   select(date, gdp, sat) %&gt;% 
+#   mutate(gdp = gdp/mean(gdp), sat = sat/mean(sat)) %&gt;% 
+#   melt(id = &quot;date&quot;)
+# 
+# ggplot(df, aes(x = date, y = value, colour=variable)) + geom_line()</code></pre>
+<p>As you can see, they both tend to increase; although the trend for the Satisfaction Index is much milder. And, honestly, why should a variable limited at 100 have a stron trend? Still, any student of time series econometrics would tell you that this analysis is meaningless. In fact, even the people from the ACS did not do this, since the correlation of these two series is only 0.68.</p>
+<pre class="r"><code># cor(gdp$price, USCSI$ACSI)</code></pre>
+<p>Most likely, they did de-trended these series and evaluated their correlation then. So, let’s do that. There are several ways of de-trending a series. The simplest one is simply by taking first differences according to the following formula:</p>
+<p>let y_t be your time series, and the subscript t represent the period of time.</p>
+<p>then, the first difference operator <span class="math inline">\(\Delta\)</span> does the following:</p>
+<p><span class="math display">\[\Delta y_t = y_t - y_{t-1}\]</span> This method has many problems. It is only advisable to do this when the trend in the series is “deterministic”. You wouldn’t know if that’s the case, and that’s why one should be wary of it. Still, the alternative is using a linear filter like the Hodrick Prescott filter. I won’t explain what it does, but will just use it instead.</p>
+<pre class="r"><code># df1 &lt;- 
+#   bind_cols(gdp,USCSI) %&gt;%
+#   select(date, price, sat = ACSI) %&gt;%
+#   mutate(gdp = as.numeric(price)) %&gt;%
+#   select(date, gdp, sat) %&gt;% 
+#   mutate(gdp = gdp/mean(gdp), sat = sat/mean(sat))
+#   
+# dgdp = as.data.frame(diff(df1$gdp,1))
+# dcsi = as.data.frame(diff(df1$sat,1))
+# Date = as.data.frame(df1$date[2:length(df1$date)])
+# 
+# df2 &lt;- (cbind(Date,dgdp,dcsi)) %&gt;% 
+#   select(date = 1, dgdp = 2, dcsi = 3) %&gt;% 
+# melt(id = 1) 
+# ggplot(df2, aes(x = date, y = value, colour=variable)) + geom_line()
+# 
+# 
+# library(mFilter)
+# 
+# hpgdp &lt;- hpfilter(df1$gdp, type = &quot;lambda&quot;, 1600)
+# hpcsi &lt;- hpfilter(df1$sat, type = &quot;lambda&quot;, 1600)
+# df3 &lt;- cbind(as.data.frame(df1$date),as.data.frame(hpgdp$cycle),as.data.frame(hpcsi$cycle)) %&gt;% 
+#   select(date = 1, hpgdp = 2, hpcsi = 3) %&gt;% 
+#   melt(id = 1) 
+# ggplot(df3, aes(x = date, y = value, colour=variable)) + geom_line()
+# 
+# 
+# dcor &lt;- cor(dgdp, dcsi)
+# hpcor &lt;- cor(hpgdp$cycle,hpcsi$cycle)</code></pre>
+<p>I have found this data. The data and questionnaire can be found at <a href="https://www.europeandataportal.eu/data/en/dataset/civil-service-customer-satisfaction-survey-2015/resource/eec6afcd-88d2-460d-960e-ad68c621f4d4?inner_span=True" class="uri">https://www.europeandataportal.eu/data/en/dataset/civil-service-customer-satisfaction-survey-2015/resource/eec6afcd-88d2-460d-960e-ad68c621f4d4?inner_span=True</a></p>
+<pre class="r"><code>library(readxl)
+library(tidyverse)
+read_excel(&quot;CSC Survey.xlsx&quot;, sheet = 1)</code></pre>
+<pre><code>## # A tibble: 2,025 x 251
+##     iobs intno assno   age    c2    c3    c4    c5    c6    c7   c8a   c8b
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1   552  2212     9     1     2     2    10     2     1     1     1
+##  2     2   552  2212    12     2     2     2    10     2     1     1     1
+##  3     3   552  2212     1     1     1     4    10     2     1     1     1
+##  4     4   552  2212     7     2     1     2     1     2     1     2     2
+##  5     5   552  2212     6     2     2     2     3     2     3     1     1
+##  6     6   552  2212    11     2     1     2    10     2     1     1     1
+##  7     7   552  2212    12     1     1     2    10     2     1     1     1
+##  8     8   552  2212     9     2     2     2    10     2     1     2     2
+##  9     9   552  2212     5     2     1     2    10     2     1     1     1
+## 10    10   552  2212    12     1     2     2    10     2     1     1     3
+## # ... with 2,015 more rows, and 239 more variables: c8c &lt;dbl&gt;, c8d &lt;dbl&gt;,
+## #   c8e &lt;dbl&gt;, c8f &lt;dbl&gt;, c9 &lt;dbl&gt;, c9a &lt;dbl&gt;, c15 &lt;dbl&gt;, c16 &lt;dbl&gt;,
+## #   c16a &lt;dbl&gt;, c17 &lt;dbl&gt;, c18 &lt;dbl&gt;, c19_1 &lt;dbl&gt;, c19_2 &lt;dbl&gt;,
+## #   c19_3 &lt;dbl&gt;, c19_4 &lt;dbl&gt;, c19_5 &lt;dbl&gt;, c19_6 &lt;dbl&gt;, c19_7 &lt;dbl&gt;,
+## #   c20 &lt;dbl&gt;, q1aa &lt;dbl&gt;, q1ab &lt;dbl&gt;, q1ac &lt;dbl&gt;, q1ad &lt;dbl&gt;, q1ae &lt;dbl&gt;,
+## #   q1af &lt;dbl&gt;, q1ag &lt;dbl&gt;, q1ah &lt;dbl&gt;, q1ai &lt;dbl&gt;, q1aj &lt;dbl&gt;,
+## #   q1ak &lt;dbl&gt;, q1al &lt;dbl&gt;, q1am &lt;dbl&gt;, q1an &lt;dbl&gt;, q1ao &lt;dbl&gt;,
+## #   q1ap &lt;dbl&gt;, q1aq &lt;dbl&gt;, q1ar &lt;dbl&gt;, q1as &lt;dbl&gt;, q1at &lt;dbl&gt;,
+## #   q1au &lt;dbl&gt;, q1av &lt;dbl&gt;, q1aw &lt;dbl&gt;, q1ba &lt;dbl&gt;, q1bb &lt;dbl&gt;,
+## #   q1bc &lt;dbl&gt;, q1bd &lt;dbl&gt;, q1be &lt;dbl&gt;, q1bf &lt;dbl&gt;, q1bg &lt;dbl&gt;,
+## #   q1bh &lt;dbl&gt;, q1bi &lt;dbl&gt;, q1bj &lt;dbl&gt;, q1bk &lt;dbl&gt;, q1bl &lt;dbl&gt;,
+## #   q1bm &lt;dbl&gt;, q1bn &lt;dbl&gt;, q1bo &lt;dbl&gt;, q1bp &lt;dbl&gt;, q1bq &lt;dbl&gt;,
+## #   q1br &lt;dbl&gt;, q1bs &lt;dbl&gt;, q1bt &lt;dbl&gt;, q1bu &lt;dbl&gt;, q1bv &lt;dbl&gt;,
+## #   sq1c &lt;dbl&gt;, q2 &lt;dbl&gt;, q4a_1 &lt;dbl&gt;, q4a_2 &lt;dbl&gt;, q4a_3 &lt;dbl&gt;,
+## #   q4a_4 &lt;dbl&gt;, q4a_5 &lt;dbl&gt;, q4a_6 &lt;dbl&gt;, q4a_7 &lt;dbl&gt;, q4a_8 &lt;dbl&gt;,
+## #   q4a_9 &lt;dbl&gt;, q4a_10 &lt;dbl&gt;, q4a_11 &lt;dbl&gt;, q4b_1 &lt;dbl&gt;, q4b_2 &lt;dbl&gt;,
+## #   q4b_3 &lt;dbl&gt;, q4b_4 &lt;dbl&gt;, q4b_5 &lt;dbl&gt;, q4b_6 &lt;dbl&gt;, q4b_7 &lt;dbl&gt;,
+## #   q4b_8 &lt;dbl&gt;, q4b_9 &lt;dbl&gt;, q4b_10 &lt;dbl&gt;, q4b_11 &lt;dbl&gt;, q4c_1 &lt;dbl&gt;,
+## #   q4c_2 &lt;dbl&gt;, q4c_3 &lt;dbl&gt;, q4c_4 &lt;dbl&gt;, q4c_5 &lt;dbl&gt;, q4c_6 &lt;dbl&gt;,
+## #   q4c_7 &lt;dbl&gt;, q4c_8 &lt;dbl&gt;, q4c_9 &lt;dbl&gt;, q4c_10 &lt;dbl&gt;, q4c_11 &lt;dbl&gt;,
+## #   q4c_12 &lt;dbl&gt;, ...</code></pre>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
