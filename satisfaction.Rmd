@@ -1,8 +1,5 @@
 ---
 title: "satisfaction"
-author: "Hector"
-date: "December 17, 2017"
-output: html_document
 ---
 ## A Skeptical analysis: 
 ### Using demographics, weather, and economic variables to explain satisfaction.
