@@ -8,5 +8,5 @@ navbar:
     - text: "About"
       href: about.html
     - text: "Customer Satisfaction"
-      href: Satisfaction.html
+      href: satisfaction.html
       
