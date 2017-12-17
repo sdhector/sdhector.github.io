@@ -1,10 +1,9 @@
 ---
-title: "satisfaction"
+title: "Customer Satisfaction, A Skeptical Analysis"
 ---
-## A Skeptical analysis: 
 ### Using demographics, weather, and economic variables to explain satisfaction.
 
-#Introduction 
+####Introduction 
 Customer Satisfaction is as popular a metric as it's an obscure one. By that I mean that the dynamics of it are unknown, or at best there is no agreement on them; no practical difference between those two, really. 
 
 Apparently, there are many governments that are openning their data to the public driven by the need to be "open". A quick google search for "Customer Satisfaction Dataset" gives several websites with datasets. This means that a lot of fun can be had trying out the following theory: customer satisfaction indices are  random, provide no information about the business operations and it's apparent movements are driven by three groups of uncontrollable variables: The Economic Environment, The Weather, and Demographics. 
