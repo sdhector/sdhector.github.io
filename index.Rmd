@@ -1,5 +1,5 @@
 ---
-title: "Hector Sanchez, Professional Website"
+title: "Hector Sanchez"
 ---
 
-Hello, my name is Hector Sanchez. I have made this website to share my professional experience, as well as my thoughts and future projects. I am getting started with this technology, so expect this to evolve over time. 
+Hello, my name is Hector Sanchez. I have made this website to share my professional experience, as well as my thoughts and future projects. The goal is to let you get to know me a bit better. I am getting started with this technology, so expect this to evolve over time. 

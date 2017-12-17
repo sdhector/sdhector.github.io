@@ -1,13 +1,22 @@
 ---
-title: "Customer Satisfaction, A Skeptical Analysis"
+title: "Exploring the drivers of Customer Satisfaction Indices"
 ---
-### Using demographics, weather, and economic variables to explain satisfaction.
 
-####Introduction 
-Customer Satisfaction is as popular a metric as it's an obscure one. By that I mean that the dynamics of it are unknown, or at best there is no agreement on them; no practical difference between those two, really. 
 
-Apparently, there are many governments that are openning their data to the public driven by the need to be "open". A quick google search for "Customer Satisfaction Dataset" gives several websites with datasets. This means that a lot of fun can be had trying out the following theory: customer satisfaction indices are  random, provide no information about the business operations and it's apparent movements are driven by three groups of uncontrollable variables: The Economic Environment, The Weather, and Demographics. 
+#Introduction 
+Customer Satisfaction Indices are a popular a metric in Marketing and Business. They even appear in the financial reports of some companies. The idea behind Customer Satisfaction is that if customers like a product or service, they are satisfied and willing to keep doing business with the firm providing it. Furthermore, happy customers refer their friends and family, which results in more sales for the company. 
 
+Customer satisfaction the phenomenon, the latent variable, sounds like a very reasonable mechanism to explain consumer behavior. It also sounds very similar to the way Economists use the word Utility. 
+
+However, as a candidate for a metric, a causal mechanism is required. Specifically, one must know how to increase or decrease Customer Satisfaction; what specific action. Further, we must know what reaction will cause increasing Customer Satisfaction have on the financial variables that are ultimately of importance. 
+
+In utility theory, this is quite straightforward because of the assumption of the homo-economicus. However, in Marketing and Business we must relax these assumptions. At the very least, we should examine that there is reason to believe a given causal mechanism holds. 
+
+This could be examined given a measure of customer Satisfaction, but that's another problem since it is measured by taking the reports of respondents to a survey at face value. If people are reporting values for resons other than the performance of the company, then one needs to know that in order to avoid making decisions based on bad information. 
+
+In this document it is proposed that the Customer Satisfaction *Indices* are often poorly measured and driven mostly by variables out of the control of the company interested in them; mainly the demographics of the reposdent as a proxy for their general tendencies in the way they respond to questions like these, the state of the Economy and the Weather when the measurement was carried out. 
+
+## The American Customer Satisfaction Index
 The first analysis done by us in this regard used the American Satisfaction Index. The authors in fact identify a relationship between the U.S. Overall Customer Satisfaction Index, but they argue that the causality is that satisfaction causes economic progress. 
 
 To see this, let us download the U.S. Overall Customer Satisfaction (USOCS) file from (http://www.theacsi.org/images/stories/images/nationalquarterlyscores/acsi_national_scores-dec.xls). After "tidying" the data, we can replicate the following plot given by theacsi.org. 
@@ -36,76 +45,87 @@ qplot(DATE, ACSI, data = USCSI, geom = c("point", "line"))
 Now, let us download the Real US GDP Per-Capita from the Federal Reserve Economic Database (FRED) and create a similar time plot for the same period. 
 
 ```{r}
-# library(tidyquant) #This package allows to call data directly from FRED. 
-# gdp <- tq_get(x = "A939RX0Q048SBEA",get ="economic.data" , from = "1994-03-01", to = "2017-04-01")
-# qplot(x = date, y = price , data = gdp, geom = c("point","line"))
+library(tidyquant) #This package allows to call data directly from FRED.
+gdp <- tq_get(x = "A939RX0Q048SBEA",get ="economic.data" , from = "1994-03-01", to = "2017-04-01")
+qplot(x = date, y = price , data = gdp, geom = c("point","line"))
 
 ```
 
 They obviously share a common trend, but the satisfaction index exhibits more volatility, apparently. Let's combine them together such that we can better discern the correlation visually. (It happens that ggplot2 doesn't like two axis plots, so I had to normalize these variables)
 
 ```{r}
-# df <- 
-# bind_cols(gdp,USCSI) %>%
-#   select(date, price, sat = ACSI) %>%
-#   mutate(gdp = as.numeric(price)) %>%
-#   select(date, gdp, sat) %>% 
-#   mutate(gdp = gdp/mean(gdp), sat = sat/mean(sat)) %>% 
-#   melt(id = "date")
-# 
-# ggplot(df, aes(x = date, y = value, colour=variable)) + geom_line()
+library(reshape2)
+df <-
+bind_cols(gdp,USCSI) %>%
+  select(date, price, sat = ACSI) %>%
+  mutate(gdp = as.numeric(price)) %>%
+  select(date, gdp, sat) %>%
+  mutate(gdp = gdp/mean(gdp), sat = sat/mean(sat)) %>%
+  melt(id = "date")
+
+ggplot(df, aes(x = date, y = value, colour=variable)) + geom_line()
 
 ```
 
 As you can see, they both tend to increase; although the trend for the Satisfaction Index is much milder. And, honestly, why should a variable limited at 100 have a stron trend? Still, any student of time series econometrics would tell you that this analysis is meaningless. In fact, even the people from the ACS did not do this, since the correlation of these two series is only 0.68. 
 
 ```{r}
-# cor(gdp$price, USCSI$ACSI)
+cor(gdp$price, USCSI$ACSI)
 ```
-Most likely, they did de-trended these series and evaluated their correlation then. So, let's do that. There are several ways of de-trending a series. The simplest one is simply by taking first differences according to the following formula: 
-
-let y_t be your time series, and the subscript t represent the period of time. 
-
-then, the first difference operator $\Delta$ does the following: 
-
+Most likely, they de-trended these series and evaluated their correlation So, let's do that. There are several ways of de-trending a series. The simplest one is simply by taking first differences according to the following formula: 
 $$\Delta y_t = y_t - y_{t-1}$$
-This method has many problems. It is only advisable to do this when the trend in the series is "deterministic". You wouldn't know if that's the case, and that's why one should be wary of it. Still, the alternative is using a linear filter like the Hodrick Prescott filter. I won't explain what it does, but will just use it instead. 
-
 ```{r}
 
-# df1 <- 
-#   bind_cols(gdp,USCSI) %>%
-#   select(date, price, sat = ACSI) %>%
-#   mutate(gdp = as.numeric(price)) %>%
-#   select(date, gdp, sat) %>% 
-#   mutate(gdp = gdp/mean(gdp), sat = sat/mean(sat))
-#   
-# dgdp = as.data.frame(diff(df1$gdp,1))
-# dcsi = as.data.frame(diff(df1$sat,1))
-# Date = as.data.frame(df1$date[2:length(df1$date)])
-# 
-# df2 <- (cbind(Date,dgdp,dcsi)) %>% 
-#   select(date = 1, dgdp = 2, dcsi = 3) %>% 
-# melt(id = 1) 
-# ggplot(df2, aes(x = date, y = value, colour=variable)) + geom_line()
-# 
-# 
-# library(mFilter)
-# 
-# hpgdp <- hpfilter(df1$gdp, type = "lambda", 1600)
-# hpcsi <- hpfilter(df1$sat, type = "lambda", 1600)
-# df3 <- cbind(as.data.frame(df1$date),as.data.frame(hpgdp$cycle),as.data.frame(hpcsi$cycle)) %>% 
-#   select(date = 1, hpgdp = 2, hpcsi = 3) %>% 
-#   melt(id = 1) 
-# ggplot(df3, aes(x = date, y = value, colour=variable)) + geom_line()
-# 
-# 
-# dcor <- cor(dgdp, dcsi)
-# hpcor <- cor(hpgdp$cycle,hpcsi$cycle)
+df1 <-
+  bind_cols(gdp,USCSI) %>%
+  select(date, price, sat = ACSI) %>%
+  mutate(gdp = as.numeric(price)) %>%
+  select(date, gdp, sat) %>%
+  mutate(gdp = gdp/mean(gdp), sat = sat/mean(sat))
+
+dgdp = as.data.frame(diff(df1$gdp,1))
+dcsi = as.data.frame(diff(df1$sat,1))
+Date = as.data.frame(df1$date[2:length(df1$date)])
+
+df2 <- (cbind(Date,dgdp,dcsi)) %>%
+  select(date = 1, dgdp = 2, dcsi = 3) %>%
+melt(id = 1)
+ggplot(df2, aes(x = date, y = value, colour=variable)) + geom_line()
+
+```
+There is a general common pattern between these two, but it isn't really easy to appreciate visually. As indicated by their correlation of -0.19, it seems that the satisfaction rises when the economy is in a downturn. We will come back to this later. 
+
+```{r}
+cor(dgdp, dcsi)
+```
+
+Another alternative is using a linear filter like the Hodrick Prescott filter. I won't explain what it does, but will just use it instead. 
+```{r}
+library(mFilter)
+
+hpgdp <- hpfilter(df1$gdp, type = "lambda", 1600)
+hpcsi <- hpfilter(df1$sat, type = "lambda", 1600)
+df3 <- cbind(as.data.frame(df1$date),as.data.frame(hpgdp$cycle),as.data.frame(hpcsi$cycle)) %>%
+  select(date = 1, hpgdp = 2, hpcsi = 3) %>%
+  melt(id = 1)
+ggplot(df3, aes(x = date, y = value, colour=variable)) + geom_line()
+
+
 
 
 
 ```
+Here the opposite pattern is more visible. Still, let us calculate the correlation index and confirm that it is -0.16. 
+
+```{r}
+cor(hpgdp$cycle,hpcsi$cycle)
+```
+
+
+## The Survey
+
+Apparently, there are many governments that are openning their data to the public driven by the need to be "open". A quick google search for "Customer Satisfaction Dataset" gives several websites with datasets. We will use this data to examine the hypothesis at the cross-sectional level, instead of the time dimension. 
+
 
 I have found this data. The data and questionnaire can be found at https://www.europeandataportal.eu/data/en/dataset/civil-service-customer-satisfaction-survey-2015/resource/eec6afcd-88d2-460d-960e-ad68c621f4d4?inner_span=True
 
