@@ -1,0 +1,4 @@
+---
+title: "My opinions"
+---
+A list of articles describing my opinion on several topics. 

@@ -1,13 +1,38 @@
 name: "my-website"
 output_dir: "."
+include: ["satifaction.html"]
 navbar:
   title: "My Website"
   left:
     - text: "Home"
       href: index.html
-    - text: "About"
-      href: about.html
-    - text: Projects
+    - text: "Personal Philosophy"
+      href: myphilosophy.html
+    - text: "Blog"
       menu: 
-        - text: "Customer Satisfaction"
-          href: satisfaction.html
+        - text: "My Opinions"
+          href: opinions.html
+        - text: "Videos I like"
+          href: videos.html
+        - text: "Papers I like"
+          href: papers.html
+        - text: "Books I like"
+          href: books.html
+    - text: "Projects"
+      menu: 
+        - text: "Completed"
+          href: projects_completed.html
+        - text: "Under development"
+          href: projects_current.html
+        - text: "In plan"
+          href: projects_future.html
+    - text: "CV"
+      menu: 
+        - text: "Overview"
+          href: cvoverview.html
+        - text: "CV in English"
+          href: cvenglish.html
+        - text: "CV en Español"
+          href: cvspanish.html
+    - text: "Contact"
+      href: contact.html
