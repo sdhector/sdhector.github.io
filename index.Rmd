@@ -2,6 +2,6 @@
 title: "My Personal Website"
 ---
 
-Hello, this is my website. Why a Website? Because it is an excellent way of organizing life. For example, I will have here a series of projects describing what I know how to do. I am currently doing an analysis exploring the drivers of [Customer Satisfaction](http://sdhector.github.io/satisfaction.html/). 
+Hello, this is my website. Why a Website? Because it is an excellent way of organizing life. For example, I will have here a series of projects describing what I know how to do. I am currently doing an analysis exploring [the drivers of Customer Satisfaction Indices](http://sdhector.github.io/satisfaction.html/)
 
 More and more will come. 
