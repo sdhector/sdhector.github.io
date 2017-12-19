@@ -278,25 +278,92 @@ URL = &quot;http://www.theacsi.org/national-economic-indicator/us-overall-custom
 tables = readHTMLTable(URL)
 USCSI = as.data.frame(tables)
 ##Tidy the data
-library(tidyverse)
-# USCSI %&gt;%
+library(tidyverse)</code></pre>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## -- Attaching packages --------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 2.2.1     v purrr   0.2.4
+## v tibble  1.3.4     v dplyr   0.7.4
+## v tidyr   0.7.2     v stringr 1.2.0
+## v readr   1.1.1     v forcats 0.2.0</code></pre>
+<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Warning: package &#39;readr&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code># USCSI %&gt;%
 #   rename(year = NULL.V1, Q1 = NULL.V2, Q2 = NULL.V3, Q3 = NULL.V4, Q4 = NULL.V5) %&gt;%
 #   filter(year != &quot;&quot;) %&gt;%
 ## I could not manage to tidy the data in R, so i did it in excel. 
-library(readxl) #I could not manage to do it with dplyr. 
-USCSI &lt;- read_excel(&quot;ACSI.xlsx&quot;)
+library(readxl) #I could not manage to do it with dplyr. </code></pre>
+<pre><code>## Warning: package &#39;readxl&#39; was built under R version 3.4.3</code></pre>
+<pre class="r"><code>USCSI &lt;- read_excel(&quot;ACSI.xlsx&quot;)
 ## Plot Quick Plot 
 library(ggplot2)
 qplot(DATE, ACSI, data = USCSI, geom = c(&quot;point&quot;, &quot;line&quot;))</code></pre>
 <p><img src="satisfaction_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>Now, let us download the Real US GDP Per-Capita from the Federal Reserve Economic Database (FRED) and create a similar time plot for the same period.</p>
-<pre class="r"><code>library(tidyquant) #This package allows to call data directly from FRED.
-gdp &lt;- tq_get(x = &quot;A939RX0Q048SBEA&quot;,get =&quot;economic.data&quot; , from = &quot;1994-03-01&quot;, to = &quot;2017-04-01&quot;)
+<pre class="r"><code>library(tidyquant) #This package allows to call data directly from FRED.</code></pre>
+<pre><code>## Loading required package: lubridate</code></pre>
+<pre><code>## Warning: package &#39;lubridate&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;lubridate&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:base&#39;:
+## 
+##     date</code></pre>
+<pre><code>## Loading required package: PerformanceAnalytics</code></pre>
+<pre><code>## Warning: package &#39;PerformanceAnalytics&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: xts</code></pre>
+<pre><code>## Warning: package &#39;xts&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## Warning: package &#39;zoo&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## 
+## Attaching package: &#39;xts&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     first, last</code></pre>
+<pre><code>## 
+## Package PerformanceAnalytics (1.4.3541) loaded.
+## Copyright (c) 2004-2014 Peter Carl and Brian G. Peterson, GPL-2 | GPL-3
+## http://r-forge.r-project.org/projects/returnanalytics/</code></pre>
+<pre><code>## 
+## Attaching package: &#39;PerformanceAnalytics&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     legend</code></pre>
+<pre><code>## Loading required package: quantmod</code></pre>
+<pre><code>## Warning: package &#39;quantmod&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Loading required package: TTR</code></pre>
+<pre><code>## Warning: package &#39;TTR&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## Version 0.4-0 included new data defaults. See ?getSymbols.
+## Learn from a quantmod author: https://www.datacamp.com/courses/importing-and-managing-financial-data-in-r</code></pre>
+<pre><code>## 
+## Attaching package: &#39;tidyquant&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     as_tibble</code></pre>
+<pre><code>## The following object is masked from &#39;package:tibble&#39;:
+## 
+##     as_tibble</code></pre>
+<pre class="r"><code>gdp &lt;- tq_get(x = &quot;A939RX0Q048SBEA&quot;,get =&quot;economic.data&quot; , from = &quot;1994-03-01&quot;, to = &quot;2017-04-01&quot;)
 qplot(x = date, y = price , data = gdp, geom = c(&quot;point&quot;,&quot;line&quot;))</code></pre>
 <p><img src="satisfaction_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>They obviously share a common trend, but the satisfaction index exhibits more volatility, apparently. Let’s combine them together such that we can better discern the correlation visually. (It happens that ggplot2 doesn’t like two axis plots, so I had to normalize these variables)</p>
-<pre class="r"><code>library(reshape2)
-df &lt;-
+<pre class="r"><code>library(reshape2)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;reshape2&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     smiths</code></pre>
+<pre class="r"><code>df &lt;-
 bind_cols(gdp,USCSI) %&gt;%
   select(date, price, sat = ACSI) %&gt;%
   mutate(gdp = as.numeric(price)) %&gt;%
@@ -330,9 +397,17 @@ ggplot(df2, aes(x = date, y = value, colour=variable)) + geom_line()</code></pre
 <pre><code>##                  diff(df1$sat, 1)
 ## diff(df1$gdp, 1)       -0.1995605</code></pre>
 <p>Another alternative is using a linear filter like the Hodrick Prescott filter. I won’t explain what it does, but will just use it instead.</p>
-<pre class="r"><code>library(mFilter)
-
-hpgdp &lt;- hpfilter(df1$gdp, type = &quot;lambda&quot;, 1600)
+<pre class="r"><code>library(mFilter)</code></pre>
+<pre><code>## Warning: package &#39;mFilter&#39; was built under R version 3.4.3</code></pre>
+<pre><code>## 
+##     &#39;mFilter&#39; version: 0.1-3
+## 
+##     &#39;mFilter&#39; is a package for time series filtering
+## 
+##     See &#39;library(help=&quot;mFilter&quot;)&#39; for details
+## 
+##     Author: Mehmet Balcilar, mbalcilar@yahoo.com</code></pre>
+<pre class="r"><code>hpgdp &lt;- hpfilter(df1$gdp, type = &quot;lambda&quot;, 1600)
 hpcsi &lt;- hpfilter(df1$sat, type = &quot;lambda&quot;, 1600)
 df3 &lt;- cbind(as.data.frame(df1$date),as.data.frame(hpgdp$cycle),as.data.frame(hpcsi$cycle)) %&gt;%
   select(date = 1, hpgdp = 2, hpcsi = 3) %&gt;%
