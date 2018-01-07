@@ -181,64 +181,13 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="myphilosophy.html">Personal Philosophy</a>
+  <a href="timeline.html">Professional Timeline</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Blog
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="opinions.html">My Opinions</a>
-    </li>
-    <li>
-      <a href="videos.html">Videos I like</a>
-    </li>
-    <li>
-      <a href="papers.html">Papers I like</a>
-    </li>
-    <li>
-      <a href="books.html">Books I like</a>
-    </li>
-  </ul>
+<li>
+  <a href="portfolio.html">Portfolio</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Projects
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="projects_completed.html">Completed</a>
-    </li>
-    <li>
-      <a href="projects_current.html">Under development</a>
-    </li>
-    <li>
-      <a href="projects_future.html">In plan</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    CV
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="cvoverview.html">Overview</a>
-    </li>
-    <li>
-      <a href="cvenglish.html">CV in English</a>
-    </li>
-    <li>
-      <a href="cvspanish.html">CV en EspaÃ±ol</a>
-    </li>
-  </ul>
+<li>
+  <a href="about.html">About me</a>
 </li>
 <li>
   <a href="contact.html">Contact</a>
@@ -261,8 +210,33 @@ $(document).ready(function () {
 
 
 <p>A list of articles discussing projects I am currently working on.</p>
-<div id="the-drivers-of-customer-satisfaction-indices" class="section level2">
-<h2><a href="http://sdhector.github.io/satisfaction.html/">The drivers of Customer Satisfaction Indices</a></h2>
+<div id="churn-prediction" class="section level3">
+<h3>Churn Prediction:</h3>
+<p>This is a very famous problem in Machine Learning. In this article I explain how the probability that a subscriber would cancel their service in a specified ammount of time was estimated using a Logistic Regression. I explain how the “under-sampling” technique was used to solve the class-imbalance problem, the cut-off point used for classification purposes, the uses of the forecasted likelihood - indeed, the risk - of churning, how to evaluate the accuracy of the model, and how to use out of sample validation to evaluate the performance of the model. I also discuss the “econometric” vs “machine learning” reasoning when faced with problems like this, and how validation only makes sense for Machine Learning, and not for Econometrics.</p>
+</div>
+<div id="choice-based-conjoint-analysis" class="section level3">
+<h3>Choice-based Conjoint Analysis:</h3>
+<p>In this article I explain how to measure consumer choices with choice-based conjoint analysis. The technique is based on the microeconomic rational choice theory, except that the sources of utility are not goods, but the characteristics of those goods. This allows for the comparison of goods that, for normal economic analysis, would be considered perfect substitutes. The analysis requires constructing a fractional-factorial experimental design, which allows one to be reasonably sure that the all the task choices are considered and there aren’t any uncontrolled for effects.</p>
+</div>
+<div id="measuring-brand-equity-with-conjoint-analysis" class="section level3">
+<h3>Measuring Brand Equity with Conjoint Analysis:</h3>
+<p>Using choice-based conjoint analysis, by including the brand among the utility generating characteristics of the goods, it is possible to isolate the “ammount of utility” that the brand generates after controlling for other aspects of the product.</p>
+</div>
+<div id="attitudes-as-determinants-of-choice-in-a-conjoint-experiment" class="section level3">
+<h3>Attitudes as determinants of Choice in a Conjoint Experiment:</h3>
+<p>In this article I discuss the possibility of using liker-scale measured attitudes regarding the different brands, in order to explain choice in a CBCE. The general idea is that, while the attitudes do not themselves reflect on the specific choices, they might influence the preferences themselves; meaning, how much people care about brand vs price, for example.</p>
+</div>
+<div id="marketing-mix-model" class="section level3">
+<h3>Marketing Mix Model:</h3>
+<p>The effect of marketing efforts on sales is an important concern. At the very least, it provides information on how effective advertising is. This can bring good or bad news, but in order to improve one must first measure. This project discusses the very basic idea first, which is a linear model explaining sales as a consequence of advertising. In practice, however, several other variables might influence sales. Furthermore, the relationship might not be direct in time, but lagged and cumulative. I discuss how to incorporate Vector AutoRegressive concepts like Impulse Response functions to identify the fact that advertising today has a diminishing effect on future sales.</p>
+</div>
+<div id="the-drivers-of-customer-satisfaction-indices" class="section level3">
+<h3><a href="http://sdhector.github.io/satisfaction.html/">The drivers of Customer Satisfaction Indices</a></h3>
+<p>In this article I discuss the theory of Customer Satisfaction and explain under what conditions it holds, and what are the implications when it does. I then go on to show that certain conditions do not hold, and the implications that it doesn’t.</p>
+</div>
+<div id="a-model-of-store-location" class="section level3">
+<h3>A model of store location:</h3>
+<p>This is the first “theoretical” model I developed. I did it in Excel and I replicate it in R. The motivation comes for a request of how many, and which of the current stores to close. To develop this model, I instead asked myself in hindsigh: where would it be optimal to open the stores? I then created a simple algorithm that iteratively selected the best location for a store, which covered a 500 km radius where no other store should be opened. Then, a second store was opened in the best remaining possible locations. This process was repeated until all the area was covered. The result is a number of places where to have a store opened. Everything else can be closed. I discuss how it is then possible to calculate the distance to an optimal store location, and how this variable would predict a well performing store. I also discuss how stores were found to cluster around the predicted optimal store locations, and how the number of stores in the area can be thought of as a measure of inneficiency due to potential canibalism between the stores. In the specific case that motivated the project, this would have resulted in sales of “lower quality”, that generated lower revenue, stayed for less time before churning, etc.</p>
 </div>
 
 

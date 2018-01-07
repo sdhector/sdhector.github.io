@@ -1,0 +1,10 @@
+---
+title: "Choice Based Conjoint Analysis"
+---
+At the center of any marketing, business or economic research question is "why do individual consumers choose the options they do?". There is good reason to believe that people aren't able to articulate the reasons why they behave as they do. To resolve that problem, conjoint analysis attempts to uncover the mechanism by which people behave without relying on their opinions, but rather their actions. 
+
+In short, this methodology involves putting people in a situation where they have to decide among one of a number of alternatives. Each alternative has the pressumed relevant information for them to make the decision, and they are left to do so. By repeating this task several times, while changing the relevant information systematically, statistical discrete-choice models can be used to estimate the importance of each alternative characteristic for the decision. 
+
+The distinction made by stating "choice-based" in front of Conjoint Analysis stems from the fact that, origianlly, people were supposed to rank or rate the alternatives based on how attractive they found them. Doing it that way it is possible to identify the importance each individual puts on specific attributes, and that in turn allows for segmentation based on a rather useful metric. However, since the tasks faced are not choices, it requires additional work and assumptions to transorm this data to important results like Market Shares. 
+
+I have used this methodology for two purposes. In this case, I will describe the theoretical 

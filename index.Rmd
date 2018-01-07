@@ -1,7 +1,19 @@
 ---
-title: "My Personal Website"
+title: "Hector's Website"
 ---
+###Hello! Welcome to my Professional Website. 
 
-Hello, this is my website. Why a Website? Because it is an excellent way of organizing life. For example, I will have here a series of projects describing what I know how to do. I am currently doing an analysis exploring [the drivers of Customer Satisfaction Indices](http://sdhector.github.io/satisfaction.html/)
+#### Why do I have a website? 
+This is meant to be an extended version of my Resume. It explains my work experience in more detail, including things that simply cannot be included in a one or two page CV even if including a motivation letter. 
 
-More and more will come. 
+It also serves as a place to host my Portfolio, which consists of projects where I have used some sort of quantitative analysis. 
+
+#### So, what is there here? 
+As you can see in the navigation bar, the first stop is to take a look at my Professional Timeline. This is where I describe the places I have worked at, what I have done and learnt there. 
+
+After that, you can take a look at a more detailed description of the projects I have been involved in; what I call my Portfolio. 
+
+#### There isn't that much going on here
+I don't know if you would think this, but perhaps I have higher expectations of myself. The fact is that I just recently started creating this website on my spare time. Things get in the way - like laundry, ugh! - but I will slowly populate it with interesting content. 
+
+Nevertheless, the simplest goal this website is able to achieve right now is to provide you with an extended view of my CV. 

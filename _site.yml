@@ -1,38 +1,20 @@
-name: "my-website"
+name: "Hector's website"
 output_dir: "."
-include: ["satifaction.html"]
 navbar:
   title: "My Website"
   left:
     - text: "Home"
       href: index.html
-    - text: "Personal Philosophy"
-      href: myphilosophy.html
-    - text: "Blog"
-      menu: 
-        - text: "My Opinions"
-          href: opinions.html
-        - text: "Videos I like"
-          href: videos.html
-        - text: "Papers I like"
-          href: papers.html
-        - text: "Books I like"
-          href: books.html
-    - text: "Projects"
-      menu: 
-        - text: "Completed"
-          href: projects_completed.html
-        - text: "Under development"
-          href: projects_current.html
-        - text: "In plan"
-          href: projects_future.html
-    - text: "CV"
-      menu: 
-        - text: "Overview"
-          href: cvoverview.html
-        - text: "CV in English"
-          href: cvenglish.html
-        - text: "CV en Español"
-          href: cvspanish.html
+    - text: "Professional Timeline"
+      href: timeline.html
+    - text: "Portfolio"
+      href: portfolio.html
+    - text: "About me"
+      href: about.html
     - text: "Contact"
       href: contact.html
+      theme: united
+output: 
+  html_document:
+  theme: flatly
+  css: style.css

@@ -181,64 +181,13 @@ $(document).ready(function () {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="myphilosophy.html">Personal Philosophy</a>
+  <a href="timeline.html">Professional Timeline</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Blog
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="opinions.html">My Opinions</a>
-    </li>
-    <li>
-      <a href="videos.html">Videos I like</a>
-    </li>
-    <li>
-      <a href="papers.html">Papers I like</a>
-    </li>
-    <li>
-      <a href="books.html">Books I like</a>
-    </li>
-  </ul>
+<li>
+  <a href="portfolio.html">Portfolio</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Projects
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="projects_completed.html">Completed</a>
-    </li>
-    <li>
-      <a href="projects_current.html">Under development</a>
-    </li>
-    <li>
-      <a href="projects_future.html">In plan</a>
-    </li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    CV
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="cvoverview.html">Overview</a>
-    </li>
-    <li>
-      <a href="cvenglish.html">CV in English</a>
-    </li>
-    <li>
-      <a href="cvspanish.html">CV en EspaÃ±ol</a>
-    </li>
-  </ul>
+<li>
+  <a href="about.html">About me</a>
 </li>
 <li>
   <a href="contact.html">Contact</a>
@@ -272,28 +221,10 @@ $(document).ready(function () {
 <h2>The American Customer Satisfaction Index</h2>
 <p>The first analysis done by us in this regard used the American Satisfaction Index. The authors in fact identify a relationship between the U.S. Overall Customer Satisfaction Index, but they argue that the causality is that satisfaction causes economic progress.</p>
 <p>To see this, let us download the U.S. Overall Customer Satisfaction (USOCS) file from (<a href="http://www.theacsi.org/images/stories/images/nationalquarterlyscores/acsi_national_scores-dec.xls" class="uri">http://www.theacsi.org/images/stories/images/nationalquarterlyscores/acsi_national_scores-dec.xls</a>). After “tidying” the data, we can replicate the following plot given by theacsi.org.</p>
-<pre class="r"><code>##Download the data
-library(XML)
-URL = &quot;http://www.theacsi.org/national-economic-indicator/us-overall-customer-satisfaction&quot;
-tables = readHTMLTable(URL)
-USCSI = as.data.frame(tables)
-##Tidy the data
-library(tidyverse)
-# USCSI %&gt;%
-#   rename(year = NULL.V1, Q1 = NULL.V2, Q2 = NULL.V3, Q3 = NULL.V4, Q4 = NULL.V5) %&gt;%
-#   filter(year != &quot;&quot;) %&gt;%
-## I could not manage to tidy the data in R, so i did it in excel. 
-library(readxl) #I could not manage to do it with dplyr. 
-USCSI &lt;- read_excel(&quot;ACSI.xlsx&quot;)
-## Plot Quick Plot 
-library(ggplot2)
-qplot(DATE, ACSI, data = USCSI, geom = c(&quot;point&quot;, &quot;line&quot;))</code></pre>
-<p><img src="satisfaction_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>Now, let us download the Real US GDP Per-Capita from the Federal Reserve Economic Database (FRED) and create a similar time plot for the same period.</p>
 <pre class="r"><code>library(tidyquant) #This package allows to call data directly from FRED.
 gdp &lt;- tq_get(x = &quot;A939RX0Q048SBEA&quot;,get =&quot;economic.data&quot; , from = &quot;1994-03-01&quot;, to = &quot;2017-04-01&quot;)
 qplot(x = date, y = price , data = gdp, geom = c(&quot;point&quot;,&quot;line&quot;))</code></pre>
-<p><img src="satisfaction_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>They obviously share a common trend, but the satisfaction index exhibits more volatility, apparently. Let’s combine them together such that we can better discern the correlation visually. (It happens that ggplot2 doesn’t like two axis plots, so I had to normalize these variables)</p>
 <pre class="r"><code>library(reshape2)
 df &lt;-
@@ -305,10 +236,8 @@ bind_cols(gdp,USCSI) %&gt;%
   melt(id = &quot;date&quot;)
 
 ggplot(df, aes(x = date, y = value, colour=variable)) + geom_line()</code></pre>
-<p><img src="satisfaction_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>As you can see, they both tend to increase; although the trend for the Satisfaction Index is much milder. And, honestly, why should a variable limited at 100 have a stron trend? Still, any student of time series econometrics would tell you that this analysis is meaningless. In fact, even the people from the ACS did not do this, since the correlation of these two series is only 0.68.</p>
 <pre class="r"><code>cor(gdp$price, USCSI$ACSI)</code></pre>
-<pre><code>## [1] 0.6784285</code></pre>
 <p>Most likely, they de-trended these series and evaluated their correlation So, let’s do that. There are several ways of de-trending a series. The simplest one is simply by taking first differences according to the following formula: <span class="math display">\[\Delta y_t = y_t - y_{t-1}\]</span></p>
 <pre class="r"><code>df1 &lt;-
   bind_cols(gdp,USCSI) %&gt;%
@@ -325,10 +254,8 @@ df2 &lt;- (cbind(Date,dgdp,dcsi)) %&gt;%
   select(date = 1, dgdp = 2, dcsi = 3) %&gt;%
 melt(id = 1)
 ggplot(df2, aes(x = date, y = value, colour=variable)) + geom_line()</code></pre>
-<p><img src="satisfaction_files/figure-html/unnamed-chunk-5-1.png" width="672" /> There is a general common pattern between these two, but it isn’t really easy to appreciate visually. As indicated by their correlation of -0.19, it seems that the satisfaction rises when the economy is in a downturn. We will come back to this later.</p>
+<p>There is a general common pattern between these two, but it isn’t really easy to appreciate visually. As indicated by their correlation of -0.19, it seems that the satisfaction rises when the economy is in a downturn. We will come back to this later.</p>
 <pre class="r"><code>cor(dgdp, dcsi)</code></pre>
-<pre><code>##                  diff(df1$sat, 1)
-## diff(df1$gdp, 1)       -0.1995605</code></pre>
 <p>Another alternative is using a linear filter like the Hodrick Prescott filter. I won’t explain what it does, but will just use it instead.</p>
 <pre class="r"><code>library(mFilter)
 
@@ -338,9 +265,8 @@ df3 &lt;- cbind(as.data.frame(df1$date),as.data.frame(hpgdp$cycle),as.data.frame
   select(date = 1, hpgdp = 2, hpcsi = 3) %&gt;%
   melt(id = 1)
 ggplot(df3, aes(x = date, y = value, colour=variable)) + geom_line()</code></pre>
-<p><img src="satisfaction_files/figure-html/unnamed-chunk-7-1.png" width="672" /> Here the opposite pattern is more visible. Still, let us calculate the correlation index and confirm that it is -0.16.</p>
+<p>Here the opposite pattern is more visible. Still, let us calculate the correlation index and confirm that it is -0.16.</p>
 <pre class="r"><code>cor(hpgdp$cycle,hpcsi$cycle)</code></pre>
-<pre><code>## [1] -0.1634065</code></pre>
 </div>
 <div id="the-survey" class="section level2">
 <h2>The Survey</h2>
@@ -349,40 +275,6 @@ ggplot(df3, aes(x = date, y = value, colour=variable)) + geom_line()</code></pre
 <pre class="r"><code>library(readxl)
 library(tidyverse)
 read_excel(&quot;CSC Survey.xlsx&quot;, sheet = 1)</code></pre>
-<pre><code>## # A tibble: 2,025 x 251
-##     iobs intno assno   age    c2    c3    c4    c5    c6    c7   c8a   c8b
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1     1   552  2212     9     1     2     2    10     2     1     1     1
-##  2     2   552  2212    12     2     2     2    10     2     1     1     1
-##  3     3   552  2212     1     1     1     4    10     2     1     1     1
-##  4     4   552  2212     7     2     1     2     1     2     1     2     2
-##  5     5   552  2212     6     2     2     2     3     2     3     1     1
-##  6     6   552  2212    11     2     1     2    10     2     1     1     1
-##  7     7   552  2212    12     1     1     2    10     2     1     1     1
-##  8     8   552  2212     9     2     2     2    10     2     1     2     2
-##  9     9   552  2212     5     2     1     2    10     2     1     1     1
-## 10    10   552  2212    12     1     2     2    10     2     1     1     3
-## # ... with 2,015 more rows, and 239 more variables: c8c &lt;dbl&gt;, c8d &lt;dbl&gt;,
-## #   c8e &lt;dbl&gt;, c8f &lt;dbl&gt;, c9 &lt;dbl&gt;, c9a &lt;dbl&gt;, c15 &lt;dbl&gt;, c16 &lt;dbl&gt;,
-## #   c16a &lt;dbl&gt;, c17 &lt;dbl&gt;, c18 &lt;dbl&gt;, c19_1 &lt;dbl&gt;, c19_2 &lt;dbl&gt;,
-## #   c19_3 &lt;dbl&gt;, c19_4 &lt;dbl&gt;, c19_5 &lt;dbl&gt;, c19_6 &lt;dbl&gt;, c19_7 &lt;dbl&gt;,
-## #   c20 &lt;dbl&gt;, q1aa &lt;dbl&gt;, q1ab &lt;dbl&gt;, q1ac &lt;dbl&gt;, q1ad &lt;dbl&gt;, q1ae &lt;dbl&gt;,
-## #   q1af &lt;dbl&gt;, q1ag &lt;dbl&gt;, q1ah &lt;dbl&gt;, q1ai &lt;dbl&gt;, q1aj &lt;dbl&gt;,
-## #   q1ak &lt;dbl&gt;, q1al &lt;dbl&gt;, q1am &lt;dbl&gt;, q1an &lt;dbl&gt;, q1ao &lt;dbl&gt;,
-## #   q1ap &lt;dbl&gt;, q1aq &lt;dbl&gt;, q1ar &lt;dbl&gt;, q1as &lt;dbl&gt;, q1at &lt;dbl&gt;,
-## #   q1au &lt;dbl&gt;, q1av &lt;dbl&gt;, q1aw &lt;dbl&gt;, q1ba &lt;dbl&gt;, q1bb &lt;dbl&gt;,
-## #   q1bc &lt;dbl&gt;, q1bd &lt;dbl&gt;, q1be &lt;dbl&gt;, q1bf &lt;dbl&gt;, q1bg &lt;dbl&gt;,
-## #   q1bh &lt;dbl&gt;, q1bi &lt;dbl&gt;, q1bj &lt;dbl&gt;, q1bk &lt;dbl&gt;, q1bl &lt;dbl&gt;,
-## #   q1bm &lt;dbl&gt;, q1bn &lt;dbl&gt;, q1bo &lt;dbl&gt;, q1bp &lt;dbl&gt;, q1bq &lt;dbl&gt;,
-## #   q1br &lt;dbl&gt;, q1bs &lt;dbl&gt;, q1bt &lt;dbl&gt;, q1bu &lt;dbl&gt;, q1bv &lt;dbl&gt;,
-## #   sq1c &lt;dbl&gt;, q2 &lt;dbl&gt;, q4a_1 &lt;dbl&gt;, q4a_2 &lt;dbl&gt;, q4a_3 &lt;dbl&gt;,
-## #   q4a_4 &lt;dbl&gt;, q4a_5 &lt;dbl&gt;, q4a_6 &lt;dbl&gt;, q4a_7 &lt;dbl&gt;, q4a_8 &lt;dbl&gt;,
-## #   q4a_9 &lt;dbl&gt;, q4a_10 &lt;dbl&gt;, q4a_11 &lt;dbl&gt;, q4b_1 &lt;dbl&gt;, q4b_2 &lt;dbl&gt;,
-## #   q4b_3 &lt;dbl&gt;, q4b_4 &lt;dbl&gt;, q4b_5 &lt;dbl&gt;, q4b_6 &lt;dbl&gt;, q4b_7 &lt;dbl&gt;,
-## #   q4b_8 &lt;dbl&gt;, q4b_9 &lt;dbl&gt;, q4b_10 &lt;dbl&gt;, q4b_11 &lt;dbl&gt;, q4c_1 &lt;dbl&gt;,
-## #   q4c_2 &lt;dbl&gt;, q4c_3 &lt;dbl&gt;, q4c_4 &lt;dbl&gt;, q4c_5 &lt;dbl&gt;, q4c_6 &lt;dbl&gt;,
-## #   q4c_7 &lt;dbl&gt;, q4c_8 &lt;dbl&gt;, q4c_9 &lt;dbl&gt;, q4c_10 &lt;dbl&gt;, q4c_11 &lt;dbl&gt;,
-## #   q4c_12 &lt;dbl&gt;, ...</code></pre>
 </div>
 </div>
 

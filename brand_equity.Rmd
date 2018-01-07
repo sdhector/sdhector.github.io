@@ -1,0 +1,16 @@
+---
+title: "brand_equity"
+---
+
+One application of CB-Conjoint Analysis is to determine the "Brand Equity" of a brand. There are many definitions of Brand Equity, however I believe that only those definitions that involve a financial result for the company are relevant. In this light, Brand Equity can be thought of as the additional utility that a consumer derives from purchasing the product from a specific company. Perhaps the company uses the best materials, cares a lot about doing things right, their products don't brake easily, their customer service is great, or consumers are simply used to buying from that brand. Whatever the reason, the fact remains that this company is able to charge a premium because of how they do things. 
+
+It is a legitimate question to ask why is a brand's Brand Equity higher than anothers, but the first step is measuring it. To that end, I used Choice Based Conjoint Analysis to measure the utility, or "part-worth" in the method's terminology, of the all the brands in the category. 
+
+This is more easily seen assuming the following model: 
+
+$$ u= \beta x_i + \Phi Z  $$ 
+Here, $u$ represents the utility a hypothetical consumer would derive from a product that consists of a number of characteristics; specifically brand $(x_i)$ and other characteristics $(Z)$. The subscript  $i$ on the brands indicates that there are $i = 1 ... n$ values included in $x$. 
+
+Here it is clear that the vector of coefficients $\beta \equiv (\beta_1, \beta_2, ... \beta_n)$ contains the marginal contribution to $u$ of each brand. The task is, then, to estimate such a model with empirical data.
+
+This is what is called "a main effects only" model. It assumes that if the direct effect of other product attributes contained in $Z$ are identified, then the effect of the brand is distinct and identifiable. This might not necessarily be true. 

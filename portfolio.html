@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Professional Portfolio</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="timeline.html">Professional Timeline</a>
+</li>
+<li>
+  <a href="portfolio.html">Portfolio</a>
+</li>
+<li>
+  <a href="about.html">About me</a>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Professional Portfolio</h1>
+
+</div>
+
+
+<p>Here you can find a collection of projects I have worked on in the past, and I hope soon you’ll be able to find some that I am working on presently.</p>
+<p>Since I am currently developing the contents of this website I cannot have not had the time to replicate these projects. That’s why at the moment they are simply a description of what the projects were about.</p>
+<p>In the future, however, I expect to replicate the methodology with real or simulated data.</p>
+<div id="marketing-kpi-dashboard-for-the-fixed-internet-category" class="section level5">
+<h5>— <a href="">Marketing KPI Dashboard for the Fixed Internet Category</a></h5>
+<p>This is a description of the Marketing KPI Tracking Report I was in charge of updating when working at Claro for the Fixed Internet Service Line of Business. Obviously, I cannot replicate this. Instad, I will simulate the data and create a static dashboard containing the same graphs I used to do.</p>
+</div>
+<div id="determinants-of-brand-choice-in-the-mobile-telecom-category-using-conjoint-analysis-and-discrete-choice-models" class="section level5">
+<h5>— <a href="">Determinants of Brand Choice in the Mobile Telecom Category: Using Conjoint Analysis and Discrete Choice Models</a></h5>
+<p>In this project I describe how Conjoint Analysis and Discrete Choice Modelling – Logistic Regression – were used to estimate the weight consumers put on several factors affecting the mobile plan and brand they choose.</p>
+<p>I cover a wide range of topics. I start by conceptualizing the business problem in terms of an analytical model, and explain how that leads to using this research methodology. I then explain how the decision factors and their levels were selected, and used to design the Fractional Factorial Design. I explain some details about sampling and implementation, and how the data was analyzed.</p>
+<p>Finally, I explain how the weights were estimated and what this implies for the real business problem.</p>
+<p>It is very unlikely that I will get survey data to estimate this model, but I can design everything up to the data collection step and then use simulated data.</p>
+</div>
+<div id="brand-equity-measurement-another-application-of-conjoint-and-discrete-choice-analysis" class="section level5">
+<h5>— <a href="">Brand Equity Measurement: Another application of Conjoint and Discrete Choice Analysis</a></h5>
+<p>I start by describing what is Brand Equity and why this methodology is warranted. In short, this is a Brand Equity concept that is relevant from a broader analytical/theoretical perspective of how Brand Choice drives sales, and is the purpose of Marketing in general.</p>
+<p>The technical details are the same as in <a href="">the other project</a>, so they are simply copied. Here, as well, data will be simulated to demonstrate the way to go from Brand Choice to Market Share.</p>
+</div>
+<div id="measuring-the-return-of-advertising-expenditure-using-marketing-mix-modelling" class="section level5">
+<h5>— <a href="">Measuring the return of advertising expenditure using Marketing Mix Modelling</a></h5>
+<p>Marketing Mix Modelling is a known way of measuring advertiing ROI. Here I describe the basic concept, as well as the kind of data that was used to estimate the model. I also go over the need to use some kind of transformation to capture the fact that advertising has a lagged cumulative effect on sales.</p>
+<p>To replicate this project it is relatively easy to simulate the required data. I can also simulate data for different advertising channels and touch on the basic idea behind advertising budget optimization.</p>
+</div>
+<div id="churn-prediction-using-logistic-regression-classficiation-algorithm-and-under-sampling-imbalance-correction" class="section level5">
+<h5>— <a href="">Churn Prediction: Using Logistic Regression Classficiation Algorithm and Under-Sampling Imbalance Correction</a></h5>
+<p>Purely by accident, this was my first experience facing a Machine Learning problem. In this case I explain what the problem is about and how we used data transactional data to fit a Logistic Regression Model and identify customers that would churn in a specified period of time.</p>
+<p>I explain the problem of class-imbalance and how it was treated by under-sampling the more prevalent cases.</p>
+<p>For this project it may be possible to get data online –from Kaggle, for example – to reproduce the methodology on another topic. I happen to get a hold of a dataset from a hotel booking website meant for training a Machine Learning model to identify whether someone booked a hotel or not.</p>
+</div>
+<div id="an-optimal-store-locaiton-model" class="section level5">
+<h5>— <a href="">An Optimal Store Locaiton Model</a></h5>
+<p>In this project I explain a model I came up with to argue how many and which stores should be closed.</p>
+<p>I explain what drove me to develop the model, and then explain how it works. I happen to have the data I used in this case, so I will replicate it here.</p>
+<p>I understand this model is not necessarily a good one, but I like it because it is the first time I solved a problem puerly out of my own entrepreneurialship.</p>
+</div>
+<div id="marketing-research-projects" class="section level5">
+<h5>— <a href="">Marketing Research Projects</a></h5>
+<p>In this section I do not describe a specific project, but rather a large number of projects I designed and executed when acting as Freelance Market Reseacher.</p>
+<p>Many of them fall together, so I explain the general principles that they share and the industries where such a methodology was applied. However, a number of requests were indeed one-off projects and so I treat them individually.</p>
+<p>The list of general topics I deal with here are:</p>
+<ul>
+<li>Brand Awareness</li>
+<li>Advertising Awareness</li>
+<li>Purchase habits</li>
+<li>Brand Choice Drivers</li>
+<li>Public Opinion</li>
+<li>Voting Intentions</li>
+<li>Customer Satisfaction</li>
+<li>Lifestyle habits</li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

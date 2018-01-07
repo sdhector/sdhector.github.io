@@ -1,0 +1,32 @@
+---
+  title: "About Me"
+---
+#### Where I come from  
+My name is Hector Sanchez. I was born to a beautiful couple -- Hector Sanchez Jimenez and    Xiomara Diaz -- in Bani, in the Peravia Province in the Dominican Republic back in December  19, 1989. I've always lived in Santo Domingo, however, where I went to school at the very   popular Instituto San Juan Bautista de la Salle. 
+
+#### My education
+I obtained my Bachelor's degree in Marketing from the Pontificia Universidad Catolica Madre y Maestra (PUCMM) in 2011. After trying out the labor market for a while, I decided to enroll in the first class of the Specialization of Statistics Applied to Business at the Instituto Tecnologico de Santo Domingo (INTEC), where I graduated in 2014. A year later, I decided to do a Master of Science in Economics at the University of Konstanz in Germany, which I sucessfully completed in August 2017. 
+
+#### Where I am and why
+I am currently residing in Dusseldorf, Germany. After graduating I decided to explore the labor market in Germany in search for jobs related to my passion: Analytics. This includes roles in Marketing, Business, Economic, Social, and Operations Research, but also Business Intelligence, Data Analysis, Data Mining, Machine Learning and Data Science, or even Quantitative Risk Management, and Financial and Macroeconomic Forecasting. 
+
+>The general research process is the same. The differences are technological and practical in nature, not conceptual. 
+
+#### My Interests
+##### *Intellectual*
+I am also very keen on Scientific Research; no less because it is the ideal I attempt to achieve in my professional research endeavours. This has led me on a quest where I have understood the importance of Philosophy as a way of examining the logic of scientific research-- specifically the logical foundations examined by the Philosophy of Science field. 
+
+Aside from the logical underpinings of the Scientific Method, I also interest myself for certain fields where it is applied. My favourite ones are Cosmology and Physics, Biology, Economics, Psychology, Sociology and, yes, Marketing Science. It's not that I wouldn't interest myself in other fields, I just don't read about them as often. 
+
+As an Economist and a Marketer, I tend to find the topics of Microeconomics and Behavioral Economics of more interest. I do find Macroeconomics interesting, but more as an extension of the microeconomic principles. During my many readings while doing my Master's, I came across the interesting field of Complexity Economics and Agent Based Modelling. Regardless of the advances it may provide in Economic Theory, I find this view quite refreshing. 
+
+##### *Recreational*
+I am a 90's kid and as such I grew up with Video Games, which I love. I currently cannot play them due to my pursuit of a fulfilling professional path but I'm looking forward to it. 
+
+I also like sports. The funny thing is that this is a field where Anaytics is also very heavily involved ever since *The Money Ball Revolution* in Baseball. I also really enjoy American Football thanks to my friends introducing me to it and the game of Fantasy Football; which I tackle in an analytical fashion. 
+
+#### If that wasn't enough
+Finally, I have several ideas and theories about things I care about. I think a flaw in myself is that I find too many things interesting. The way I intend to narrow down my interests is by writing abut what I care about on my blog. There I express my opinions, but also apply the same research principles that I use professionally in order to answer questions as objectively as possible. Feel free to check it out [here](). 
+
+
+

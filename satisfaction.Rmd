@@ -21,7 +21,7 @@ The first analysis done by us in this regard used the American Satisfaction Inde
 
 To see this, let us download the U.S. Overall Customer Satisfaction (USOCS) file from (http://www.theacsi.org/images/stories/images/nationalquarterlyscores/acsi_national_scores-dec.xls). After "tidying" the data, we can replicate the following plot given by theacsi.org. 
 
-```{r}
+```{r eval = FALSE, echo = FALSE }
 ##Download the data
 library(XML)
 URL = "http://www.theacsi.org/national-economic-indicator/us-overall-customer-satisfaction"
@@ -44,7 +44,7 @@ qplot(DATE, ACSI, data = USCSI, geom = c("point", "line"))
 
 Now, let us download the Real US GDP Per-Capita from the Federal Reserve Economic Database (FRED) and create a similar time plot for the same period. 
 
-```{r}
+```{r eval = FALSE}
 library(tidyquant) #This package allows to call data directly from FRED.
 gdp <- tq_get(x = "A939RX0Q048SBEA",get ="economic.data" , from = "1994-03-01", to = "2017-04-01")
 qplot(x = date, y = price , data = gdp, geom = c("point","line"))
@@ -53,7 +53,7 @@ qplot(x = date, y = price , data = gdp, geom = c("point","line"))
 
 They obviously share a common trend, but the satisfaction index exhibits more volatility, apparently. Let's combine them together such that we can better discern the correlation visually. (It happens that ggplot2 doesn't like two axis plots, so I had to normalize these variables)
 
-```{r}
+```{r eval = FALSE}
 library(reshape2)
 df <-
 bind_cols(gdp,USCSI) %>%
@@ -69,12 +69,12 @@ ggplot(df, aes(x = date, y = value, colour=variable)) + geom_line()
 
 As you can see, they both tend to increase; although the trend for the Satisfaction Index is much milder. And, honestly, why should a variable limited at 100 have a stron trend? Still, any student of time series econometrics would tell you that this analysis is meaningless. In fact, even the people from the ACS did not do this, since the correlation of these two series is only 0.68. 
 
-```{r}
+```{r eval = FALSE}
 cor(gdp$price, USCSI$ACSI)
 ```
 Most likely, they de-trended these series and evaluated their correlation So, let's do that. There are several ways of de-trending a series. The simplest one is simply by taking first differences according to the following formula: 
 $$\Delta y_t = y_t - y_{t-1}$$
-```{r}
+```{r eval = FALSE}
 
 df1 <-
   bind_cols(gdp,USCSI) %>%
@@ -95,12 +95,12 @@ ggplot(df2, aes(x = date, y = value, colour=variable)) + geom_line()
 ```
 There is a general common pattern between these two, but it isn't really easy to appreciate visually. As indicated by their correlation of -0.19, it seems that the satisfaction rises when the economy is in a downturn. We will come back to this later. 
 
-```{r}
+```{r eval = FALSE}
 cor(dgdp, dcsi)
 ```
 
 Another alternative is using a linear filter like the Hodrick Prescott filter. I won't explain what it does, but will just use it instead. 
-```{r}
+```{r eval = FALSE}
 library(mFilter)
 
 hpgdp <- hpfilter(df1$gdp, type = "lambda", 1600)
@@ -117,7 +117,7 @@ ggplot(df3, aes(x = date, y = value, colour=variable)) + geom_line()
 ```
 Here the opposite pattern is more visible. Still, let us calculate the correlation index and confirm that it is -0.16. 
 
-```{r}
+```{r eval = FALSE}
 cor(hpgdp$cycle,hpcsi$cycle)
 ```
 
@@ -129,7 +129,7 @@ Apparently, there are many governments that are openning their data to the publi
 
 I have found this data. The data and questionnaire can be found at https://www.europeandataportal.eu/data/en/dataset/civil-service-customer-satisfaction-survey-2015/resource/eec6afcd-88d2-460d-960e-ad68c621f4d4?inner_span=True
 
-```{r}
+```{r eval = FALSE}
 
 library(readxl)
 library(tidyverse)

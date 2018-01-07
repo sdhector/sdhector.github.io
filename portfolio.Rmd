@@ -1,0 +1,60 @@
+---
+  title: "Professional Portfolio"
+---
+Here you can find a collection of projects I have worked on in the past, and I hope soon you'll be able to find some that I am working on presently. 
+
+Since I am currently developing the contents of this website I cannot have not had the time to replicate these projects. That's why at the moment they are simply a description of what the projects were about. 
+
+In the future, however, I expect to replicate the methodology with real or simulated data. 
+
+##### --- [Marketing KPI Dashboard for the Fixed Internet Category]()
+This is a description of the Marketing KPI Tracking Report I was in charge of updating when working at Claro for the Fixed Internet Service Line of Business. Obviously, I cannot replicate this. Instad, I will simulate the data and create a static dashboard containing the same graphs I used to do.
+
+##### --- [Determinants of Brand Choice in the Mobile Telecom Category: Using Conjoint Analysis and Discrete Choice Models]()
+In this project I describe how Conjoint Analysis and Discrete Choice Modelling -- Logistic Regression -- were used to estimate the weight consumers put on several factors affecting the mobile plan and brand they choose. 
+
+I cover a wide range of topics. I start by conceptualizing the business problem in terms of an analytical model, and explain how that leads to using this research methodology. I then explain how the decision factors and their levels were selected, and used to design the Fractional Factorial Design. I explain some details about sampling and implementation, and  how the data was analyzed. 
+
+Finally, I explain how the weights were estimated and what this implies for the real business problem. 
+
+It is very unlikely that I will get survey data to estimate this model, but I can design everything up to the data collection step and then use simulated data. 
+
+##### --- [Brand Equity Measurement: Another application of Conjoint and Discrete Choice Analysis]()
+I start by describing what is Brand Equity and why this methodology is warranted. In short, this is a Brand Equity concept that is relevant from a broader analytical/theoretical perspective of how Brand Choice drives sales, and is the purpose of Marketing in general. 
+
+The technical details are the same as in [the other project](), so they are simply copied. Here, as well, data will be simulated to demonstrate the way to go from Brand Choice to Market Share. 
+
+##### --- [Measuring the return of advertising expenditure using Marketing Mix Modelling]()
+Marketing Mix Modelling is a known way of measuring advertiing ROI. Here I describe the basic concept, as well as the kind of data that was used to estimate the model. I also go over the need to use some kind of transformation to capture the fact that advertising has a lagged cumulative effect on sales. 
+
+To replicate this project it is relatively easy to simulate the required data. I can also simulate data for different advertising channels and touch on the basic idea behind advertising budget optimization. 
+
+##### --- [Churn Prediction: Using Logistic Regression Classficiation Algorithm and Under-Sampling Imbalance Correction]()
+Purely by accident, this was my first experience facing a Machine Learning problem. In this case I explain what the problem is about and how we used data transactional data to fit a Logistic Regression Model and identify customers that would churn in a specified period of time. 
+
+I explain the problem of class-imbalance and how it was treated by under-sampling the more prevalent cases. 
+
+For this project it may be possible to get data online --from Kaggle, for example -- to reproduce the methodology on another topic. I happen to get a hold of a dataset from a hotel booking website meant for training a Machine Learning model to identify whether someone booked a hotel or not. 
+
+##### --- [An Optimal Store Locaiton Model]()
+In this project I explain a model I came up with to argue how many and which stores should be closed. 
+
+I explain what drove me to develop the model, and then explain how it works. I happen to have the data I used in this case, so I will replicate it here. 
+
+I understand this model is not necessarily a good one, but I like it because it is the first time I solved a problem puerly out of my own entrepreneurialship. 
+
+##### --- [Marketing Research Projects]()
+In this section I do not describe a specific project, but rather a large number of projects I designed and executed when acting as Freelance Market Reseacher. 
+
+Many of them fall together, so I explain the general principles that they share and the industries where such a methodology was applied. However, a number of requests were indeed one-off projects and so I treat them individually. 
+
+The list of general topics I deal with here are: 
+
+* Brand Awareness
+* Advertising Awareness
+* Purchase habits
+* Brand Choice Drivers 
+* Public Opinion
+* Voting Intentions
+* Customer Satisfaction
+* Lifestyle habits

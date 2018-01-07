@@ -11,7 +11,7 @@
 
 
 
-<title>Books I like</title>
+<title>brand_equity</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -204,12 +204,17 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Books I like</h1>
+<h1 class="title toc-ignore">brand_equity</h1>
 
 </div>
 
 
-<p>List of articles summarizing books I have read.</p>
+<p>One application of CB-Conjoint Analysis is to determine the “Brand Equity” of a brand. There are many definitions of Brand Equity, however I believe that only those definitions that involve a financial result for the company are relevant. In this light, Brand Equity can be thought of as the additional utility that a consumer derives from purchasing the product from a specific company. Perhaps the company uses the best materials, cares a lot about doing things right, their products don’t brake easily, their customer service is great, or consumers are simply used to buying from that brand. Whatever the reason, the fact remains that this company is able to charge a premium because of how they do things.</p>
+<p>It is a legitimate question to ask why is a brand’s Brand Equity higher than anothers, but the first step is measuring it. To that end, I used Choice Based Conjoint Analysis to measure the utility, or “part-worth” in the method’s terminology, of the all the brands in the category.</p>
+<p>This is more easily seen assuming the following model:</p>
+<p><span class="math display">\[ u= \beta x_i + \Phi Z  \]</span> Here, <span class="math inline">\(u\)</span> represents the utility a hypothetical consumer would derive from a product that consists of a number of characteristics; specifically brand <span class="math inline">\((x_i)\)</span> and other characteristics <span class="math inline">\((Z)\)</span>. The subscript <span class="math inline">\(i\)</span> on the brands indicates that there are <span class="math inline">\(i = 1 ... n\)</span> values included in <span class="math inline">\(x\)</span>.</p>
+<p>Here it is clear that the vector of coefficients <span class="math inline">\(\beta \equiv (\beta_1, \beta_2, ... \beta_n)\)</span> contains the marginal contribution to <span class="math inline">\(u\)</span> of each brand. The task is, then, to estimate such a model with empirical data.</p>
+<p>This is what is called “a main effects only” model. It assumes that if the direct effect of other product attributes contained in <span class="math inline">\(Z\)</span> are identified, then the effect of the brand is distinct and identifiable. This might not necessarily be true.</p>
 
 
 
