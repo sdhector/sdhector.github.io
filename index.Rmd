@@ -17,3 +17,6 @@ After that, you can take a look at a more detailed description of the projects I
 I don't know if you would think this, but perhaps I have higher expectations of myself. The fact is that I just recently started creating this website on my spare time. Things get in the way - like laundry, ugh! - but I will slowly populate it with interesting content. 
 
 Nevertheless, the simplest goal this website is able to achieve right now is to provide you with an extended view of my CV. 
+
+### Newsflash! 
+I have just uploaded my first portfolio case titles [*Advertising Budget Optimization: An application of Marketing Mix Modelling and Linear Programming*](http://sdhector.github.io/Case1_Advertising_Budget_Optimization.html)

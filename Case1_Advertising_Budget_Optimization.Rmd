@@ -1,0 +1,257 @@
+---
+title: 'Advertising Budget Optimization: An application of Marketing Mix Modelling
+  and Linear Programming'
+author: "Hector Sanchez"
+theme: readable
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+---
+```{r global_options, echo= FALSE, }
+knitr::opts_chunk$set(fig.width=6, fig.height=4, fig.path='Figs/',
+                      echo=FALSE, warning=FALSE, message=FALSE, fig.align = "center" )
+```
+
+```{r }
+library(tidyverse)
+library(lubridate)
+library(easyGgplot2)
+library(scales)
+library(knitr)
+library(kableExtra)
+library(pander)
+library(dummies)
+library(lpSolve)
+data <- 
+  read.csv("data1.csv", sep = ",")
+```
+#Introduction
+
+The following is an exposition of how to use a simple Marketing Mix Modelling to measure the effectiveness of TV commercials  to generate sales, and then use the results to decide how to allocate commercial in such a way that maximizes the prospect of sales using Constrained Linear Optimization. 
+
+The dataset used in this exercise is composed of 2112 rows, each of which is a commercial, and 5 variables: the date and time when the commercial aired, the length in seconds, the channel where it aired, the amount of money spent on it, the number of people who saw it and the number of sales attributed to it. 
+
+In the following section I explain the theoretical reasoning behind the models used, which serve as methodology in the application section where the expected number of sales for each slot -- a combination of day of the week, hour of the day, length of the commercial and channel -- is estimated using Least Square Multiple Linear Regression. This is afterwards fed to a Linear Programming Algorithm to solve the constrained optimization problem of the number of commercial in each slot that maximizes the expected number of Sales.
+
+# Theoretical Framework: 
+
+## Total Sales 
+
+The total number of units sold in a given period of time $S_t$ can be described as the product of the number of commercials scheduled in a given period $N_t$, the average reach of each commercial $r_t$ -- the number of people who see it -- and the average conversion rate of the commercial $c_t$ -- the percentage of people who end up purchasing a product out of everyone who saw the commercial. 
+
+$$ S_t = N_tr_tc_t $$
+Here, $N_t$ is an exogenous variable -- it is strictly in the control of the marketing executive -- and represents the volume of advertising. Furthermore, from her perspective, $r_t$ and $c_t$ can also be taken as exogenous because they cannot be changed in the short term. This is the premise behind KPI based analysis.
+
+However, it intuitive clear that the reach of a commercial will depend on variables such as the channel where it is shown, at what time and on what day of the week. Similarly, the conversion rate will depend on variables such as the length and creative content of the commercial. 
+
+It is important to emphasize that $r_t$ and $c_t$ are **average** values. Therefore, it is also possible to define the conversion rate as a function of demographic variables -- like the share of the audience that is young, male, or of a given income level. 
+
+A marketing executive would be interested in properly attributing the performance of the commercial to these variables because it would allow her to make trade-offs and optimize the advertising budget. In order to do so, it is first necessary to extend the previous model to include them. 
+
+## Average Sales per Commercial 
+
+Since the number of commercial is in the control of the marketing executive it can be removed from the equation by dividing both sides by $N_t$. 
+
+$$ s_t = r_tc_t $$
+Where the lower case $s_t$ represents the average number of units sold per commercial. By taking $\ln(s_t)$ the multiplicative model can be reduced to an additive model.
+
+$$ \ln(s_t) = \ln r_t + \ln c_t \rightarrow  s^*_t =  r^*_t + c^*_t  $$
+For their part, $r^*_t$ and $s^*_t$ can be defined as functions of other variables. 
+
+$$  r^*_t = f(C_t, D_t, H_t) \equiv \alpha_r +\beta C_t + \phi D_T + \psi H_t $$
+$$  c^*_t = f(L_t) \equiv \alpha_c + \theta L_t $$
+
+where: 
+
+  * $C_t$ is a vector of dummy variables indicating whether the commercial was scheduled at a given channel
+  * $D_t$ is a vector of dummy variables indicating whether the commercial was scheduled on a given day of the week. 
+  * $H_t$ is a vector of dummy variables indicating whether the commercial was scheduled at a given hour of day. 
+  * $L_t$ is a vector of dummy variables indicating whether a commercial was 15 or 30 seconds long. 
+  * $\alpha_r, \alpha_c$ are parameters representing the baseline value of their corresponding dependent variables -- what is not attributable to the other independent variables in the model. 
+  * $\beta , \phi, \psi,$ and $\theta$ are parameters mediating the strength of the effect of this variables on their respective dependent variables. 
+  
+The average number of sales per commercial can then be expressed as: 
+
+$$ s_t = \exp ( s^*_t ) = \exp ((\alpha_r + \alpha_c)+\beta C_t + \phi D_T + \psi H_t + \theta L_t) $$
+
+The parameters of this model can be estimated, before taking $\exp$, by Least Squares. The hypothesized model would be: 
+
+$$ \hat s_t = \hat \alpha +\hat \beta C_t + \hat \phi D_T + \hat \psi H_t + \hat \theta L_t + \varepsilon_t  $$
+Once these parameters are estimated, the contribution of each channel, day, hour or length is represented by their respective coefficients. 
+  
+
+## The Budget Optimization Problem
+
+The budget optimization problem is to select the number of commercial in each slot -- the combination of channel, length, day of the week and hour of the day -- that maximizes the number of units sold constrained to a monetary and time budget constraints. 
+
+The objective function to maximize is:  
+
+$$ \max_{(x_1, x_2, ..., x_n)} S = \beta_1 x_1 + \beta_2 x_2 + ... + \beta_n x_n $$
+$$ Subject\:to: $$
+$$p_1 x_1 + p_2 x_2 + ... + p_n x_n = B $$
+$$ L_i x_i \geq T \: \forall \, i \in (1, 2, ... , n) $$ 
+
+$$ x_i \geq 0 \: \forall \, i \in (1, 2, ... , n) $$ 
+
+Where:
+
+  * $S$: represents the total number of sales expected to come from the allocation.
+  * $x_1, x_2, ..., x_n$: represent the number of commercials that can be scheduled at a specific slot. 
+  * $\beta_1, \beta_2, ..., \beta_n$: represent the amount of sales expected to come from scheduling a single commercial in a given slot. 
+  * $p_1, p_2, ..., p_n$: represent the prices associated with scheduling a single commercial in a given slot. 
+  * $L_1, L_2, ..., L_n$: represent the Length associated with a commercial -- whether it lasts 15 or 30 seconds. 
+  * $B$: represents the Advertising Budget -- the total amount of money to be distributed among the $x_i$.
+  * $T$: represents the time constraint -- the maximum number of seconds it is possible to advertise in every one hour slot. 
+  
+The values for $\beta_1, \beta_2, ... \beta_n$ are obtained by forecasting the expected number of sales per commercial using the model described in the previous section. Doing this will correct the amount of sales received in the sample period in any give slot by removing the noise factor $\varepsilon_t$.  
+
+Aside from the obvious budget constraint, the time constraint is the next most important one since without it the algorithm would simply decide to spend all the budget on the single best slot. This is impossible since that would imply doing more than one hour of advertising in a single hour slot. 
+
+The solution to this problem will result in a list of commercials to be scheduled at every single slot considered. 
+
+# Application
+
+## The data
+
+Before applying the previously described methodology, it would be useful to take a look at the data. The following table shows 10 randomly selected rows of the dataset.
+
+```{r}
+data %>%
+  select(Date, Channel, Length, Cost, Impressions, Sales) %>%
+  mutate(Wday = wday(Date), Hour = hour(Date)) %>%
+  select(-Date) %>%
+  group_by(Wday, Hour, Channel, Length) %>%
+  summarise(N = n(), p = sum(Cost), r = sum(Impressions), c = sum(Sales)/sum(Impressions), s = sum(Sales)/n() ) %>%
+  ungroup() %>%
+  sample_n(10) %>%
+kable(format = "latex", booktabs = T) %>%
+kable_styling(latex_options = "striped", position = "center")
+```
+
+On the leftmost, the variable Wday represents the day of the week (starting at Sunday = 1), then follows the hour of the day (starting at midnight = 00), the Channel, the Length (whether 15 or 30 seconds long), the number of commercials (N), and the average price, reach, conversion rate and sales of a commercial in that slot. 
+
+From this table, the dependent variable for estimation of sales will be "s", while the independent variables will be Wday, Hour, Channel and Length All of them in the form of dummies. 
+
+## Estimation of sales per commercial using Least Squares Multiple Linear Regression 
+
+The following table reports the coefficients estimated using LS Multiple Linear Regression. 
+
+```{r results = "asis"}
+dataset <- 
+  data %>% 
+  select(Channel, Length, Date, Sales, Impressions, Cost) %>% 
+  filter(Sales != 0) %>%  
+  mutate(Hour = hour(Date), Wday = wday(Date), s = Sales, ln_s = log(Sales), r = Impressions, p = Cost)%>%
+select(-Sales)
+
+dataset.dummy <- dataset
+dataset.dummy <- dummy.data.frame(data = dataset.dummy, names = c("Channel","Length","Wday","Hour")) 
+
+regouput <- lm(data = dataset.dummy, ln_s ~ 
+Channel1 +
+Channel2 +
+Channel3 +
+Channel4 +
+Channel5 +
+Channel6 + 
+Channel7 + 
+Channel8 + 
+Channel9 + 
+Channel10 + 
+Channel11 + 
+Channel12 + 
+Channel13 + 
+Channel14 + 
+Channel15 + 
+Length15 + 
+Hour1 + 
+Hour2 + 
+Hour3 + 
+Hour7 + 
+Hour8 + 
+Hour9 + 
+Hour10 + 
+Hour11 + 
+Hour12 + 
+Hour13 + 
+Hour14 + 
+Hour15 + 
+Hour16 + 
+Hour17 + 
+Hour18 + 
+Hour19 + 
+Hour20 + 
+Hour21 + 
+Hour22 + 
+Hour23 + 
+Wday1 + 
+Wday2 + 
+Wday3 + 
+Wday4 + 
+Wday5 + 
+Wday6 )
+
+
+pander(regouput)
+```
+
+Using the estimated coefficient of the model, the fitted sales can be computed. The following table shows the original (s) and fitted (fs) average sales per commercial. Notice how for some cases the fitted sales deviate significantly from the original sales. If not for using the Marketing Mix Model this noise would be incorporated into budget optimization step. 
+
+```{r}
+dataset$sf <- exp(as.numeric(regouput$fitted.values))
+dataset %>%
+select(Wday, Hour, Channel, Length, s, sf) %>%
+ungroup() %>%
+sample_n(10) %>%
+kable(format = "latex", booktabs = T) %>%
+kable_styling(latex_options = "striped", position = "center")
+
+```
+
+## Linear Optimization of Advertising Budget
+
+In order to solve the problem it is necessary to input values for $B$,$T$ $p_i$, and $\beta_i$. This information will be fed to the optimization problem and solved using the R Package lpSolve.
+
+The first one is simple, as it is just the maximum amount of money to spend scheduling TV commercials -- the advertising budget. Here it is set to $B = 2.000.000$.
+
+The time constraint is what should stop the algorithm from allocating all the budget on a single one hour slot. Assuming that a 30 minute TV show advertises for 5 minutes, this gives a total of 10 minutes per hour -- or 600 seconds. Assuming one is able to get about 20% of the available time, this makes $T = 120$
+
+The prices $p_i$ refer to the price of one commercial spot as seen in the dataset. 
+
+The expected contribution to Sales $\beta_i$ are the fitted (expected) sales per commercial estimated in the previous section. 
+
+```{r results= "asis"}
+dfoptim <- 
+  dataset %>% 
+  select( Wday, Hour, Channel, Length, p, sf) %>%
+  group_by(Channel, Length, Wday, Hour)  %>%
+  summarise(sf = sum(sf)/n(), n = n(), p = sum(p)/n)
+
+objective <- dfoptim$sf
+constraints <- rbind(dfoptim$p,as.numeric(dfoptim$Length)*diag(length(dfoptim$Length)), diag(length(objective)))
+direction <- c(rep("<=",length(dfoptim$Length)+1), rep(">=", length(objective)))
+restrictions <- c(500000*4, rep(120,length(dfoptim$Length)), rep(0,length(objective)))
+
+solution <- lp("max", objective, constraints, direction, restrictions)
+
+dfoptim$solution <- solution$solution
+
+```
+
+The total number of Sales obtained by the algorithm is `r as.character(round(solution$objval,0))` and it is a direct result of the constraints and the inputs. 
+
+The following table shows 25 random observations from the final dataset. The variable "solution" contains the number of commercials that should be scheduled in this slot. For comparison, notice that the variable "n" contains the number of commercials scheduled in the same slot in the previous, sub-optimal campaign. 
+
+This is essentially a scheduling order that can be sent to the media agency to enforce.
+
+```{r }
+dfoptim %>% 
+ungroup() %>%
+sample_n(25) 
+# %>%
+# kable(format = "latex", booktabs = T) %>%
+# kable_styling(latex_options = "striped", position = "center")
+
+```
+

@@ -1,20 +1,21 @@
-name: "Hector's website"
-output_dir: "."
+name: Hector's website
+output_dir: '.'
 navbar:
-  title: "My Website"
+  title: My Website
   left:
-    - text: "Home"
-      href: index.html
-    - text: "Professional Timeline"
-      href: timeline.html
-    - text: "Portfolio"
-      href: portfolio.html
-    - text: "About me"
-      href: about.html
-    - text: "Contact"
-      href: contact.html
-      theme: united
-output: 
+  - text: Home
+    href: index.html
+  - text: Professional Timeline
+    href: timeline.html
+  - text: Portfolio
+    href: portfolio.html
+  - text: About me
+    href: about.html
+  - text: Contact
+    href: contact.html
+    theme: united
+output:
   html_document:
-  theme: flatly
-  css: style.css
+    lib_dir: site_libs
+    self_contained: no
+

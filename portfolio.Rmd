@@ -1,11 +1,13 @@
 ---
   title: "Professional Portfolio"
 ---
-Here you can find a collection of projects I have worked on in the past, and I hope soon you'll be able to find some that I am working on presently. 
+## Completed Projects
 
-Since I am currently developing the contents of this website I cannot have not had the time to replicate these projects. That's why at the moment they are simply a description of what the projects were about. 
+Here you can find a collection of projects I have worked on. 
 
-In the future, however, I expect to replicate the methodology with real or simulated data. 
+##### --- [Advertising Budget Optimization: An application of Marketing Mix Modelling and Linear Programming](http://sdhector.github.io/Case1_Advertising_Budget_Optimization.html)
+
+## Projects in development
 
 ##### --- [Marketing KPI Dashboard for the Fixed Internet Category]()
 This is a description of the Marketing KPI Tracking Report I was in charge of updating when working at Claro for the Fixed Internet Service Line of Business. Obviously, I cannot replicate this. Instad, I will simulate the data and create a static dashboard containing the same graphs I used to do.
