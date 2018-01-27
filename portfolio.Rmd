@@ -5,7 +5,7 @@
 
 Here you can find a collection of projects I have worked on. 
 
-##### --- [Advertising Budget Optimization: An application of Marketing Mix Modelling and Linear Programming](http://sdhector.github.io/Case1_Advertising_Budget_Optimization.html)
+##### --- [Advertising Budget Optimization: An application of Marketing Mix Modelling and Linear Programming](http://sdhector.github.io/Case1_Advertising_Budget_Optimization.nb)
 
 ## Projects in development
 
