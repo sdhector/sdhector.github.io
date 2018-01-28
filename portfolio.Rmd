@@ -1,40 +1,41 @@
 ---
   title: "Professional Portfolio"
 ---
-## Complete Projects: 
+## Completed Projects: 
 
-[Advertising Budget Optimization: An application of Marketing Mix Modelling and Linear Programming](http://sdhector.github.io/Case1_Advertising_Budget_Optimization.nb.html):
+#### [Advertising Budget Optimization: An application of Marketing Mix Modelling and Linear Programming](http://sdhector.github.io/Case1_Advertising_Budget_Optimization.nb.html):
   
 In this example I show how to use a Least Square regression to estimate the effect that a number of variables -- such as the channel, the length of the commercial, the day of the week and the hour -- have on sales. Afterwards, I use these results to decide how many commercials to schedule and where, by solving a constrained linear opimization problem using Linear Programming and the lp_solve package. 
+
 ## Working Projects: 
 
-[Customer Churn Prediction](http://sdhector.github.io/Chur_Modelling.html):
+#### [Customer Churn Prediction: An application of Logistic Regression](http://sdhector.github.io/Churn_Modelling.html):
 
 Here I am using a [sample dataset](https://www.ibm.com/communities/analytics/watson-analytics-blog/using-customer-behavior-data-to-improve-customer-retention/) from IBM Watson Analytics to replicate the Churn Modelling project I did at my previous employer, Claro. The dataset has a Class-Imbalance problem, and I solve it by Under Sampling the dominant class. I perform an exploratory analysis in order to identify meaningful predictors of churn, and then use a Logistic Regression to predict who churned and who didn't. Finally, I evaluate the model's performance with by cross-validating with a hold-out sample. 
 
-[Customer Satisfaction Indices and the Weather](http://sdhector.github.io/cs_paper.html): 
+#### [The effect of Weather and Economic variables on Customer Satisfaction Indices](http://sdhector.github.io/cs_paper.html): 
 
 This is more of an academic project. I am working with a former colleague to publish a paper discussing something we found using internal data when I was working at Claro. Customer Satisfaction Indices -- including the infamous NPS (Net Promoter Score) -- should not be taken at face value without first correcting for several biases; amongst them is the effect of weather patterns across time. 
 
 ## Upcoming Projects: 
 
-[Marketing KPI Dashboard]()
+#### [A Marketing KPI Dashboard]()
 
 Using an [IBM Watson sample dataset](https://www.ibm.com/communities/analytics/watson-analytics-blog/analyze-sales-effectivness/), I will construct a Static Dashboard using R Markdown -- instead of Watson -- which is meant to represent the KPI reporting I used to do at Claro for the Fixed Line Internet Line of Business. 
 
-[Determinants of Brand Choice in the Mobile Telecom Category: Using Conjoint Analysis and Discrete Choice Models]()
+#### [Determinants of Brand Choice in the Mobile Telecom Category: An application of Conjoint Analysis and Discrete Choice Models]()
 
 Here I will design a conjoint experiment and use Logistic Regression to estimate the impact of the features on consumer choice. The beautiful thing about this project is that I can collect the data myself through personal or internet surveys. 
 
-[Measuring the return of advertising expenditure using Marketing Mix Modelling]()
+#### [The (lagged) effect of advertising on sales: an application of Marketing Mix Modelling]()
 
 I have already used done something similar to this in [another project](http://sdhector.github.io/Case1_Advertising_Budget_Optimization.nb.html), but this time I want to go deeper into the MMM methodology; specifically with respect to the lagged effect of advertising. There data for this comes from the book [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL).
 
-[An Optimal Store Location Model]()
+#### [An Optimal Store Location Model]()
 
 I created this model in order to answer the question of which stores my previous employer should close. I basically defined the territory in terms of the telecommunication towers of the company, and iteratively decided where to open a store. The result is an optimal network of stores, and any store not in it should be closed. 
 
-[Marketing Research Projects]()
+#### [Marketing Research Projects]()
 
 This section is meant to contain a number of examples of simple Marketing Research concepts explained theoretically, and then practically using anonimized data I have available from my previous consulting projects. Some of the topics I cover are: 
 

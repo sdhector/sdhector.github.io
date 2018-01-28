@@ -1,6 +1,0 @@
----
-title: "My Personal Philosophy"
----
-
-An Overview of how I believe it is appropiate to think and go about in life. Starting with little nudges to the philosophical foundations I know about, then to the philosophy of science, then to technical skills my education has provided me with, and finally with the areas I like to apply this philosophy to: Economics, Marketing, etc. 
-      

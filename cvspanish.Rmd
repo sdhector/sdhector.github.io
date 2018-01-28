@@ -1,4 +1,0 @@
----
-title: "Curriculum Vitae: Hector Sanchez"
----
-My CV in Spanish formatted appropiately in html, and a link to download it in PDF. 

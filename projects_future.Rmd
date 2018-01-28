@@ -1,4 +1,0 @@
----
-title: "Projects I plan to work on"
----
-A list of articles discussing projects I am will be working on. 
