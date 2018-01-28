@@ -5,15 +5,12 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: Professional Timeline
-    href: timeline.html
   - text: Portfolio
     href: portfolio.html
   - text: About me
     href: about.html
   - text: Contact
     href: contact.html
-    theme: united
 output:
   html_document:
     lib_dir: site_libs

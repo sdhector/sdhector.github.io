@@ -28,7 +28,7 @@ data <-
 ```
 #Introduction
 
-The following is an exposition of how to use a simple Marketing Mix Modelling to measure the effectiveness of TV commercials  to generate sales, and then use the results to decide how to allocate commercial in such a way that maximizes the prospect of sales using Constrained Linear Optimization. 
+The following is an exposition of how to use a simple Marketing Mix Model to measure the effectiveness of TV commercials to generate sales, and then use the results to decide how to allocate commercial in such a way that maximizes the prospect of sales using Constrained Linear Optimization. 
 
 The dataset used in this exercise is composed of 2112 rows, each of which is a commercial, and 5 variables: the date and time when the commercial aired, the length in seconds, the channel where it aired, the amount of money spent on it, the number of people who saw it and the number of sales attributed to it. 
 
@@ -249,9 +249,6 @@ This is essentially a scheduling order that can be sent to the media agency to e
 dfoptim %>% 
 ungroup() %>%
 sample_n(25) 
-# %>%
-# kable(format = "latex", booktabs = T) %>%
-# kable_styling(latex_options = "striped", position = "center")
 
 ```
 
