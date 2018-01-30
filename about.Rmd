@@ -1,20 +1,17 @@
 ---
-  title: "About Me"
+  title: "About"
 ---
+I'm Hector, and I come from Santo Domingo, Dominican Republic. I have BA in Marketing from the [PUCMM](https://pucmm.edu.do/), a Specialization in Statistics Applied to Business from the [INTEC](http://www.intec.edu.do/) and  MSc in Economics from the [University of Konstanz](https://www.uni-konstanz.de/). 
 
-My name is Hector Sanchez and I come from Santo Domingo, Dominican Republic. I obtained my Bachelor's degree in Marketing from the Pontificia Universidad Catolica Madre y Maestra (PUCMM) in 2011. After trying out the labor market for a while, I completed a Specialization Program in Statistics Applied to Business at the Instituto Tecnologico de Santo Domingo (INTEC) in 2014. A year later, I decided to do a Master of Science in Economics at the University of Konstanz in Germany, which I successfully completed in August 2017. 
+Professionally, I would describe myself as a Quantitative Researcher; someone who is able to define problems such that they can be solved using quantitative methods -- mathematical or statistical. My first experiences doing this were in the field of Market Research, but I have come to apply these principles to Operations, Social and Economic problems. 
 
-I am currently residing in Dusseldorf, Germany. I decided to explore the labor market for  jobs related to Analytics given the abundance of companies doing Digital Marketing. 
+My interests are very diverse. If you want to talk to me for hours, there are several topics to choose from. 
 
-You could say I am a Quantitative Researcher. The principles of Scientific Research should not depend on the field of application, but clearly there will be peculiarities to consider when doing empirical work in any given field that I would like to get a chance to experience. 
+Starting with Philosophy, because I consider the fundamentals of logical argumentation extremely important in order to be consistent in our positions. Some branches of Philosophy I consider interesting are: Moral Philosophy, Epistemology, Ontology and the Philosophy of Science. 
 
-My interests are very broad, ranging from Philosophy and Science to Anime and Sports. Starting from the more intellectual side, I like having philosophical discussion. One topic I consider the most important to me, from a professional perspective, is the Philosophy of Science. However, Moral Philosophy and the more fundamental Epistemology and Ontology are also topics I would like to get a better understanding of. 
+Among the natual sciences I find Cosmology, Physics and Biology most interesting; among the social sciences, Economics, Sociology and (Behavioral) Psychology; and among management sciences, Marketing Science. 
 
-Going down to the Natural Sciences, I find Cosmology, Physics and Biology to be the most interesting. Among the Social Sciences I am quite interested in Economics, of course; although I am mostly interested with topics related to the foundations of economic behavior and its consequences to the whole economy. In other words, I care about the microeconomic foundations of macroeconomic behavior. I also find Sociology and Behavioral Psychology quite interesting, especially because I don't believe that these are such disparate fields from Economics. 
+When I'm not [dweling on the inmortality of the crab](https://en.wikipedia.org/wiki/Thinking_about_the_immortality_of_the_crab), I'm usually on Youtube. There is great scientific/educational content there ... and also Dragon Ball Super ([this was epic](https://youtu.be/Eu8VWoe69aM?t=13m58s)). 
 
-The scientific method is also applied to Management and Marketing, and I am quite interested in the latter. Marketing Science is a very interesting field because there is still so much to be discovered there. Most work is based on Economic Theory, but the assumptions are much more realistic. 
-
-Of course, it is not all about intellectual endeavors. When I'm procrastinating it is usually on YouTube. There is a lot of scientific/educational content there, but there's also Dragon Ball Super. I love playing video games, it's like meditation to me. I only go to the cinema to watch super hero movies, and I would love for DC to be better than Marvel. I am a huge Game of Thrones fan, but there's plenty of other TV Series I am guilty of binge watching (Vikings, The Walking Dead, Supernatural, etc...). 
-
-With regards to sports, I have been hooked on the American Football and Fantasy Football since 2010. As of writing this, the New England Patriots are going to the Super Bowl next week for the eight time and on back-to-back seasons. My friends don't talk to me. I've seen them win two Super Bowls and most of them haven't seen their team win, ever. This is not only a source of visual entertainment, Fantasy Football has a big Advanced Analytics following and I am part of it. 
+For entertainment I like watching TV Series (GoT, TWD, Vikings...), and I wish DC would be better than Marvel for once. I am a proud Boston Sports fan, and in particular of the New England Patriots -- whom are in the Super Bowl once more :) 
 
