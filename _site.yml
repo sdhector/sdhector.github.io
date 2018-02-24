@@ -13,7 +13,7 @@ navbar:
     href: contact.html
 output:
   html_document:
-    theme: simplex
+    theme: "simplex"
     lib_dir: site_libs
     self_contained: no
 
