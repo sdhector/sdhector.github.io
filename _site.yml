@@ -15,5 +15,5 @@ output:
   html_document:
     theme: "simplex"
     lib_dir: site_libs
-    self_contained: no
+    self_contained: true
 

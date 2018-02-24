@@ -1,6 +1,6 @@
 ---
 title: "Welcome to my Professional Website"
----
+--- 
 ## A little about me
 My name is Hector Sanchez and I come from the the Dominican Republic. I hold a Bachelor's degree in Marketing, a Specialization of Statistics Applied to Business and a Master of Science in Economics from the University of Konstanz, Germany. 
 

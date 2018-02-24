@@ -1,4 +1,0 @@
----
-title: "Books I like"
----
-List of articles summarizing books I have read.  
