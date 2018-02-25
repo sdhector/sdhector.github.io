@@ -2,11 +2,6 @@
 title: 'Advertising Budget Optimization: An application of Marketing Mix Modelling
   and Linear Programming'
 author: "Hector Sanchez"
-theme: readable
-output:
-  html_document:
-    df_print: paged
-  html_notebook: default
 ---
 ```{r global_options, echo= FALSE, }
 knitr::opts_chunk$set(fig.width=6, fig.height=4, fig.path='Figs/',

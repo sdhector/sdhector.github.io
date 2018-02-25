@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Hector Sanchez" />
+
+
+<title>Advertising Budget Optimization: An application of Marketing Mix Modelling and Linear Programming</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Hector's website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="portfolio.html">Portfolio</a>
+</li>
+<li>
+  <a href="about.html">About me</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    PDF CV/Resume
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="CVEnglish.pdf">English</a>
+    </li>
+    <li>
+      <a href="CVEspaÃ±ol.pdf">EspaÃ±ol</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Advertising Budget Optimization: An application of Marketing Mix Modelling and Linear Programming</h1>
+<h4 class="author"><em>Hector Sanchez</em></h4>
+
+</div>
+
+
+<pre class="r"><code>library(tidyverse)
+library(lubridate)
+library(easyGgplot2)
+library(scales)
+library(knitr)
+library(kableExtra)
+library(pander)
+library(dummies)
+library(lpSolve)
+data &lt;- 
+  read.csv(&quot;data1.csv&quot;, sep = &quot;,&quot;)</code></pre>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The following is an exposition of how to use a simple Marketing Mix Model to measure the effectiveness of TV commercials to generate sales, and then use the results to decide how to allocate commercial in such a way that maximizes the prospect of sales using Constrained Linear Optimization.</p>
+<p>The dataset used in this exercise is composed of 2112 rows, each of which is a commercial, and 5 variables: the date and time when the commercial aired, the length in seconds, the channel where it aired, the amount of money spent on it, the number of people who saw it and the number of sales attributed to it.</p>
+<p>In the following section I explain the theoretical reasoning behind the models used, which serve as methodology in the application section where the expected number of sales for each slot – a combination of day of the week, hour of the day, length of the commercial and channel – is estimated using Least Square Multiple Linear Regression. This is afterwards fed to a Linear Programming Algorithm to solve the constrained optimization problem of the number of commercial in each slot that maximizes the expected number of Sales.</p>
+</div>
+<div id="theoretical-framework" class="section level1">
+<h1>Theoretical Framework:</h1>
+<div id="total-sales" class="section level2">
+<h2>Total Sales</h2>
+<p>The total number of units sold in a given period of time <span class="math inline">\(S_t\)</span> can be described as the product of the number of commercials scheduled in a given period <span class="math inline">\(N_t\)</span>, the average reach of each commercial <span class="math inline">\(r_t\)</span> – the number of people who see it – and the average conversion rate of the commercial <span class="math inline">\(c_t\)</span> – the percentage of people who end up purchasing a product out of everyone who saw the commercial.</p>
+<p><span class="math display">\[ S_t = N_tr_tc_t \]</span> Here, <span class="math inline">\(N_t\)</span> is an exogenous variable – it is strictly in the control of the marketing executive – and represents the volume of advertising. Furthermore, from her perspective, <span class="math inline">\(r_t\)</span> and <span class="math inline">\(c_t\)</span> can also be taken as exogenous because they cannot be changed in the short term. This is the premise behind KPI based analysis.</p>
+<p>However, it intuitive clear that the reach of a commercial will depend on variables such as the channel where it is shown, at what time and on what day of the week. Similarly, the conversion rate will depend on variables such as the length and creative content of the commercial.</p>
+<p>It is important to emphasize that <span class="math inline">\(r_t\)</span> and <span class="math inline">\(c_t\)</span> are <strong>average</strong> values. Therefore, it is also possible to define the conversion rate as a function of demographic variables – like the share of the audience that is young, male, or of a given income level.</p>
+<p>A marketing executive would be interested in properly attributing the performance of the commercial to these variables because it would allow her to make trade-offs and optimize the advertising budget. In order to do so, it is first necessary to extend the previous model to include them.</p>
+</div>
+<div id="average-sales-per-commercial" class="section level2">
+<h2>Average Sales per Commercial</h2>
+<p>Since the number of commercial is in the control of the marketing executive it can be removed from the equation by dividing both sides by <span class="math inline">\(N_t\)</span>.</p>
+<p><span class="math display">\[ s_t = r_tc_t \]</span> Where the lower case <span class="math inline">\(s_t\)</span> represents the average number of units sold per commercial. By taking <span class="math inline">\(\ln(s_t)\)</span> the multiplicative model can be reduced to an additive model.</p>
+<p><span class="math display">\[ \ln(s_t) = \ln r_t + \ln c_t \rightarrow  s^*_t =  r^*_t + c^*_t  \]</span> For their part, <span class="math inline">\(r^*_t\)</span> and <span class="math inline">\(s^*_t\)</span> can be defined as functions of other variables.</p>
+<p><span class="math display">\[  r^*_t = f(C_t, D_t, H_t) \equiv \alpha_r +\beta C_t + \phi D_T + \psi H_t \]</span> <span class="math display">\[  c^*_t = f(L_t) \equiv \alpha_c + \theta L_t \]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(C_t\)</span> is a vector of dummy variables indicating whether the commercial was scheduled at a given channel</li>
+<li><span class="math inline">\(D_t\)</span> is a vector of dummy variables indicating whether the commercial was scheduled on a given day of the week.</li>
+<li><span class="math inline">\(H_t\)</span> is a vector of dummy variables indicating whether the commercial was scheduled at a given hour of day.</li>
+<li><span class="math inline">\(L_t\)</span> is a vector of dummy variables indicating whether a commercial was 15 or 30 seconds long.</li>
+<li><span class="math inline">\(\alpha_r, \alpha_c\)</span> are parameters representing the baseline value of their corresponding dependent variables – what is not attributable to the other independent variables in the model.</li>
+<li><span class="math inline">\(\beta , \phi, \psi,\)</span> and <span class="math inline">\(\theta\)</span> are parameters mediating the strength of the effect of this variables on their respective dependent variables.</li>
+</ul>
+<p>The average number of sales per commercial can then be expressed as:</p>
+<p><span class="math display">\[ s_t = \exp ( s^*_t ) = \exp ((\alpha_r + \alpha_c)+\beta C_t + \phi D_T + \psi H_t + \theta L_t) \]</span></p>
+<p>The parameters of this model can be estimated, before taking <span class="math inline">\(\exp\)</span>, by Least Squares. The hypothesized model would be:</p>
+<p><span class="math display">\[ \hat s_t = \hat \alpha +\hat \beta C_t + \hat \phi D_T + \hat \psi H_t + \hat \theta L_t + \varepsilon_t  \]</span> Once these parameters are estimated, the contribution of each channel, day, hour or length is represented by their respective coefficients.</p>
+</div>
+<div id="the-budget-optimization-problem" class="section level2">
+<h2>The Budget Optimization Problem</h2>
+<p>The budget optimization problem is to select the number of commercial in each slot – the combination of channel, length, day of the week and hour of the day – that maximizes the number of units sold constrained to a monetary and time budget constraints.</p>
+<p>The objective function to maximize is:</p>
+<p><span class="math display">\[ \max_{(x_1, x_2, ..., x_n)} S = \beta_1 x_1 + \beta_2 x_2 + ... + \beta_n x_n \]</span> <span class="math display">\[ Subject\:to: \]</span> <span class="math display">\[p_1 x_1 + p_2 x_2 + ... + p_n x_n = B \]</span> <span class="math display">\[ L_i x_i \geq T \: \forall \, i \in (1, 2, ... , n) \]</span></p>
+<p><span class="math display">\[ x_i \geq 0 \: \forall \, i \in (1, 2, ... , n) \]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(S\)</span>: represents the total number of sales expected to come from the allocation.</li>
+<li><span class="math inline">\(x_1, x_2, ..., x_n\)</span>: represent the number of commercials that can be scheduled at a specific slot.</li>
+<li><span class="math inline">\(\beta_1, \beta_2, ..., \beta_n\)</span>: represent the amount of sales expected to come from scheduling a single commercial in a given slot.</li>
+<li><span class="math inline">\(p_1, p_2, ..., p_n\)</span>: represent the prices associated with scheduling a single commercial in a given slot.</li>
+<li><span class="math inline">\(L_1, L_2, ..., L_n\)</span>: represent the Length associated with a commercial – whether it lasts 15 or 30 seconds.</li>
+<li><span class="math inline">\(B\)</span>: represents the Advertising Budget – the total amount of money to be distributed among the <span class="math inline">\(x_i\)</span>.</li>
+<li><span class="math inline">\(T\)</span>: represents the time constraint – the maximum number of seconds it is possible to advertise in every one hour slot.</li>
+</ul>
+<p>The values for <span class="math inline">\(\beta_1, \beta_2, ... \beta_n\)</span> are obtained by forecasting the expected number of sales per commercial using the model described in the previous section. Doing this will correct the amount of sales received in the sample period in any give slot by removing the noise factor <span class="math inline">\(\varepsilon_t\)</span>.</p>
+<p>Aside from the obvious budget constraint, the time constraint is the next most important one since without it the algorithm would simply decide to spend all the budget on the single best slot. This is impossible since that would imply doing more than one hour of advertising in a single hour slot.</p>
+<p>The solution to this problem will result in a list of commercials to be scheduled at every single slot considered.</p>
+</div>
+</div>
+<div id="application" class="section level1">
+<h1>Application</h1>
+<div id="the-data" class="section level2">
+<h2>The data</h2>
+<p>Before applying the previously described methodology, it would be useful to take a look at the data. The following table shows 10 randomly selected rows of the dataset.</p>
+<pre class="r"><code>data %&gt;%
+  select(Date, Channel, Length, Cost, Impressions, Sales) %&gt;%
+  mutate(Wday = wday(Date), Hour = hour(Date)) %&gt;%
+  select(-Date) %&gt;%
+  group_by(Wday, Hour, Channel, Length) %&gt;%
+  summarise(N = n(), p = sum(Cost), r = sum(Impressions), c = sum(Sales)/sum(Impressions), s = sum(Sales)/n() ) %&gt;%
+  ungroup() %&gt;%
+  sample_n(10) %&gt;%
+kable(format = &quot;latex&quot;, booktabs = T) %&gt;%
+kable_styling(latex_options = &quot;striped&quot;, position = &quot;center&quot;)</code></pre>
+
+<p>On the leftmost, the variable Wday represents the day of the week (starting at Sunday = 1), then follows the hour of the day (starting at midnight = 00), the Channel, the Length (whether 15 or 30 seconds long), the number of commercials (N), and the average price, reach, conversion rate and sales of a commercial in that slot.</p>
+<p>From this table, the dependent variable for estimation of sales will be “s”, while the independent variables will be Wday, Hour, Channel and Length All of them in the form of dummies.</p>
+</div>
+<div id="estimation-of-sales-per-commercial-using-least-squares-multiple-linear-regression" class="section level2">
+<h2>Estimation of sales per commercial using Least Squares Multiple Linear Regression</h2>
+<p>The following table reports the coefficients estimated using LS Multiple Linear Regression.</p>
+<pre class="r"><code>dataset &lt;- 
+  data %&gt;% 
+  select(Channel, Length, Date, Sales, Impressions, Cost) %&gt;% 
+  filter(Sales != 0) %&gt;%  
+  mutate(Hour = hour(Date), Wday = wday(Date), s = Sales, ln_s = log(Sales), r = Impressions, p = Cost)%&gt;%
+select(-Sales)
+
+dataset.dummy &lt;- dataset
+dataset.dummy &lt;- dummy.data.frame(data = dataset.dummy, names = c(&quot;Channel&quot;,&quot;Length&quot;,&quot;Wday&quot;,&quot;Hour&quot;)) 
+
+regouput &lt;- lm(data = dataset.dummy, ln_s ~ 
+Channel1 +
+Channel2 +
+Channel3 +
+Channel4 +
+Channel5 +
+Channel6 + 
+Channel7 + 
+Channel8 + 
+Channel9 + 
+Channel10 + 
+Channel11 + 
+Channel12 + 
+Channel13 + 
+Channel14 + 
+Channel15 + 
+Length15 + 
+Hour1 + 
+Hour2 + 
+Hour3 + 
+Hour7 + 
+Hour8 + 
+Hour9 + 
+Hour10 + 
+Hour11 + 
+Hour12 + 
+Hour13 + 
+Hour14 + 
+Hour15 + 
+Hour16 + 
+Hour17 + 
+Hour18 + 
+Hour19 + 
+Hour20 + 
+Hour21 + 
+Hour22 + 
+Hour23 + 
+Wday1 + 
+Wday2 + 
+Wday3 + 
+Wday4 + 
+Wday5 + 
+Wday6 )
+
+
+pander(regouput)</code></pre>
+<table style="width:88%;">
+<caption>Fitting linear model: ln_s ~ Channel1 + Channel2 + Channel3 + Channel4 + Channel5 + Channel6 + Channel7 + Channel8 + Channel9 + Channel10 + Channel11 + Channel12 + Channel13 + Channel14 + Channel15 + Length15 + Hour1 + Hour2 + Hour3 + Hour7 + Hour8 + Hour9 + Hour10 + Hour11 + Hour12 + Hour13 + Hour14 + Hour15 + Hour16 + Hour17 + Hour18 + Hour19 + Hour20 + Hour21 + Hour22 + Hour23 + Wday1 + Wday2 + Wday3 + Wday4 + Wday5 + Wday6</caption>
+<colgroup>
+<col width="25%" />
+<col width="15%" />
+<col width="18%" />
+<col width="13%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"> </th>
+<th align="center">Estimate</th>
+<th align="center">Std. Error</th>
+<th align="center">t value</th>
+<th align="center">Pr(&gt;|t|)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><strong>(Intercept)</strong></td>
+<td align="center">4.447</td>
+<td align="center">0.2884</td>
+<td align="center">15.42</td>
+<td align="center">9.177e-51</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Channel1</strong></td>
+<td align="center">-1.513</td>
+<td align="center">0.2888</td>
+<td align="center">-5.239</td>
+<td align="center">1.784e-07</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Channel2</strong></td>
+<td align="center">-1.297</td>
+<td align="center">0.3149</td>
+<td align="center">-4.118</td>
+<td align="center">3.985e-05</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Channel3</strong></td>
+<td align="center">-1.316</td>
+<td align="center">0.2817</td>
+<td align="center">-4.671</td>
+<td align="center">3.192e-06</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Channel4</strong></td>
+<td align="center">-1.041</td>
+<td align="center">0.281</td>
+<td align="center">-3.706</td>
+<td align="center">0.0002164</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Channel5</strong></td>
+<td align="center">-1.187</td>
+<td align="center">0.3669</td>
+<td align="center">-3.234</td>
+<td align="center">0.001239</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Channel6</strong></td>
+<td align="center">-1.095</td>
+<td align="center">0.3339</td>
+<td align="center">-3.28</td>
+<td align="center">0.001055</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Channel7</strong></td>
+<td align="center">-1.391</td>
+<td align="center">0.3102</td>
+<td align="center">-4.483</td>
+<td align="center">7.787e-06</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Channel8</strong></td>
+<td align="center">0.05563</td>
+<td align="center">0.2912</td>
+<td align="center">0.1911</td>
+<td align="center">0.8485</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Channel9</strong></td>
+<td align="center">-0.718</td>
+<td align="center">0.2934</td>
+<td align="center">-2.447</td>
+<td align="center">0.01448</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Channel10</strong></td>
+<td align="center">-0.5326</td>
+<td align="center">0.2925</td>
+<td align="center">-1.821</td>
+<td align="center">0.06881</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Channel11</strong></td>
+<td align="center">-0.1029</td>
+<td align="center">0.2851</td>
+<td align="center">-0.3609</td>
+<td align="center">0.7182</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Channel12</strong></td>
+<td align="center">-0.803</td>
+<td align="center">0.3103</td>
+<td align="center">-2.588</td>
+<td align="center">0.009732</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Channel13</strong></td>
+<td align="center">-0.3943</td>
+<td align="center">0.2923</td>
+<td align="center">-1.349</td>
+<td align="center">0.1775</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Channel14</strong></td>
+<td align="center">-1.38</td>
+<td align="center">0.3764</td>
+<td align="center">-3.667</td>
+<td align="center">0.0002522</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Channel15</strong></td>
+<td align="center">-1.471</td>
+<td align="center">0.2888</td>
+<td align="center">-5.093</td>
+<td align="center">3.864e-07</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Length15</strong></td>
+<td align="center">0.1557</td>
+<td align="center">0.04643</td>
+<td align="center">3.354</td>
+<td align="center">0.0008111</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Hour1</strong></td>
+<td align="center">-0.2839</td>
+<td align="center">0.1571</td>
+<td align="center">-1.807</td>
+<td align="center">0.07084</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Hour2</strong></td>
+<td align="center">-0.303</td>
+<td align="center">0.167</td>
+<td align="center">-1.815</td>
+<td align="center">0.06972</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Hour3</strong></td>
+<td align="center">-0.5283</td>
+<td align="center">0.2434</td>
+<td align="center">-2.171</td>
+<td align="center">0.03006</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Hour7</strong></td>
+<td align="center">-1.664</td>
+<td align="center">0.5971</td>
+<td align="center">-2.787</td>
+<td align="center">0.005365</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Hour8</strong></td>
+<td align="center">-1.443</td>
+<td align="center">0.3249</td>
+<td align="center">-4.441</td>
+<td align="center">9.424e-06</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Hour9</strong></td>
+<td align="center">-0.9384</td>
+<td align="center">0.3027</td>
+<td align="center">-3.1</td>
+<td align="center">0.001962</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Hour10</strong></td>
+<td align="center">-0.8502</td>
+<td align="center">0.1783</td>
+<td align="center">-4.768</td>
+<td align="center">1.995e-06</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Hour11</strong></td>
+<td align="center">-0.8863</td>
+<td align="center">0.1552</td>
+<td align="center">-5.71</td>
+<td align="center">1.303e-08</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Hour12</strong></td>
+<td align="center">-0.7226</td>
+<td align="center">0.146</td>
+<td align="center">-4.949</td>
+<td align="center">8.074e-07</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Hour13</strong></td>
+<td align="center">-0.7302</td>
+<td align="center">0.1422</td>
+<td align="center">-5.135</td>
+<td align="center">3.095e-07</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Hour14</strong></td>
+<td align="center">-0.5705</td>
+<td align="center">0.1431</td>
+<td align="center">-3.987</td>
+<td align="center">6.922e-05</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Hour15</strong></td>
+<td align="center">-0.7097</td>
+<td align="center">0.1413</td>
+<td align="center">-5.022</td>
+<td align="center">5.561e-07</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Hour16</strong></td>
+<td align="center">-1.019</td>
+<td align="center">0.1393</td>
+<td align="center">-7.317</td>
+<td align="center">3.66e-13</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Hour17</strong></td>
+<td align="center">-0.8418</td>
+<td align="center">0.1321</td>
+<td align="center">-6.374</td>
+<td align="center">2.288e-10</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Hour18</strong></td>
+<td align="center">-0.6265</td>
+<td align="center">0.1305</td>
+<td align="center">-4.801</td>
+<td align="center">1.695e-06</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Hour19</strong></td>
+<td align="center">-0.3089</td>
+<td align="center">0.1284</td>
+<td align="center">-2.406</td>
+<td align="center">0.01621</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Hour20</strong></td>
+<td align="center">0.03739</td>
+<td align="center">0.1422</td>
+<td align="center">0.263</td>
+<td align="center">0.7926</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Hour21</strong></td>
+<td align="center">0.0789</td>
+<td align="center">0.1405</td>
+<td align="center">0.5616</td>
+<td align="center">0.5744</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Hour22</strong></td>
+<td align="center">0.3042</td>
+<td align="center">0.1342</td>
+<td align="center">2.266</td>
+<td align="center">0.02355</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Hour23</strong></td>
+<td align="center">0.3181</td>
+<td align="center">0.1347</td>
+<td align="center">2.362</td>
+<td align="center">0.01827</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Wday1</strong></td>
+<td align="center">-0.458</td>
+<td align="center">0.07337</td>
+<td align="center">-6.242</td>
+<td align="center">5.276e-10</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Wday2</strong></td>
+<td align="center">-0.6287</td>
+<td align="center">0.07317</td>
+<td align="center">-8.592</td>
+<td align="center">1.696e-17</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Wday3</strong></td>
+<td align="center">-0.6051</td>
+<td align="center">0.08097</td>
+<td align="center">-7.473</td>
+<td align="center">1.168e-13</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Wday4</strong></td>
+<td align="center">-0.752</td>
+<td align="center">0.07826</td>
+<td align="center">-9.61</td>
+<td align="center">2.104e-21</td>
+</tr>
+<tr class="even">
+<td align="center"><strong>Wday5</strong></td>
+<td align="center">-0.8167</td>
+<td align="center">0.2413</td>
+<td align="center">-3.385</td>
+<td align="center">0.0007246</td>
+</tr>
+<tr class="odd">
+<td align="center"><strong>Wday6</strong></td>
+<td align="center">-0.5183</td>
+<td align="center">0.08058</td>
+<td align="center">-6.432</td>
+<td align="center">1.57e-10</td>
+</tr>
+</tbody>
+</table>
+<p>Using the estimated coefficient of the model, the fitted sales can be computed. The following table shows the original (s) and fitted (fs) average sales per commercial. Notice how for some cases the fitted sales deviate significantly from the original sales. If not for using the Marketing Mix Model this noise would be incorporated into budget optimization step.</p>
+<pre class="r"><code>dataset$sf &lt;- exp(as.numeric(regouput$fitted.values))
+dataset %&gt;%
+select(Wday, Hour, Channel, Length, s, sf) %&gt;%
+ungroup() %&gt;%
+sample_n(10) %&gt;%
+kable(format = &quot;latex&quot;, booktabs = T) %&gt;%
+kable_styling(latex_options = &quot;striped&quot;, position = &quot;center&quot;)</code></pre>
+
+</div>
+<div id="linear-optimization-of-advertising-budget" class="section level2">
+<h2>Linear Optimization of Advertising Budget</h2>
+<p>In order to solve the problem it is necessary to input values for <span class="math inline">\(B\)</span>,<span class="math inline">\(T\)</span> <span class="math inline">\(p_i\)</span>, and <span class="math inline">\(\beta_i\)</span>. This information will be fed to the optimization problem and solved using the R Package lpSolve.</p>
+<p>The first one is simple, as it is just the maximum amount of money to spend scheduling TV commercials – the advertising budget. Here it is set to <span class="math inline">\(B = 2.000.000\)</span>.</p>
+<p>The time constraint is what should stop the algorithm from allocating all the budget on a single one hour slot. Assuming that a 30 minute TV show advertises for 5 minutes, this gives a total of 10 minutes per hour – or 600 seconds. Assuming one is able to get about 20% of the available time, this makes <span class="math inline">\(T = 120\)</span></p>
+<p>The prices <span class="math inline">\(p_i\)</span> refer to the price of one commercial spot as seen in the dataset.</p>
+<p>The expected contribution to Sales <span class="math inline">\(\beta_i\)</span> are the fitted (expected) sales per commercial estimated in the previous section.</p>
+<pre class="r"><code>dfoptim &lt;- 
+  dataset %&gt;% 
+  select( Wday, Hour, Channel, Length, p, sf) %&gt;%
+  group_by(Channel, Length, Wday, Hour)  %&gt;%
+  summarise(sf = sum(sf)/n(), n = n(), p = sum(p)/n)
+
+objective &lt;- dfoptim$sf
+constraints &lt;- rbind(dfoptim$p,as.numeric(dfoptim$Length)*diag(length(dfoptim$Length)), diag(length(objective)))
+direction &lt;- c(rep(&quot;&lt;=&quot;,length(dfoptim$Length)+1), rep(&quot;&gt;=&quot;, length(objective)))
+restrictions &lt;- c(500000*4, rep(120,length(dfoptim$Length)), rep(0,length(objective)))
+
+solution &lt;- lp(&quot;max&quot;, objective, constraints, direction, restrictions)
+
+dfoptim$solution &lt;- solution$solution</code></pre>
+<p>The total number of Sales obtained by the algorithm is 33582 and it is a direct result of the constraints and the inputs.</p>
+<p>The following table shows 25 random observations from the final dataset. The variable “solution” contains the number of commercials that should be scheduled in this slot. For comparison, notice that the variable “n” contains the number of commercials scheduled in the same slot in the previous, sub-optimal campaign.</p>
+<p>This is essentially a scheduling order that can be sent to the media agency to enforce.</p>
+<pre class="r"><code>dfoptim %&gt;% 
+ungroup() %&gt;%
+sample_n(25) </code></pre>
+<pre><code>## # A tibble: 25 x 8
+##    Channel Length  Wday  Hour         sf     n          p solution
+##      &lt;int&gt;  &lt;int&gt; &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt; &lt;int&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+##  1       8     15     2    19  41.278829     1  9160.0000        0
+##  2       4     30     2     8   3.795413     1  1791.0000        0
+##  3       8     15     7    23 144.914531     1  7605.0000        8
+##  4       9     15     7    21  52.627369     1 19841.0000        0
+##  5       9     30     4    23  26.969618     2 10039.0000        0
+##  6       4     15     2    15   9.233104     6   681.6667        8
+##  7       4     30     7    21  32.601118     2  2704.0000        4
+##  8      11     15     4    11  17.481040     3  4078.3333        0
+##  9      11     15     4    18  22.668315     3  5532.0000        0
+## 10       3     15     3     0  14.605168     4  4639.2500        0
+## # ... with 15 more rows</code></pre>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

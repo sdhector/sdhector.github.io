@@ -1,7 +1,7 @@
 name: Hector's website
 output_dir: '.'
 navbar:
-  title: My Website
+  title: Hector's website
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,12 @@ navbar:
     href: portfolio.html
   - text: About me
     href: about.html
+  - text: PDF CV/Resume
+    menu: 
+      - text: English
+        href: CVEnglish.pdf
+      - text: Español
+        href: CVEspañol.pdf
   - text: Contact
     href: contact.html
 output:

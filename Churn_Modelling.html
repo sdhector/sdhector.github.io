@@ -9,6 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Hector Sanchez" />
 
 
 <title>Customer Churn Prediction: An application of Logistic Regression</title>
@@ -22,8 +23,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -175,7 +174,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">My Website</a>
+      <a class="navbar-brand" href="index.html">Hector's website</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -187,6 +186,21 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="about.html">About me</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    PDF CV/Resume
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="CVEnglish.pdf">English</a>
+    </li>
+    <li>
+      <a href="CVEspaÃ±ol.pdf">EspaÃ±ol</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="contact.html">Contact</a>
@@ -204,6 +218,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Customer Churn Prediction: An application of Logistic Regression</h1>
+<h4 class="author"><em>Hector Sanchez</em></h4>
 
 </div>
 
@@ -474,25 +489,25 @@ confusionMatrix(data = predict,reference = Observed)</code></pre>
 ## 
 ##           Reference
 ## Prediction    0    1
-##          0  906  360
-##          1  496 1042
+##          0  884  351
+##          1  518 1051
 ##                                           
-##                Accuracy : 0.6947          
-##                  95% CI : (0.6773, 0.7117)
+##                Accuracy : 0.6901          
+##                  95% CI : (0.6726, 0.7072)
 ##     No Information Rate : 0.5             
 ##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
 ##                                           
-##                   Kappa : 0.3894          
-##  Mcnemar&#39;s Test P-Value : 3.946e-06       
+##                   Kappa : 0.3802          
+##  Mcnemar&#39;s Test P-Value : 1.79e-08        
 ##                                           
-##             Sensitivity : 0.6462          
-##             Specificity : 0.7432          
-##          Pos Pred Value : 0.7156          
-##          Neg Pred Value : 0.6775          
+##             Sensitivity : 0.6305          
+##             Specificity : 0.7496          
+##          Pos Pred Value : 0.7158          
+##          Neg Pred Value : 0.6699          
 ##              Prevalence : 0.5000          
-##          Detection Rate : 0.3231          
-##    Detection Prevalence : 0.4515          
-##       Balanced Accuracy : 0.6947          
+##          Detection Rate : 0.3153          
+##    Detection Prevalence : 0.4404          
+##       Balanced Accuracy : 0.6901          
 ##                                           
 ##        &#39;Positive&#39; Class : 0               
 ## </code></pre>

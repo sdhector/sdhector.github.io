@@ -1,8 +1,6 @@
 ---
 title: 'Customer Churn Prediction: An application of Logistic Regression'
-output:
-  html_document:
-    df_print: paged
+author: "Hector Sanchez"
 ---
 ```{r global_options, echo= FALSE, }
 knitr::opts_chunk$set(fig.width=6, fig.height=4, fig.path='Figs/',
