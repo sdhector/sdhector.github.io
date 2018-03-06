@@ -24,7 +24,7 @@ datasets %>%
 
 It is also possible to get the different stations available. However, it is also possible to specify the lat and lon, or the city. 
 ```{r}
-location <- ncdc_stations(datasetid='GHCND', limit = 999)
+location <- ncdc_stations(datasetid='GHCND', limit = 20)
 location$data %>% select(name, id)
 ```
 
