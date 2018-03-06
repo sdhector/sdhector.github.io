@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Hector Sanchez" />
+
+
+<title>NOAAH</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/simplex.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 41px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+
+.section h2 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h3 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h4 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h5 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+.section h6 {
+  padding-top: 46px;
+  margin-top: -46px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Hector's website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="portfolio.html">Portfolio</a>
+</li>
+<li>
+  <a href="about.html">About me</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    PDF CV/Resume
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="CVEnglish.pdf">English</a>
+    </li>
+    <li>
+      <a href="CVEspaÃ±ol.pdf">Spanish</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="contact.html">Contact</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">NOAAH</h1>
+<h4 class="author"><em>Hector Sanchez</em></h4>
+<h4 class="date"><em>March 6, 2018</em></h4>
+
+</div>
+
+
+<p>The list of data sets available are shown below. The most important one is GSOM because it facilitates the data acquisition, since it already calculates the average temperature for the month. A lot less computation to do.</p>
+<pre class="r"><code>datasets &lt;- ncdc_datasets()$data
+
+datasets %&gt;% 
+  select(name, id, mindate, maxdate)</code></pre>
+<pre><code>##                           name         id    mindate    maxdate
+## 1              Daily Summaries      GHCND 1763-01-01 2018-03-04
+## 2  Global Summary of the Month       GSOM 1763-01-01 2018-01-01
+## 3   Global Summary of the Year       GSOY 1763-01-01 2017-01-01
+## 4     Weather Radar (Level II)    NEXRAD2 1991-06-05 2018-03-05
+## 5    Weather Radar (Level III)    NEXRAD3 1994-05-20 2018-03-01
+## 6      Normals Annual/Seasonal NORMAL_ANN 2010-01-01 2010-01-01
+## 7                Normals Daily NORMAL_DLY 2010-01-01 2010-12-31
+## 8               Normals Hourly NORMAL_HLY 2010-01-01 2010-12-31
+## 9              Normals Monthly NORMAL_MLY 2010-01-01 2010-12-01
+## 10     Precipitation 15 Minute  PRECIP_15 1970-05-12 2014-01-01
+## 11        Precipitation Hourly PRECIP_HLY 1900-01-01 2014-01-01</code></pre>
+<p>It is also possible to get the different stations available. However, it is also possible to specify the lat and lon, or the city.</p>
+<pre class="r"><code>location &lt;- ncdc_stations(datasetid=&#39;GHCND&#39;, limit = 999)
+location$data %&gt;% select(name, id)</code></pre>
+<pre><code>##                                             name                id
+## 1                    ST JOHNS COOLIDGE FIELD, AC GHCND:ACW00011604
+## 2                                   ST JOHNS, AC GHCND:ACW00011647
+## 3                        SHARJAH INTER. AIRP, AE GHCND:AE000041196
+## 4                        DUBAI INTERNATIONAL, AE GHCND:AEM00041194
+## 5                    ABU DHABI INTERNATIONAL, AE GHCND:AEM00041217
+## 6                       AL AIN INTERNATIONAL, AE GHCND:AEM00041218
+## 7                               NORTH SALANG, AF GHCND:AF000040930
+## 8                                      HERAT, AF GHCND:AFM00040938
+## 9                        KABUL INTERNATIONAL, AF GHCND:AFM00040948
+## 10                          KANDAHAR AIRPORT, AF GHCND:AFM00040990
+## 11                        ALGER DAR EL BEIDA, AG GHCND:AG000060390
+## 12                                  EL GOLEA, AG GHCND:AG000060590
+## 13                                 IN AMENAS, AG GHCND:AG000060611
+## 14                               TAMANRASSET, AG GHCND:AG000060680
+## 15                    ORAN HOPITAL MILITAIRE, AG GHCND:AGE00135039
+## 16                           ANNABA CAP DE GARDE GHCND:AGE00147704
+## 17                      ALGIERS VILLE UNIVERSITE GHCND:AGE00147705
+## 18                         ALGIERS BOUZAREAH, AG GHCND:AGE00147706
+## 19                        ALGIERS CAP CAXINE, AG GHCND:AGE00147707
+## 20                                TIZI OUZOU, AG GHCND:AGE00147708
+## 21                             FORT NATIONAL, AG GHCND:AGE00147709
+## 22                            BEJAIA BOUGIE PORT GHCND:AGE00147710
+## 23                               CONSTANTINE, AG GHCND:AGE00147711
+## 24                        ORLEANSVILLE CHLEF, AG GHCND:AGE00147712
+## 25                                     SETIF, AG GHCND:AGE00147713
+## 26                           ORAN CAP FALCON, AG GHCND:AGE00147714
+## 27                                   TEBESSA, AG GHCND:AGE00147715
+## 28                         NEMOURS GHAZAOUET, AG GHCND:AGE00147716
+## 29                            SIDI BEL ABBES, AG GHCND:AGE00147717
+## 30                                    BISKRA, AG GHCND:AGE00147718
+## 31                                  LAGHOUAT, AG GHCND:AGE00147719
+## 32                       GERYVILLE EL BAYADH, AG GHCND:AGE00147720
+## 33                     SKIKDA CAP BOUGAROUNI, AG GHCND:AGE00147780
+## 34                             BEJAIA CAP CARBON GHCND:AGE00147794
+## 35                                     JIJEL, AG GHCND:AGM00060351
+## 36                                JIJEL PORT, AG GHCND:AGM00060353
+## 37                                        SKIKDA GHCND:AGM00060355
+## 38                                    ANNABA, AG GHCND:AGM00060360
+## 39                                       EL KALA GHCND:AGM00060367
+## 40                                    ALGER PORT GHCND:AGM00060369
+## 41                                        DELLYS GHCND:AGM00060387
+## 42                                   SOUMMAM, AG GHCND:AGM00060402
+## 43                                    GUELMA, AG GHCND:AGM00060403
+## 44                                BOUCHEGOUF, AG GHCND:AGM00060405
+## 45                                     TENES, AG GHCND:AGM00060410
+## 46                                AIN BESSAM, AG GHCND:AGM00060415
+## 47                                    BOUIRA, AG GHCND:AGM00060417
+## 48             MOHAMED BOUDIAF INTERNATIONAL, AG GHCND:AGM00060419
+## 49                            OUM EL BOUAGHI, AG GHCND:AGM00060421
+## 50                                SOUK AHRAS, AG GHCND:AGM00060423
+## 51                               ECH CHELIFF, AG GHCND:AGM00060425
+## 52                                   MILIANA, AG GHCND:AGM00060430
+## 53                                     MEDEA, AG GHCND:AGM00060437
+## 54                        BORDJ BOU ARRERIDJ, AG GHCND:AGM00060444
+## 55                           SETIF AIN ARNAT, AG GHCND:AGM00060445
+## 56                                     ARZEW, AG GHCND:AGM00060452
+## 57                                MOSTAGANEM, AG GHCND:AGM00060457
+## 58                                 ORAN PORT, AG GHCND:AGM00060461
+## 59                                    M SILA, AG GHCND:AGM00060467
+## 60                                     BATNA, AG GHCND:AGM00060468
+## 61                                    BARIKA, AG GHCND:AGM00060471
+## 62                      CHEIKH LARBI TEBESSI, AG GHCND:AGM00060475
+## 63                                KHENCHELLA, AG GHCND:AGM00060476
+## 64                                  ES SENIA, AG GHCND:AGM00060490
+## 65                          MASCARA MATEMORE, AG GHCND:AGM00060506
+## 66                                    GHRISS, AG GHCND:AGM00060507
+## 67                                BOU CHEKIF, AG GHCND:AGM00060511
+## 68                             KSAR CHELLALA, AG GHCND:AGM00060514
+## 69                                 BOU SAADA, AG GHCND:AGM00060515
+## 70                                  BENI SAF, AG GHCND:AGM00060518
+## 71                            SIDI BEL ABBES, AG GHCND:AGM00060520
+## 72                                   MAGHNIA, AG GHCND:AGM00060522
+## 73                                    ZENATA, AG GHCND:AGM00060531
+## 74                             DJELFA TLETSI, AG GHCND:AGM00060535
+## 75                                     SAIDA, AG GHCND:AGM00060536
+## 76                                EL KHEITER, AG GHCND:AGM00060540
+## 77                                  MECHERIA, AG GHCND:AGM00060549
+## 78                                 EL BAYADH, AG GHCND:AGM00060550
+## 79                                SIDI MAHDI, AG GHCND:AGM00060555
+## 80                                     NAAMA, AG GHCND:AGM00060557
+## 81                                    GUEMAR, AG GHCND:AGM00060559
+## 82                                 AIN SEFRA, AG GHCND:AGM00060560
+## 83                                HASSIR MEL, AG GHCND:AGM00060563
+## 84                                  NOUMERAT, AG GHCND:AGM00060566
+## 85                                    BECHAR, AG GHCND:AGM00060571
+## 86                                   OUARGLA, AG GHCND:AGM00060580
+## 87                                OUED IRARA, AG GHCND:AGM00060581
+## 88                                BENI ABBES, AG GHCND:AGM00060602
+## 89                              RHOURD NOUSS, AG GHCND:AGM00060603
+## 90                                  TIMIMOUN, AG GHCND:AGM00060607
+## 91             TOUAT CHEIKH SIDI MOHAMED BEL, AG GHCND:AGM00060620
+## 92                                  IN SALAH, AG GHCND:AGM00060630
+## 93                          ILLIZI TAKHAMALT, AG GHCND:AGM00060640
+## 94                                   TINDOUF, AG GHCND:AGM00060656
+## 95                                     TISKA, AG GHCND:AGM00060670
+## 96                        BORDJ BADJ MOKHTAR, AG GHCND:AGM00060686
+## 97                                IN GUEZZAM, AG GHCND:AGM00060690
+## 98                                  ZAKATALA, AJ GHCND:AJ000037575
+## 99                                    ALIBEK, AJ GHCND:AJ000037579
+## 100                               BOGDANOVKA, AJ GHCND:AJ000037605
+## 101                      DJEYRANCELSKAJ STEP, AJ GHCND:AJ000037636
+## 102                         AGSTAPHA AIRPORT, AJ GHCND:AJ000037639
+## 103                       ADJINAURSKAYA STEP, AJ GHCND:AJ000037656
+## 104                                    SHAKI, AJ GHCND:AJ000037661
+## 105                                VARTASHEN, AJ GHCND:AJ000037668
+## 106                                   HACMAS, AJ GHCND:AJ000037673
+## 107                                     KRIC, AJ GHCND:AJ000037674
+## 108                                     GUBA, AJ GHCND:AJ000037675
+## 109                                       SIASAN GHCND:AJ000037679
+## 110                                  KEDABEK, AJ GHCND:AJ000037729
+## 111                                  SHAMHOR, AJ GHCND:AJ000037734
+## 112                                    GANCA, AJ GHCND:AJ000037735
+## 113                                   QABALA, AJ GHCND:AJ000037740
+## 114                 ORDJONIKIDZE ZERNOSOVHOZ, AJ GHCND:AJ000037742
+## 115                              MINGACHEVIR, AJ GHCND:AJ000037744
+## 116                           EVLAKH AIRPORT, AJ GHCND:AJ000037747
+## 117                                  GOYCHAY, AJ GHCND:AJ000037749
+## 118                                ALTIAGACH, AJ GHCND:AJ000037753
+## 119                                   MARAZA, AJ GHCND:AJ000037756
+## 120                                 SHAMAKHY, AJ GHCND:AJ000037759
+## 121                                  SUMGAIT, AJ GHCND:AJ000037769
+## 122                                   GEYGEL, AJ GHCND:AJ000037813
+## 123                                DASHKESAN, AJ GHCND:AJ000037816
+## 124                            GEYGEL KURORT, AJ GHCND:AJ000037825
+## 125                               MIR BASHIR, AJ GHCND:AJ000037831
+## 126                                    BARDA, AJ GHCND:AJ000037832
+## 127                                   ZARDOB, AJ GHCND:AJ000037835
+## 128                                 KURDAMIR, AJ GHCND:AJ000037844
+## 129                      GAZIMAMMAD AERODROM, AJ GHCND:AJ000037849
+## 130                                     BAKU, AJ GHCND:AJ000037850
+## 131                                 MASHTAGA, AJ GHCND:AJ000037860
+## 132                                    NEFT JNIE GHCND:AJ000037861
+## 133                                    PIRALLAHI GHCND:AJ000037866
+## 134                                 JILOY OSTROV GHCND:AJ000037869
+## 135                                   ISTISU, AJ GHCND:AJ000037883
+## 136                       SISIANSKIY PEREVAL, AJ GHCND:AJ000037888
+## 137                                    AGDAM, AJ GHCND:AJ000037893
+## 138                                KHANKANDY, AJ GHCND:AJ000037895
+## 139                                   LACHIN, AJ GHCND:AJ000037898
+## 140                                   SHUSHA, AJ GHCND:AJ000037899
+## 141                                  MARTUNY, AJ GHCND:AJ000037901
+## 142                           MOL SKAYA STEP, AJ GHCND:AJ000037902
+## 143                       BEYLAGAN AERODROME, AJ GHCND:AJ000037905
+## 144                                   FIZULY, AJ GHCND:AJ000037907
+## 145                                DJAFARHAN, AJ GHCND:AJ000037912
+## 146                                  SAL JNY, AJ GHCND:AJ000037913
+## 147                                   IMISLY, AJ GHCND:AJ000037914
+## 148                                SVINOY OSTROV GHCND:AJ000037922
+## 149                                     ALAT, AJ GHCND:AJ000037923
+## 150                                NEFTCHALA, AJ GHCND:AJ000037925
+## 151                                 NAXCIVAN, AJ GHCND:AJ000037936
+## 152                                   SAHBUZ, AJ GHCND:AJ000037941
+## 153                               PARAGACHAY, AJ GHCND:AJ000037946
+## 154                                    JULFA, AJ GHCND:AJ000037947
+## 155                                  ORDUBAD, AJ GHCND:AJ000037957
+## 156                                 DJEBRAIL, AJ GHCND:AJ000037962
+## 157                                MINDJEVAN, IR GHCND:AJ000037968
+## 158                                BILASUVAR, AJ GHCND:AJ000037972
+## 159                                 GYOYTAPA, AJ GHCND:AJ000037978
+## 160                                 JARDIMLY, AJ GHCND:AJ000037981
+## 161                                    LERIK, AJ GHCND:AJ000037984
+## 162                                 LANKARAN, AJ GHCND:AJ000037985
+## 163                                       ASTARA GHCND:AJ000037989
+## 164                                   TIRANA, AL GHCND:ALE00100939
+## 165                                  SHKODRA, AL GHCND:ALE00108905
+## 166                             TIRANA RINAS, AL GHCND:ALM00013615
+## 167                                 SHURABAD, AM GHCND:AM000037608
+## 168                           GUKASYAN VERIN, AM GHCND:AM000037609
+## 169                                   TASHIR, AM GHCND:AM000037618
+## 170                                    ODZUN, AM GHCND:AM000037627
+## 171                                    SHNOH, AM GHCND:AM000037629
+## 172                                   AMASIA, AM GHCND:AM000037682
+## 173                        JABJUR IN ARMENIA, AM GHCND:AM000037683
+## 174                                    GUMRI, AM GHCND:AM000037686
+## 175                                    ARTIK, AM GHCND:AM000037689
+## 176                               STEPANAVAN, AM GHCND:AM000037693
+## 177                      PUSHKINSKIY PEREVAL, AM GHCND:AM000037694
+## 178                                   SPITAK, AM GHCND:AM000037695
+## 179                                  ANKAVAN, AM GHCND:AM000037698
+## 180                                   APARAN, AM GHCND:AM000037699
+## 181                                ERATUMBER, AM GHCND:AM000037700
+## 182                                 VANADZOR, AM GHCND:AM000037704
+## 183                               LERMONTOVO, AM GHCND:AM000037705
+## 184                                  DILIJAN, AM GHCND:AM000037706
+## 185                                SEMENOVKA, AM GHCND:AM000037708
+## 186                                  IDJEVAN, AM GHCND:AM000037711
+## 187                                     BERD, AM GHCND:AM000037713
+## 188                                CHAMBARAK, AM GHCND:AM000037719
+## 189                                    TALIN, AM GHCND:AM000037772
+## 190                                 GARNOVIT, AM GHCND:AM000037773
+## 191                                  ARAGATS, AM GHCND:AM000037774
+## 192                     ARAGAC VISOKOGORNAYA, AM GHCND:AM000037781
+## 193                       AMBERD KOSHABULAKH, AM GHCND:AM000037782
+## 194                                  ASTARAK, AM GHCND:AM000037785
+## 195                                   EGVARD, AM GHCND:AM000037786
+## 196                                  ARMAVIR, AM GHCND:AM000037787
+## 197                                  YEREVAN, AM GHCND:AM000037789
+## 198                                   FANTAN, AM GHCND:AM000037791
+## 199                                  HRAZDAN, AM GHCND:AM000037792
+## 200                                    GARNI, AM GHCND:AM000037798
+## 201                                    GAVAR, AM GHCND:AM000037801
+## 202                                   SHORJA, AM GHCND:AM000037802
+## 203                                  MARTUNI, AM GHCND:AM000037808
+## 204                                   MASRIK, AM GHCND:AM000037815
+## 205                                   ARARAT, TU GHCND:AM000037871
+## 206                                 URCADZOR, AM GHCND:AM000037872
+## 207                                   YANYKH, AM GHCND:AM000037873
+## 208                                EHGNADZOR, AM GHCND:AM000037874
+## 209                                    ARENY, AM GHCND:AM000037875
+## 210                               EHEGNADZOR, AM GHCND:AM000037876
+## 211                     BESIIMYANNIY PEREVAL, AM GHCND:AM000037878
+## 212                                  KOCHBEC, AM GHCND:AM000037880
+## 213                                  D ERMUK, AM GHCND:AM000037884
+## 214                                 MARTIROS, AM GHCND:AM000037887
+## 215                                   SISIAN, AM GHCND:AM000037897
+## 216                                 KADJARAN, AM GHCND:AM000037954
+## 217                                    MEGRI, AM GHCND:AM000037958
+## 218                                    KAPAN, AM GHCND:AM000037959
+## 219                              SEVAN OZERO, AM GHCND:AMM00037717
+## 220                                   LUANDA, AO GHCND:AO000066160
+## 221                          WAKU KUNGU CELA, AO GHCND:AO000066270
+## 222                       LUBANGO SA DA BAND, AO GHCND:AO000066390
+## 223                       MENONGUE SERPA PIN, AO GHCND:AO000066410
+## 224                                MOCAMEDES, AO GHCND:AO000066422
+## 225                                  MAVINGA, AO GHCND:AO000066447
+## 226                                  AASUFOU, US GHCND:AQC00914000
+## 227                                    AFONO, US GHCND:AQC00914005
+## 228                           AMOULI TUTUILA, US GHCND:AQC00914021
+## 229                                     ATUU, US GHCND:AQC00914060
+## 230                       FAGA ALU RESERVOIR, US GHCND:AQC00914135
+## 231                          FAGA ALU STREAM, US GHCND:AQC00914138
+## 232                           FAGASA TUTUILA, US GHCND:AQC00914145
+## 233                                FAGA TOGO, US GHCND:AQC00914149
+## 234                                 FALEASAO TAU GHCND:AQC00914188
+## 235                             FALEASAO VILLAGE GHCND:AQC00914248
+## 236                                 MALAELOA, US GHCND:AQC00914397
+## 237                                     LATA, WS GHCND:AQC00914398
+## 238                                 LUMA VILLAGE GHCND:AQC00914424
+## 239                                 MALAELOA, US GHCND:AQC00914594
+## 240                                          OFU GHCND:AQC00914650
+## 241                             SWAIN ISLAND, US GHCND:AQC00914822
+## 242 PAGO PAGO WEATHER SERVICE OFFICE AIRPORT, US GHCND:AQC00914869
+## 243                                 MALAELOA, US GHCND:AQC00914873
+## 244                                  VAIPITO, US GHCND:AQC00914902
+## 245                                    VATIA, US GHCND:AQC00914912
+## 246 PAGO PAGO WEATHER SERVICE OFFICE AIRPORT, US GHCND:AQW00061705
+## 247                                  BAIBENE, AR GHCND:AR000000001
+## 248                                 BONPLAND, AR GHCND:AR000000002
+## 249                    CAZADORES CORRENTINOS, AR GHCND:AR000000003
+## 250                                CHAJAR355, AR GHCND:AR000000004
+## 251                         COLONIA LIBERTAD, AR GHCND:AR000000005
+## 252                                CONCORDIA, AR GHCND:AR000000006
+## 253                           CONQUISTADORES, AR GHCND:AR000000007
+## 254                       CURUZU CUATIA AERO, AR GHCND:AR000000008
+## 255                            FEDERACI 363N, AR GHCND:AR000000009
+## 256                            MOCORETA LAGO, UY GHCND:AR000000010
+## 257                       MONTE CASEROS AERO, AR GHCND:AR000000011
+## 258                       PASO DE LOS LIBRES, AR GHCND:AR000000012
+## 259                                    PUJOL, AR GHCND:AR000000013
+## 260                                REDOM363N, AR GHCND:AR000000014
+## 261                SAN JAIME DE ARRUABARRENA, AR GHCND:AR000000015
+## 262                                   SOLARI, AR GHCND:AR000000016
+## 263                      LA QUIACA OBSERVATO, AR GHCND:AR000087007
+## 264                                RIVADAVIA, AR GHCND:AR000087065
+## 265                              LAS LOMITAS, AR GHCND:AR000087078
+## 266                      SANTIAGO DEL ESTERO, AR GHCND:AR000087129
+## 267                         RESISTENCIA AERO, AR GHCND:AR000087155
+## 268                           LA RIOJA AERO., AR GHCND:AR000087217
+## 269                               CERES AERO, AR GHCND:AR000087257
+## 270                         RECONQUISTA AERO, AR GHCND:AR000087270
+## 271                             CORDOBA AERO, AR GHCND:AR000087344
+## 272                              PARANA AERO, AR GHCND:AR000087374
+## 273                             MENDOZA AERO, AR GHCND:AR000087418
+## 274                           LABOULAYE AERO, AR GHCND:AR000087534
+## 275                          SANTA ROSA AERO, AR GHCND:AR000087623
+## 276                       MAR DEL PLATA AERO, AR GHCND:AR000087692
+## 277                             NEUQUEN AERO, AR GHCND:AR000087715
+## 278                              ESQUEL AERO, AR GHCND:AR000087803
+## 279                              TRELEW AERO, AR GHCND:AR000087828
+## 280                       COMODORO RIVADAVIA, AR GHCND:AR000087860
+## 281                        RIO GALLEGOS AERO, AR GHCND:AR000087925
+## 282                               SALTA AERO, AR GHCND:AR000870470
+## 283                                   JACHAL, AR GHCND:AR000873050
+## 284                             PEHUAJO AERO, AR GHCND:AR000875440
+## 285                      BUENOS AIRES OBSERV, AR GHCND:AR000875850
+## 286                        BAHIA BLANCA AERO, AR GHCND:AR000877500
+## 287                                     ORAN, AR GHCND:ARM00087016
+## 288            GENERAL ENRIQUE MOSCONI TARTA, AR GHCND:ARM00087022
+## 289                                    JUJUY, AR GHCND:ARM00087046
+## 290               TENIENTE BENJAMIN MATIENZO, AR GHCND:ARM00087121
+## 291             PRESIDENCIA ROQUE SAENZ PENA, AR GHCND:ARM00087148
+## 292                                  FORMOSA, AR GHCND:ARM00087162
+## 293                               CORRIENTES, AR GHCND:ARM00087166
+## 294                                  POSADAS, AR GHCND:ARM00087178
+## 295                           CHILECITO AERO, AR GHCND:ARM00087213
+## 296                                CATAMARCA, AR GHCND:ARM00087222
+## 297                      VILLA MARIA DEL RIO, AR GHCND:ARM00087244
+## 298                       PASO DE LOS LIBRES, AR GHCND:ARM00087289
+## 299                                 SAN JUAN, AR GHCND:ARM00087311
+## 300                            CHAMICAL AERO, AR GHCND:ARM00087320
+## 301                                   CHEPES, AR GHCND:ARM00087322
+## 302                            VILLA DOLORES, AR GHCND:ARM00087328
+## 303                     CORDOBA OBSERVATORIO, AR GHCND:ARM00087345
+## 304                       PILAR OBSERVATORIO, AR GHCND:ARM00087349
+## 305                    COMODORO PIERRESTEGUI, AR GHCND:ARM00087395
+## 306                               SAN MARTIN, AR GHCND:ARM00087416
+## 307                     MENDOZA OBSERVATORIO, AR GHCND:ARM00087420
+## 308                                 SAN LUIS, AR GHCND:ARM00087436
+## 309                           VILLA REYNOLDS, AR GHCND:ARM00087448
+## 310              RIO CUARTO AREA DE MATERIAL, AR GHCND:ARM00087453
+## 311                            MARCOS JUAREZ, AR GHCND:ARM00087467
+## 312                                  ROSARIO, AR GHCND:ARM00087480
+## 313                             GUALEGUAYCHU, AR GHCND:ARM00087497
+## 314                                 MALARGUE, AR GHCND:ARM00087506
+## 315                               SAN RAFAEL, AR GHCND:ARM00087509
+## 316                             GENERAL PICO, AR GHCND:ARM00087532
+## 317                                    JUNIN, AR GHCND:ARM00087548
+## 318                           NUEVE DE JULIO, AR GHCND:ARM00087550
+## 319                               LAS FLORES, AR GHCND:ARM00087563
+## 320                       MINISTRO PISTARINI, AR GHCND:ARM00087576
+## 321                 AEROPARQUE JORGE NEWBERY, AR GHCND:ARM00087582
+## 322                                 LA PLATA, AR GHCND:ARM00087593
+## 323                         PUNTA INDIO B.A., AR GHCND:ARM00087596
+## 324                      CORONEL SUAREZ AERO, AR GHCND:ARM00087637
+## 325                             BOLIVAR AERO, AR GHCND:ARM00087640
+## 326                                AZUL AERO, AR GHCND:ARM00087641
+## 327                           OLAVARRIA AERO, AR GHCND:ARM00087643
+## 328                                   TANDIL, AR GHCND:ARM00087645
+## 329                          DOLORES AIRPORT, AR GHCND:ARM00087648
+## 330                            PIGUE AIRPORT, AR GHCND:ARM00087679
+## 331                             TRES ARROYOS, AR GHCND:ARM00087688
+## 332                             RIO COLORADO, AR GHCND:ARM00087736
+## 333                  SAN CARLOS DE BARILOCHE, AR GHCND:ARM00087765
+## 334                               MAQUINCHAO, AR GHCND:ARM00087774
+## 335                   SAN ANTONIO OESTE AERO, AR GHCND:ARM00087784
+## 336                      GOBERNADOR CASTELLO, AR GHCND:ARM00087791
+## 337                                EL BOLSON, AR GHCND:ARM00087800
+## 338                           PASO DE INDIOS, AR GHCND:ARM00087814
+## 339                            P.MADRYN AERO, AR GHCND:ARM00087823
+## 340                    PERITO MORENO AIRPORT, AR GHCND:ARM00087852
+## 341                      GOBERNADOR GREGORES, AR GHCND:ARM00087880
+## 342                           PUERTO DESEADO, AR GHCND:ARM00087896
+## 343                   LAGO ARGENTINO AIRPORT, AR GHCND:ARM00087903
+## 344                         EL CALAFATE AERO, AR GHCND:ARM00087904
+## 345                               SAN JULIAN, AR GHCND:ARM00087909
+## 346                               RIO GRANDE, AR GHCND:ARM00087934
+## 347              USHUAIA MALVINAS ARGENTINAS, AR GHCND:ARM00087938
+## 348                   GEORGETOWN POST OFFICE, AS GHCND:ASM00094275
+## 349                            WILLIS ISLAND, AS GHCND:ASM00094299
+## 350                               JERVIS BAY, AS GHCND:ASM00094940
+## 351                    LORD HOWE ISLAND AERO, AS GHCND:ASM00094995
+## 352                        HEARD ISLAND THE SPIT GHCND:ASM00094997
+## 353                         MACQUARIE ISLAND, AS GHCND:ASM00094998
+## 354                  HEARD ISLAND ATLAS COVE, HM GHCND:ASM00095997
+## 355                                 KARUNJIE, AS GHCND:ASN00001000
+## 356                              OOMBULGURRI, AS GHCND:ASN00001001
+## 357                             PAGO MISSION, AS GHCND:ASN00001003
+## 358                                 KUNMUNYA, AS GHCND:ASN00001004
+## 359                             WYNDHAM PORT, AS GHCND:ASN00001005
+## 360                             WYNDHAM AERO, AS GHCND:ASN00001006
+## 361                         TROUGHTON ISLAND, AS GHCND:ASN00001007
+## 362                 MOUNT ELIZABETH OLD SITE, AS GHCND:ASN00001008
+## 363                                 KURI BAY, AS GHCND:ASN00001009
+## 364                                    THEDA, AS GHCND:ASN00001010
+## 365                              PANTA DOWNS, AS GHCND:ASN00001011
+## 366                         MITCHELL PLATEAU, AS GHCND:ASN00001012
+## 367                                  WYNDHAM, AS GHCND:ASN00001013
+## 368                               EMMA GORGE, AS GHCND:ASN00001014
+## 369                     CARSON RIVER STATION, AS GHCND:ASN00001016
+## 370                              NULLA NULLA, AS GHCND:ASN00001017
+## 371                          MOUNT ELIZABETH, AS GHCND:ASN00001018
+## 372                                KALUMBURU, AS GHCND:ASN00001019
+## 373                                 TRUSCOTT, AS GHCND:ASN00001020
+## 374                        KALUMBURU MISSION, AS GHCND:ASN00001021
+## 375                   WYNDHAM SIX MILE HOTEL, AS GHCND:ASN00001022
+## 376                               EL QUESTRO, AS GHCND:ASN00001023
+## 377                                ELLENBRAE, AS GHCND:ASN00001024
+## 378                                  DOONGAN, AS GHCND:ASN00001025
+## 379                   DRYSDALE RIVER STATION, AS GHCND:ASN00001026
+## 380                             DIGGERS REST, AS GHCND:ASN00001027
+## 381                              HOME VALLEY, AS GHCND:ASN00001028
+## 382                   KIMBERLEY COASTAL CAMP, AS GHCND:ASN00001030
+## 383                              FARAWAY BAY, AS GHCND:ASN00001031
+## 384                               MCGOWAN ISLAND GHCND:ASN00001032
+## 385                         PARRY CREEK FARM, AS GHCND:ASN00001035
+## 386                              ALICE DOWNS, AS GHCND:ASN00002000
+## 387                             ARGYLE DOWNS, AS GHCND:ASN00002001
+## 388                            BOHEMIA DOWNS, AS GHCND:ASN00002002
+## 389                                BOW RIVER, AS GHCND:ASN00002003
+## 390                                GLEN HILL, AS GHCND:ASN00002004
+## 391                             CARLTON HILL, AS GHCND:ASN00002005
+## 392                                    ASCOT, AS GHCND:ASN00002006
+## 393                     DUNHAM RIVER STATION, AS GHCND:ASN00002007
+## 394                         FLORA VALLEY OLD, AS GHCND:ASN00002008
+## 395                               GIBB RIVER, AS GHCND:ASN00002009
+## 396                             GORDON DOWNS, AS GHCND:ASN00002010
+## 397                          OLD HALLS CREEK, AS GHCND:ASN00002011
+## 398                      HALLS CREEK AIRPORT, AS GHCND:ASN00002012
+## 399                          IVANHOE STATION, AS GHCND:ASN00002013
+## 400                    KIMBERLEY RES.STATION, AS GHCND:ASN00002014
+## 401                                   LAMBOO, AS GHCND:ASN00002015
+## 402                                LISSADELL, AS GHCND:ASN00002016
+## 403                             LOUISA DOWNS, AS GHCND:ASN00002017
+## 404                              MABEL DOWNS, AS GHCND:ASN00002018
+## 405                   MARGARET RIVER STATION, AS GHCND:ASN00002019
+## 406                              MOOLA BULLA, AS GHCND:ASN00002020
+## 407                            MOUNT AMHURST, AS GHCND:ASN00002021
+## 408                           MOUNT WINIFRED, AS GHCND:ASN00002022
+## 409                                NICHOLSON, AS GHCND:ASN00002023
+## 410                                ORD RIVER, AS GHCND:ASN00002024
+## 411                           ROCKHOLE DOWNS, AS GHCND:ASN00002025
+## 412                              RUBY PLAINS, AS GHCND:ASN00002026
+## 413                           SPEEWA STATION, AS GHCND:ASN00002027
+## 414                             SPRING CREEK, AS GHCND:ASN00002028
+## 415                              STURT CREEK, AS GHCND:ASN00002029
+## 416                                   YULMBU, AS GHCND:ASN00002030
+## 417                              TEXAS DOWNS, AS GHCND:ASN00002031
+## 418                                   WARMUN, AS GHCND:ASN00002032
+## 419                             TURNER RIVER, AS GHCND:ASN00002033
+## 420                                   ELVIRE, AS GHCND:ASN00002034
+## 421                                GREENVALE, AS GHCND:ASN00002035
+## 422                 OLD MORNINGTON HOMESTEAD, AS GHCND:ASN00002036
+## 423                            VIOLET VALLEY, AS GHCND:ASN00002037
+## 424                                KUNUNURRA, AS GHCND:ASN00002038
+## 425                             DIMOND GORGE, AS GHCND:ASN00002039
+## 426                           SAUNDERS CREEK, AS GHCND:ASN00002040
+## 427           ORD RIVER REGENERATION STATION, AS GHCND:ASN00002041
+## 428                                  GLENROY, AS GHCND:ASN00002042
+## 429                             MOUNT KRAUSS, AS GHCND:ASN00002043
+## 430                       LAKE ARGYLE RESORT, AS GHCND:ASN00002044
+## 431                                 ADA VALE, AS GHCND:ASN00002046
+## 432                            BEDFORD DOWNS, AS GHCND:ASN00002047
+## 433                             FLORA VALLEY, AS GHCND:ASN00002048
+## 434                             SOPHIE DOWNS, AS GHCND:ASN00002049
+## 435                               SPRINGVALE, AS GHCND:ASN00002050
+## 436                                BILLILUNA, AS GHCND:ASN00002051
+## 437                  TROPICAL FARM ORD RIVER, AS GHCND:ASN00002052
+## 438                                LANSDOWNE, AS GHCND:ASN00002053
+## 439                              LEWIS CREEK, AS GHCND:ASN00002055
+## 440                           KUNUNURRA AERO, AS GHCND:ASN00002056
+## 441              BUNGLE BUNGLE NATIONAL PARK, AS GHCND:ASN00002057
+## 442                                   EUROTO, AS GHCND:ASN00002058
+## 443                      RUBY CREEK GOLDMINE, AS GHCND:ASN00002059
+## 444                            KINGSTON REST, AS GHCND:ASN00002060
+## 445                         CARRANYA STATION, AS GHCND:ASN00002061
+## 446                                FOX RIVER, AS GHCND:ASN00002062
+## 447                              LARRANGANNI, AS GHCND:ASN00002063
+## 448                         ARGYLE AERODROME, AS GHCND:ASN00002064
+## 449                               MORNINGTON, AS GHCND:ASN00002065
+## 450                               CARRANYA 2, AS GHCND:ASN00002066
+## 451                     KUNUNURRA CHECKPOINT, AS GHCND:ASN00002067
+## 452                                  KACHANA, AS GHCND:ASN00002069
+## 453                           PHILLIPS RANGE, AS GHCND:ASN00002070
+## 454                   HALLS CREEK COMPARISON, AS GHCND:ASN00002071
+## 455                                    BULKA, AS GHCND:ASN00002075
+## 456                               BEAGLE BAY, AS GHCND:ASN00003000
+## 457                            COUNTRY DOWNS, AS GHCND:ASN00003001
+## 458                           BROOME POST OFFICE GHCND:ASN00003002
+## 459                           BROOME AIRPORT, AS GHCND:ASN00003003
+## 460                             CAPE LEVEQUE, AS GHCND:ASN00003004
+## 461                        FAIRFIELD STATION, AS GHCND:ASN00003005
+## 462                   FITZROY CROSSING COMP., AS GHCND:ASN00003006
+## 463                        DERBY POST OFFICE, AS GHCND:ASN00003007
+## 464                                ELLENDALE, AS GHCND:ASN00003008
+## 465                            JUBILEE DOWNS, AS GHCND:ASN00003009
+## 466                          KIMBERLEY DOWNS, AS GHCND:ASN00003010
+## 467                            LEOPOLD DOWNS, AS GHCND:ASN00003011
+## 468                          LIVERINGA UPPER, AS GHCND:ASN00003012
+## 469                                 LULUIGUI, AS GHCND:ASN00003013
+## 470                             GOGO STATION, AS GHCND:ASN00003014
+## 471                                     MEDA, AS GHCND:ASN00003015
+## 472                           MOUNT ANDERSON, AS GHCND:ASN00003016
+## 473                      MOUNT HOUSE STATION, AS GHCND:ASN00003017
+## 474                                 MYROODAH, AS GHCND:ASN00003018
+## 475                             NAPIER DOWNS, AS GHCND:ASN00003019
+## 476                                  NERRIMA, AS GHCND:ASN00003020
+## 477                               NOONKANBAH, AS GHCND:ASN00003021
+## 478                            QUANBUN DOWNS, AS GHCND:ASN00003022
+## 479                           ROEBUCK PLAINS, AS GHCND:ASN00003023
+## 480                                  UDIALLA, AS GHCND:ASN00003024
+## 481                              COCKATOO ISLAND GHCND:ASN00003025
+## 482                                    YEEDA, AS GHCND:ASN00003026
+## 483                             FOSSIL DOWNS, AS GHCND:ASN00003027
+## 484                              ANNA PLAINS, AS GHCND:ASN00003028
+## 485                            FRAZIER DOWNS, AS GHCND:ASN00003029
+## 486                               BIDYADANGA, AS GHCND:ASN00003030
+## 487                        LOMBADINA MISSION, AS GHCND:ASN00003031
+## 488                               DERBY AERO, AS GHCND:ASN00003032
+## 489                                    BLINA, AS GHCND:ASN00003033
+## 490                                    MUNJA, AS GHCND:ASN00003035
+## 491                    BROOME QUARANTINE STATION GHCND:ASN00003036
+## 492                               MUNKAYARRA, AS GHCND:ASN00003037
+## 493                             SILENT GROVE, AS GHCND:ASN00003039
+## 494                                CAMBALLIN, AS GHCND:ASN00003040
+## 495                            KILTO STATION, AS GHCND:ASN00003041
+## 496                                 TALGARNO, AS GHCND:ASN00003042
+## 497                          CHRISTMAS CREEK, AS GHCND:ASN00003043
+## 498                         BROOKING SPRINGS, AS GHCND:ASN00003044
+## 499                                   CALANGADIE GHCND:ASN00003045
+## 500                                CHERRABUN, AS GHCND:ASN00003046
+##  [ reached getOption(&quot;max.print&quot;) -- omitted 499 rows ]</code></pre>
+<p>Now, the data is downloaded by specifying a station and a period of time. I select the station “GHCND:US1FLSR0004”, located in florida, and obtain data since the year 2009 up to 2018. because the API doesn’t allow to download data for a period longer than 10 years.</p>
+<pre class="r"><code>  out &lt;- ncdc(datasetid=&#39;GHCNDMS&#39;,stationid = &quot;GHCND:AE000041196&quot;,  startdate = &#39;2009-01-01&#39;, enddate = &#39;2018-01-01&#39;, limit = 1000)</code></pre>
+<p>The variable datatype contains the specific measurement for which data is gathered. The details are found on the following <a href="https://www.ncdc.noaa.gov/cdo-web/datasets/GHCNDMS/locations/CITY:US120032/detail">link</a></p>
+<p>I selected Monthly Mean maximum temperature (MMXT), and plot it below per month.</p>
+<pre class="r"><code>out$data %&gt;% 
+  filter(datatype == &quot;MMXT&quot;) %&gt;% 
+  select(date, value) %&gt;% 
+  mutate(date = ymd_hms(date), temp = value/10) %&gt;% 
+  select(-value) %&gt;% 
+  ggplot(aes(x = date, y = temp)) + geom_line()</code></pre>
+<p><img src="noah_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

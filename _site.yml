@@ -13,7 +13,7 @@ navbar:
     menu: 
       - text: English
         href: CVEnglish.pdf
-      - text: Español
+      - text: Spanish
         href: CVEspañol.pdf
   - text: Contact
     href: contact.html
