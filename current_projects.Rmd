@@ -1,0 +1,12 @@
+---
+title: "Current Projects"
+---
+
+#### [Customer Churn Prediction: An application of Logistic Regression](http://sdhector.github.io/churn_modelling.html) :
+
+Here I am using a [sample dataset](https://www.ibm.com/communities/analytics/watson-analytics-blog/using-customer-behavior-data-to-improve-customer-retention/) from IBM Watson Analytics to replicate the Churn Modelling project I did at my previous employer, Claro. The dataset has a Class-Imbalance problem, and I solve it by Under Sampling the dominant class. I perform an exploratory analysis in order to identify meaningful predictors of churn, and then use a Logistic Regression to predict who churned and who didn't. Finally, I evaluate the model's performance with by cross-validating with a hold-out sample. 
+
+
+#### [(Working Paper) The effect of Weather and Economic variables on Customer Satisfaction Indices](http://sdhector.github.io/cs_paper.html): 
+
+This is more of an academic project. I am working with a former colleague to publish a paper discussing something we found using internal data when I was working at Claro. Customer Satisfaction Indices -- including the infamous NPS (Net Promoter Score) -- should not be taken at face value without first correcting for several biases; amongst them is the effect of weather patterns across time. 

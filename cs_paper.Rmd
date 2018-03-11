@@ -4,183 +4,50 @@ output:
   html_document:
     df_print: paged
 ---
-
-## Satisfaction data
-I have downloaded the data from [hcahpsonline](http://www.hcahpsonline.org/en/summary-analyses/). The tables were in PDF format, as in this [example](http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/results/2017-12_summary-analyses_state-results.pdf). In order to extract these tables, I used the function extract_areas from the package tabulizer, which essentially asks me to select the area where the table is and then it saves it as list object with a data frame per page in the document. 
-
-The process is not perfect, but I have 36 files containing the quarterly data ranging from October 2006 to March 2017. I still need to clean it, though. 
-
-```{r echo = FALSE, eval=FALSE}
-library("tabulizer")
-
-link1 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/march-2008-public-report-october-2006--june-2007-discharges.pdf"
-link2 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/summer-2008-public-report-october-2006--september-2007-discharges.pdf"
-link3 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/september-2008-public-report-january-2007--december-2007-discharges.pdf"
-link4 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/december-2008-public-report-april-2007--march-2008-discharges.pdf"
-link5 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/march-2009-public-report-july-2007--june-2008-discharges.pdf"
-link6 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/june-2009-public-report-october-2007--september-2008-discharges.pdf"
-link7 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/september-2009-public-report-january-2008--december-2008-discharges.pdf"
-link8 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/december-2009-public-report-april-2008--march-2009-discharges.pdf"
-link9 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/march-2010-public-report-july-2008--june-2009-discharges.pdf"
-link10 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/july-2010-public-report-october-2008--september-2009-discharges.pdf"
-link11 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/september-2010-public-report-january-2009--december-2009-discharges.pdf"
-link12 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/december-2010-public-report-april-2009--march-2010-discharges.pdf"
-link13 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/april-2011-public-report-july-2009--june-2010-discharges.pdf"
-link14 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/summer-2011-public-report-october-2009--september-2010-discharges.pdf"
-link15 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/october-2011-public-report-january-2010--december-2010-discharges.pdf"
-link16 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/january-2012-public-report-april-2010---march-2011-discharges.pdf"
-link17 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/spring-2012-public-report-july-2010---june-2011-discharges.pdf"
-link18 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/july-2012-public-report-october-2010---september-2011-discharges.pdf"
-link19 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/october-2012-public-report-january-2011---december-2011-discharges.pdf"
-link20 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/december-2012-public-report-april-2011---march-2012-discharges.pdf"
-link21 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/april-2013-public-report-july-2011---june-2012-discharges.pdf"
-link22 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/july-2013-public-report-october-2011---september-2012-discharges.pdf"
-link23 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/october-december-2013-public-report-january-2012---december-2012-discharges.pdf"
-link24 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/december-2013-january-2014-public-report-april-2012---march-2013-discharges.pdf"
-link25 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/april-2015-public-report-july-2013-june-2014-discharges.pdf"
-link26 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/july-2015-public-report-october-2013-to-september-2014-discharges.pdf"
-link27 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/october-2015-public-report-january-2014-to-december-2014-discharges.pdf"
-link28 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/december-2015-public-report-april-2014-to-march-2015-discharges.pdf"
-link29 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/april-may-2016-public-report-july-2014---june-2015-discharges.pdf"
-link30 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/july-2016-public-report-october-2014---september-2015-discharges.pdf"
-link31 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/october-2016-public-report-january-2015---december-2015-discharges.pdf"
-link32 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/december-2016-public-report-april-2015---march-2016-discharges.pdf"
-link33 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/april-2017-public-report-july-2015---june-2016-discharges.pdf"
-link34 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/summary-results/july-2017-public-report-october-2015--september-2016-discharges.pdf"
-link35 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/results/2017-10_summary-analyses_states-results.pdf"
-link36 <- "http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/results/2017-12_summary-analyses_state-results.pdf"
-download.file(link1, "file1.pdf",mode = "wb")
-download.file(link2, "file2.pdf",mode = "wb")
-download.file(link3, "file3.pdf",mode = "wb")
-download.file(link4, "file4.pdf",mode = "wb")
-download.file(link5, "file5.pdf",mode = "wb")
-download.file(link6, "file6.pdf",mode = "wb")
-download.file(link7, "file7.pdf",mode = "wb")
-download.file(link8, "file8.pdf",mode = "wb")
-download.file(link9, "file9.pdf",mode = "wb")
-download.file(link10, "file10.pdf",mode = "wb")
-download.file(link11, "file11.pdf",mode = "wb")
-download.file(link12, "file12.pdf",mode = "wb")
-download.file(link13, "file13.pdf",mode = "wb")
-download.file(link14, "file14.pdf",mode = "wb")
-download.file(link15, "file15.pdf",mode = "wb")
-download.file(link16, "file16.pdf",mode = "wb")
-download.file(link17, "file17.pdf",mode = "wb")
-download.file(link18, "file18.pdf",mode = "wb")
-download.file(link19, "file19.pdf",mode = "wb")
-download.file(link20, "file20.pdf",mode = "wb")
-download.file(link21, "file21.pdf",mode = "wb")
-download.file(link22, "file22.pdf",mode = "wb")
-download.file(link23, "file23.pdf",mode = "wb")
-download.file(link24, "file24.pdf",mode = "wb")
-download.file(link25, "file25.pdf",mode = "wb")
-download.file(link26, "file26.pdf",mode = "wb")
-download.file(link27, "file27.pdf",mode = "wb")
-download.file(link28, "file28.pdf",mode = "wb")
-download.file(link29, "file29.pdf",mode = "wb")
-download.file(link30, "file30.pdf",mode = "wb")
-download.file(link31, "file31.pdf",mode = "wb")
-download.file(link32, "file32.pdf",mode = "wb")
-download.file(link33, "file33.pdf",mode = "wb")
-download.file(link34, "file34.pdf",mode = "wb")
-download.file(link35, "file35.pdf",mode = "wb")
-download.file(link36, "file36.pdf",mode = "wb")
-
-file1 <- extract_areas("file1.pdf", method = "data.frame")
-file2 <- extract_areas("file2.pdf", method = "data.frame")
-file3 <- extract_areas("file3.pdf", method = "data.frame")
-file4 <- extract_areas("file4.pdf", method = "data.frame")
-file5 <- extract_areas("file5.pdf", method = "data.frame")
-file6 <- extract_areas("file6.pdf", method = "data.frame")
-file7 <- extract_areas("file7.pdf", method = "data.frame")
-file8 <- extract_areas("file8.pdf", method = "data.frame")
-file9 <- extract_areas("file9.pdf", method = "data.frame")
-file10 <- extract_areas("file10.pdf", method = "data.frame")
-file11 <- extract_areas("file11.pdf", method = "data.frame")
-file12 <- extract_areas("file12.pdf", method = "data.frame")
-file13 <- extract_areas("file13.pdf", method = "data.frame")
-file14 <- extract_areas("file14.pdf", method = "data.frame")
-file15 <- extract_areas("file15.pdf", method = "data.frame")
-file16 <- extract_areas("file16.pdf", method = "data.frame")
-file17 <- extract_areas("file17.pdf", method = "data.frame")
-file18 <- extract_areas("file18.pdf", method = "data.frame")
-file19 <- extract_areas("file19.pdf", method = "data.frame")
-file20 <- extract_areas("file20.pdf", method = "data.frame")
-file21 <- extract_areas("file21.pdf", method = "data.frame")
-file22 <- extract_areas("file22.pdf", method = "data.frame")
-file23 <- extract_areas("file23.pdf", method = "data.frame")
-file24 <- extract_areas("file24.pdf", method = "data.frame")
-file25 <- extract_areas("file25.pdf", method = "data.frame")
-file26 <- extract_areas("file26.pdf", method = "data.frame")
-file27 <- extract_areas("file27.pdf", method = "data.frame")
-file28 <- extract_areas("file28.pdf", method = "data.frame")
-file29 <- extract_areas("file29.pdf", method = "data.frame")
-file30 <- extract_areas("file30.pdf", method = "data.frame")
-file31 <- extract_areas("file31.pdf", method = "data.frame")
-file32 <- extract_areas("file32.pdf", method = "data.frame")
-file33 <- extract_areas("file33.pdf", method = "data.frame")
-file34 <- extract_areas("file34.pdf", method = "data.frame")
-file35 <- extract_areas("file35.pdf", method = "data.frame")
-file36 <- extract_areas("file36.pdf", method = "data.frame")
-
-df1 <- rbind( as.data.frame(file1[1]),as.data.frame(file1[2]))
-df2 <- rbind( as.data.frame(file2[1]),as.data.frame(file2[2]))
-df3 <- rbind( as.data.frame(file3[1]),as.data.frame(file3[2]))
-df4 <- rbindlist(list(as.data.frame(file4[1]),as.data.frame(file4[2])),use.names = FALSE)
-df5 <- rbind( as.data.frame(file5[1]),as.data.frame(file5[2])) #
-df6 <- rbind( as.data.frame(file6[1]),as.data.frame(file6[2]))
-df7 <- rbind( as.data.frame(file7[1]),as.data.frame(file7[2])) #
-df8 <- rbind( as.data.frame(file8[1]),as.data.frame(file8[2])) #
-df9 <- rbind( as.data.frame(file9[1]),as.data.frame(file9[2])) #
-df10 <- rbind( as.data.frame(file10[1]),as.data.frame(file10[2])) #
-df11 <- rbind( as.data.frame(file11[1]),as.data.frame(file11[2]))
-df12 <- rbind( as.data.frame(file12[1]),as.data.frame(file12[2]))
-df13 <- rbind( as.data.frame(file13[1]),as.data.frame(file13[2]))
-df14 <- rbind( as.data.frame(file14[1]),as.data.frame(file14[2]))
-df15 <- rbind( as.data.frame(file15[1]),as.data.frame(file15[2]))
-df16 <- rbind( as.data.frame(file16[1]),as.data.frame(file16[2]))
-df17 <- rbind( as.data.frame(file17[1]),as.data.frame(file17[2]))
-df18 <- rbind( as.data.frame(file18[1]),as.data.frame(file18[2]))
-df19 <- rbind( as.data.frame(file19[1]),as.data.frame(file19[2]))
-df20 <- rbind( as.data.frame(file20[1]),as.data.frame(file20[2]))
-df21 <- rbind( as.data.frame(file21[1]),as.data.frame(file21[2]))
-df22 <- rbind( as.data.frame(file22[1]),as.data.frame(file22[2]))
-df23 <- rbind( as.data.frame(file23[1]),as.data.frame(file23[2])) 
-df24 <- rbind( as.data.frame(file24[1]),as.data.frame(file24[2]))
-df25 <- rbind( as.data.frame(file25[1]),as.data.frame(file25[2]))
-df26 <- rbind( as.data.frame(file26[1]),as.data.frame(file26[2]))
-df27 <- rbind( as.data.frame(file27[1]),as.data.frame(file27[2]))
-df28 <- rbind( as.data.frame(file28[1]),as.data.frame(file28[2]))
-df29 <- rbind( as.data.frame(file29[1]),as.data.frame(file29[2]))
-df30 <- rbind( as.data.frame(file30[1]),as.data.frame(file30[2]))
-df31 <- rbind( as.data.frame(file31[1]),as.data.frame(file31[2]))
-df32 <- rbind( as.data.frame(file32[1]),as.data.frame(file32[2]))
-df33 <- rbind( as.data.frame(file33[1]),as.data.frame(file33[2]))
-df34 <- rbind( as.data.frame(file34[1]),as.data.frame(file34[2]))
-df35 <- rbind( as.data.frame(file35[1]),as.data.frame(file35[2]))
-df36 <- rbind( as.data.frame(file36[1]),as.data.frame(file36[2]))
+# Weather Data using the Rnoaa API interface. 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("rnoaa")
+library(tidyverse)
+key = "FdMOZKERTPvNizDKlZDCFRcfhNbUtRFO"
+options(noaakey = key)
 ```
 
-## Weather data
-The weather data should start at least 2 years prior the beggining of the satisfaction data. That is, October 2004. I will start with January 2004. 
+The list of data sets available are shown below. The most important one is GSOM because it facilitates the data acquisition, since it already calculates the average temperature for the month. A lot less computation to do. 
 
-The data also has to be a the state level. This means that we need the data for the city's in the state that contain at least 80% of the population of the state. 
+```{r}
+datasets <- ncdc_datasets()$data
 
-There is a package called "rwunderground" which allows for easy extraction of historical data from the website. It is free, however, Wunderground limits the number of "calls" to 10 per minute and 500 per day. This means that, to get the data we want for free, we will have to pay with time. A call appears to be a day, so that's a lot. 
-
-Considering we need 13 years, for 50 states, each with at least 3 cities, it will take `r (13*365*50*3)/500/30` months to download this data. 
-
-```{r eval = FALSE}
-library(rwunderground)
-library(XML)
-library(RCurl)
-library(rlist)
-WApiKey <- "4226731577c71f1a"
-
-data <- history_daily(set_location(territory = "New York", city = "New York"), date = "20040101",key = WApiKey)
-data <- history_range(set_location(territory = "New York", city = "New York"), date_start = "200401", date_end = "200401", key = WApiKey)
-
-link <- "https://www.wunderground.com/history/airport/KNYC/2004/1/1/CustomHistory.html?dayend=1&monthend=1&yearend=2005&req_city=&req_state=&req_statename=&reqdb.zip=&reqdb.magic=&reqdb.wmo="
-readHTMLTable(getURL(link), which = 2)
+datasets %>% 
+  select(name, id, mindate, maxdate)
 ```
+
+It is also possible to get the different stations available. However, it is also possible to specify the lat and lon, or the city. 
+```{r}
+location <- ncdc_stations(datasetid='GHCND', limit = 20)
+location$data %>% select(name, id)
+```
+
+Now, the data is downloaded by specifying a station and a period of time. I select the station "GHCND:US1FLSR0004", located in florida, and obtain data since the year 2009 up to 2018. because the API doesn't allow to download data for a period longer than 10 years. 
+
+```{r}
+
+  out <- ncdc(datasetid='GHCNDMS',stationid = "GHCND:AE000041196",  startdate = '2009-01-01', enddate = '2018-01-01', limit = 1000)
+
+```
+
+The variable datatype contains the specific measurement for which data is gathered. The details are found on the following [link](https://www.ncdc.noaa.gov/cdo-web/datasets/GHCNDMS/locations/CITY:US120032/detail)
+
+I selected Monthly Mean maximum temperature (MMXT), and plot it below per month. 
+```{r}
+out$data %>% 
+  filter(datatype == "MMXT") %>% 
+  select(date, value) %>% 
+  mutate(date = ymd_hms(date), temp = value/10) %>% 
+  select(-value) %>% 
+  ggplot(aes(x = date, y = temp)) + geom_line()
+
+```
+
+
 

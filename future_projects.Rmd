@@ -1,0 +1,27 @@
+---
+title: "Future Projects"
+---
+#### [Determinants of Brand Choice in the Mobile Telecom Category: An application of Conjoint Analysis and Discrete Choice Models]()
+
+Here I will design a conjoint experiment and use Logistic Regression to estimate the impact of the features on consumer choice. The beautiful thing about this project is that I can collect the data myself through personal or internet surveys. 
+
+#### [Forecasting adoption of an app on a new market]()
+
+In this case, I will use a Bass Diffusion Model to forecast the adoption of a app on a new country, using data of the launch on a different country. While there are specific marketing related reasons why the app was download more often for a short period of time, the general pattern can be fit by a Bass Model. 
+
+#### [A Marketing KPI Dashboard]()
+
+Using an [IBM Watson sample dataset](https://www.ibm.com/communities/analytics/watson-analytics-blog/analyze-sales-effectivness/), I will construct a Static Dashboard using R Markdown -- instead of Watson -- which is meant to represent the KPI reporting I used to do at Claro for the Fixed Line Internet Line of Business. 
+
+#### [The (lagged) effect of advertising on sales: an application of Marketing Mix Modelling]()
+
+I have already used done something similar to this in [another project](http://sdhector.github.io/Case1_Advertising_Budget_Optimization.nb.html), but this time I want to go deeper into the MMM methodology; specifically with respect to the lagged effect of advertising. There data for this comes from the book [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL).
+
+#### [An Optimal Store Location Model]()
+
+I created this model in order to answer the question of which stores my previous employer should close. I basically defined the territory in terms of the telecommunication towers of the company, and iteratively decided where to open a store. The result is an optimal network of stores, and any store not in it should be closed. 
+
+#### [Identifying the Effect of Immigrant Students on Native Australian Students]()
+
+Here I replicate a microeconometric analysis I did during my Master's, where I used a Fixed-Effects model to identify the effect the share of Immigrant Students has on the academic performance of Native Students. I explain why this specific model was needed, and what is the rationale for why the effect exists. 
+

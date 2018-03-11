@@ -5,10 +5,16 @@ navbar:
   left:
   - text: Home
     href: index.html
-  - text: Portfolio
-    href: portfolio.html
-  - text: About me
-    href: about.html
+  - text: Portfolio / Work Samples
+    menu: 
+      - text: Finished Projects
+        href: portfolio.html
+      - text: Current Projects
+        href: current_projects.html
+      - text: Future Projects
+        href: future_projects.html
+  - text: Experience
+    href: past_projects.html
   - text: PDF CV/Resume
     menu: 
       - text: English

@@ -1,0 +1,50 @@
+---
+title: "Past Projects"
+---
+
+## Senior Market Intelligence Analyst, Claro, Dominican Republic (06/2012 -09/2015)
+
+Claro is the leading Telecommunications Service Provider in the Dominican Republic. As a Senior Market Intelligence Analyst, I was in charge of the outward looking information needs of the company - specifically for the Fixed Internet Line of Business. This included designing and executing quantitative market research projects for internal clients (Marketing, Advertising, Product and Customer Service departments) as well as creating and supporting monthly reports of marketing metrics such as Brand Awareness and Customer Satisfaction. Aside from these tasks, I was also involved in the following projects: 
+
+#### Churn Prediction 
+Using customers' demographic and behavioral data, I estimated a Logistic
+Regression to forecast the probability that a post-paid mobile subscriber would cancel their contract within the next three months.
+
+#### Marketing Mix Modelling 
+I estimated the effect of advertising spending and other marketing mix variables on mobile sales using Linear Regression. The model was used to determine the advertising half-life, the ROI of advertising spending, and the elasticity of sales to advertising.
+
+#### Brand Equity Measurement 
+Using a fractional factorial experiment design, I designed a survey where respondents chose among alternative mobile plans with, among other things, different brands of telecommunications companies. Using their choices as dependent variable, I used Logistic Regression to estimate a brand’s Brand Equity as the probability of being selected ceteris paribus. I presented this finding to management as the Price Premium – the additional amount customers are
+willing to pay for a brand.
+
+#### Optimal Store Distribution 
+Using the location of the network towers as proxy for space, along with their respective neighboring population, I designed an optimization algorithm to determine the distribution of stores that maximizes reach and minimized the number of stores.
+
+#### Drivers of Customer Satisfaction Indices 
+Using historical data on customer satisfaction indices as dependent variable, I used Linear Regression to find the variation across time was mostly explained by variations in economic and weather data, and across companies by demographic variables. 
+
+## Freelance Quantitative Market Researcher, Dominican Republic (01/2014 - 12/2017)
+
+I worked with two small market research agencies - [Lupa RD](http://lupard.com/) and [Quali Global](http://www.qualiglobal.com.do/) - leading their quantitative projects. I advised them on the appropriate methodology to address the client’s information needs, designed the sample and questionnaire, coordinated with the surveying team to meet deadlines, analyzed the data, created the report and presented the findings to the stakeholders. Some of the projects I executed for them were the following: 
+
+  * Brand Awareness
+  * Advertising Awareness
+  * Purchase habits
+  * Brand Choice Drivers 
+  * Public Opinion
+  * Voting Intentions
+  * Customer Satisfaction
+  * Lifestyle habits
+
+## Projects while studying the MSc. in Economics (09/2015 - 092017)
+
+#### Master's Thesis: Business Cycle Asymmetries and Loss Aversion 
+Using a DSGE model with a utility function in line with Prospect Theory, I examined the hypothesis of whether asymmetric business cycles could be explained by a representative household characterized by Loss Aversion.
+
+#### The effect of Immigrant Students on the School Learning Environment of Australian Native Students 
+Using data from TIMMS 2011, I examined whether 4th grade children in classrooms with a higher
+share of immigrant students were more likely to experience bullying. Since immigrants are nonrandomly allocated to high density, low income areas, this creates an endogeneity problem that is solved by focusing on the variation within schools only, using a (schools) fixed-effects model. 
+
+#### The Effect of Expecting to Procrastinate on the Procrastination Behavior of a $\beta\delta$ Agent
+
+I created a theoretical model by combining the inter-temporal preferences of O’donoghue and Rabin (1999) with the intra-temporal reference dependent preferences of Koszegi and Rabin (2006) to examine the behavior of an agent that is faced with the choice of whether or not to procrastinate. 

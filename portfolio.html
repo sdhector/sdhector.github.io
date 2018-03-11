@@ -11,7 +11,7 @@
 
 
 
-<title>Professional Portfolio</title>
+<title>Finished Projects</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -180,11 +180,26 @@ $(document).ready(function () {
         <li>
   <a href="index.html">Home</a>
 </li>
-<li>
-  <a href="portfolio.html">Portfolio</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Portfolio / Work Samples
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="portfolio.html">Finished Projects</a>
+    </li>
+    <li>
+      <a href="current_projects.html">Current Projects</a>
+    </li>
+    <li>
+      <a href="future_projects.html">Future Projects</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="about.html">About me</a>
+  <a href="past_projects.html">Experience</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -216,69 +231,14 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Professional Portfolio</h1>
+<h1 class="title toc-ignore">Finished Projects</h1>
 
 </div>
 
 
-<div id="completed-projects" class="section level2">
-<h2>Completed Projects:</h2>
 <div id="advertising-budget-optimization-an-application-of-marketing-mix-modelling-and-linear-programming" class="section level4">
 <h4><a href="http://sdhector.github.io/advertising_optimization.html">Advertising Budget Optimization: An application of Marketing Mix Modelling and Linear Programming</a> :</h4>
 <p>In this example I show how to use a Least Square regression to estimate the effect that a number of variables – such as the channel, the length of the commercial, the day of the week and the hour – have on sales. Afterwards, I use these results to decide how many commercials to schedule and where, by solving a constrained linear opimization problem using Linear Programming and the lp_solve package.</p>
-</div>
-</div>
-<div id="working-projects" class="section level2">
-<h2>Working Projects:</h2>
-<div id="customer-churn-prediction-an-application-of-logistic-regression" class="section level4">
-<h4><a href="http://sdhector.github.io/churn_modelling.html">Customer Churn Prediction: An application of Logistic Regression</a> :</h4>
-<p>Here I am using a <a href="https://www.ibm.com/communities/analytics/watson-analytics-blog/using-customer-behavior-data-to-improve-customer-retention/">sample dataset</a> from IBM Watson Analytics to replicate the Churn Modelling project I did at my previous employer, Claro. The dataset has a Class-Imbalance problem, and I solve it by Under Sampling the dominant class. I perform an exploratory analysis in order to identify meaningful predictors of churn, and then use a Logistic Regression to predict who churned and who didn’t. Finally, I evaluate the model’s performance with by cross-validating with a hold-out sample.</p>
-</div>
-<div id="the-effect-of-weather-and-economic-variables-on-customer-satisfaction-indices" class="section level4">
-<h4><a href="http://sdhector.github.io/cs_paper.html">The effect of Weather and Economic variables on Customer Satisfaction Indices</a>:</h4>
-<p>This is more of an academic project. I am working with a former colleague to publish a paper discussing something we found using internal data when I was working at Claro. Customer Satisfaction Indices – including the infamous NPS (Net Promoter Score) – should not be taken at face value without first correcting for several biases; amongst them is the effect of weather patterns across time.</p>
-</div>
-</div>
-<div id="upcoming-projects" class="section level2">
-<h2>Upcoming Projects:</h2>
-<div id="a-marketing-kpi-dashboard" class="section level4">
-<h4><a href="">A Marketing KPI Dashboard</a></h4>
-<p>Using an <a href="https://www.ibm.com/communities/analytics/watson-analytics-blog/analyze-sales-effectivness/">IBM Watson sample dataset</a>, I will construct a Static Dashboard using R Markdown – instead of Watson – which is meant to represent the KPI reporting I used to do at Claro for the Fixed Line Internet Line of Business.</p>
-</div>
-<div id="determinants-of-brand-choice-in-the-mobile-telecom-category-an-application-of-conjoint-analysis-and-discrete-choice-models" class="section level4">
-<h4><a href="">Determinants of Brand Choice in the Mobile Telecom Category: An application of Conjoint Analysis and Discrete Choice Models</a></h4>
-<p>Here I will design a conjoint experiment and use Logistic Regression to estimate the impact of the features on consumer choice. The beautiful thing about this project is that I can collect the data myself through personal or internet surveys.</p>
-</div>
-<div id="the-lagged-effect-of-advertising-on-sales-an-application-of-marketing-mix-modelling" class="section level4">
-<h4><a href="">The (lagged) effect of advertising on sales: an application of Marketing Mix Modelling</a></h4>
-<p>I have already used done something similar to this in <a href="http://sdhector.github.io/Case1_Advertising_Budget_Optimization.nb.html">another project</a>, but this time I want to go deeper into the MMM methodology; specifically with respect to the lagged effect of advertising. There data for this comes from the book <a href="http://www-bcf.usc.edu/~gareth/ISL">An Introduction to Statistical Learning</a>.</p>
-</div>
-<div id="an-optimal-store-location-model" class="section level4">
-<h4><a href="">An Optimal Store Location Model</a></h4>
-<p>I created this model in order to answer the question of which stores my previous employer should close. I basically defined the territory in terms of the telecommunication towers of the company, and iteratively decided where to open a store. The result is an optimal network of stores, and any store not in it should be closed.</p>
-</div>
-<div id="forecasting-adoption-of-an-app-on-a-new-market" class="section level4">
-<h4><a href="">Forecasting adoption of an app on a new market</a></h4>
-<p>In this case, I will use a Bass Diffusion Model to forecast the adoption of a app on a new country, using data of the launch on a different country. While there are specific marketing related reasons why the app was download more often for a short period of time, the general pattern can be fit by a Bass Model.</p>
-</div>
-<div id="identifying-the-effect-of-immigrant-students-on-native-australian-students" class="section level4">
-<h4><a href="">Identifying the Effect of Immigrant Students on Native Australian Students</a></h4>
-<p>Here I replicate a microeconometric analysis I did during my Master’s, where I used a Fixed-Effects model to identify the effect the share of Immigrant Students has on the academic performance of Native Students. I explain why this specific model was needed, and what is the rationale for why the effect exists.</p>
-</div>
-<div id="marketing-research-projects" class="section level4">
-<h4><a href="">Marketing Research Projects</a></h4>
-<p>This section is meant to contain a number of examples of simple Marketing Research concepts explained theoretically, and then practically using anonimized data I have available from my previous consulting projects. Some of the topics I cover are:</p>
-<ul>
-<li>Brand Awareness</li>
-<li>Advertising Awareness</li>
-<li>Purchase habits</li>
-<li>Brand Choice Drivers</li>
-<li>Public Opinion</li>
-<li>Voting Intentions</li>
-<li>Customer Satisfaction</li>
-<li>Lifestyle habits</li>
-</ul>
-</div>
 </div>
 
 

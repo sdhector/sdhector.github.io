@@ -181,11 +181,26 @@ $(document).ready(function () {
         <li>
   <a href="index.html">Home</a>
 </li>
-<li>
-  <a href="portfolio.html">Portfolio</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Portfolio / Work Samples
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="portfolio.html">Finished Projects</a>
+    </li>
+    <li>
+      <a href="current_projects.html">Current Projects</a>
+    </li>
+    <li>
+      <a href="future_projects.html">Future Projects</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="about.html">About me</a>
+  <a href="past_projects.html">Experience</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -489,27 +504,27 @@ confusionMatrix(data = predict,reference = Observed)</code></pre>
 ## 
 ##           Reference
 ## Prediction    0    1
-##          0  896  373
-##          1  506 1029
-##                                          
-##                Accuracy : 0.6865         
-##                  95% CI : (0.669, 0.7037)
-##     No Information Rate : 0.5            
-##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16      
-##                                          
-##                   Kappa : 0.373          
-##  Mcnemar&#39;s Test P-Value : 8.498e-06      
-##                                          
-##             Sensitivity : 0.6391         
-##             Specificity : 0.7340         
-##          Pos Pred Value : 0.7061         
-##          Neg Pred Value : 0.6704         
-##              Prevalence : 0.5000         
-##          Detection Rate : 0.3195         
-##    Detection Prevalence : 0.4526         
-##       Balanced Accuracy : 0.6865         
-##                                          
-##        &#39;Positive&#39; Class : 0              
+##          0  896  349
+##          1  506 1053
+##                                           
+##                Accuracy : 0.6951          
+##                  95% CI : (0.6777, 0.7121)
+##     No Information Rate : 0.5             
+##     P-Value [Acc &gt; NIR] : &lt; 2.2e-16       
+##                                           
+##                   Kappa : 0.3902          
+##  Mcnemar&#39;s Test P-Value : 9.55e-08        
+##                                           
+##             Sensitivity : 0.6391          
+##             Specificity : 0.7511          
+##          Pos Pred Value : 0.7197          
+##          Neg Pred Value : 0.6754          
+##              Prevalence : 0.5000          
+##          Detection Rate : 0.3195          
+##    Detection Prevalence : 0.4440          
+##       Balanced Accuracy : 0.6951          
+##                                           
+##        &#39;Positive&#39; Class : 0               
 ## </code></pre>
 </div>
 

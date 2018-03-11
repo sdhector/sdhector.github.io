@@ -1,12 +1,22 @@
 ---
-title: "Welcome to my Professional Website"
+title: "About me"
 --- 
-## A little about me
-My name is Hector Sanchez and I come from the the Dominican Republic. I hold a Bachelor's degree in Marketing, a Specialization of Statistics Applied to Business and a Master of Science in Economics from the University of Konstanz, Germany. 
+The purpose of this website is to serve as an extension of my resumé and to host [my Portfolio](http://sdhector.github.io/portfolio.html), which contains a series of work Samples where I showcase my theoretical and practical knowledge by descrbing my approach to solving a number of problems using R.  
 
-Nowadays, the title that better describes me is of "Quantitative Researcher". Early in my career I learned to use quantitative research techniques in the context of Market Research. I have since expanded my knowledge and could see myself applying it to problems in Marketing, Business, Economic, Social, or Operations Research. Due to my experience with data, I could also find myself in Business Intelligence, Data Analysis, Data Mining, or Data Science. Further, it would be a natural progression from Economics to Quantitative Risk Management, Financial Econometrics, and Macroeconomic Forecasting. 
+As for myself, my name is Hector Sanchez and I come from the the Dominican Republic. I hold a Bachelor's degree in Marketing, a Specialization of Statistics Applied to Business and a Master of Science in Economics from the University of Konstanz, Germany. 
 
-#### [My Portfolio](http://sdhector.github.io/portfolio.html)
-The main purpose of this website is to showcase a number of projects where I exhibit my proficiency with R and with the appropiate methodologies to solve certain problems. Here you can find the projects I have completed, as well as some that are underway. 
+I am a Quantitative Market Researcher with experience designing and executing numerous projects for clients in the Dominican Republic. I can advise on the proper methodology to achieve the client's objectives, design the sampling methodology, the questionnaire or other data collection method, analyze the data and communicate the findings effectively. 
 
-#### [Noaa](http://sdhector.github.io/noah.html)
+Aside of primary data, I am also experienced conducting research using secondary data - most notably using Econometric models for cross-sectional, time-series, and Panel Data. 
+
+The fields where I'm interested in conducting research are the following: 
+
+  - Marketing Research
+  - Operations Research
+  - Economic Research
+  - Finance
+  - Social Research
+
+Given my career path, I can also see myfself in fields such as Quantitative Risk Management, Financial Econometrics, Macroeconomic Forecasting, Business Intelligence, Data Analysis, Data Mining, or Data Science. That last one with an emphasis on the research aspect and less so with the implementation since I do not have the programming skills to do that. 
+
+

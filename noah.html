@@ -181,11 +181,26 @@ $(document).ready(function () {
         <li>
   <a href="index.html">Home</a>
 </li>
-<li>
-  <a href="portfolio.html">Portfolio</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Portfolio / Work Samples
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="portfolio.html">Finished Projects</a>
+    </li>
+    <li>
+      <a href="current_projects.html">Current Projects</a>
+    </li>
+    <li>
+      <a href="future_projects.html">Future Projects</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="about.html">About me</a>
+  <a href="past_projects.html">Experience</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -230,11 +245,11 @@ $(document).ready(function () {
 datasets %&gt;% 
   select(name, id, mindate, maxdate)</code></pre>
 <pre><code>##                           name         id    mindate    maxdate
-## 1              Daily Summaries      GHCND 1763-01-01 2018-03-06
+## 1              Daily Summaries      GHCND 1763-01-01 2018-03-09
 ## 2  Global Summary of the Month       GSOM 1763-01-01 2018-02-01
 ## 3   Global Summary of the Year       GSOY 1763-01-01 2017-01-01
-## 4     Weather Radar (Level II)    NEXRAD2 1991-06-05 2018-03-07
-## 5    Weather Radar (Level III)    NEXRAD3 1994-05-20 2018-03-04
+## 4     Weather Radar (Level II)    NEXRAD2 1991-06-05 2018-03-10
+## 5    Weather Radar (Level III)    NEXRAD3 1994-05-20 2018-03-07
 ## 6      Normals Annual/Seasonal NORMAL_ANN 2010-01-01 2010-01-01
 ## 7                Normals Daily NORMAL_DLY 2010-01-01 2010-12-31
 ## 8               Normals Hourly NORMAL_HLY 2010-01-01 2010-12-31

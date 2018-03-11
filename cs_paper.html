@@ -182,11 +182,26 @@ $(document).ready(function () {
         <li>
   <a href="index.html">Home</a>
 </li>
-<li>
-  <a href="portfolio.html">Portfolio</a>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Portfolio / Work Samples
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="portfolio.html">Finished Projects</a>
+    </li>
+    <li>
+      <a href="current_projects.html">Current Projects</a>
+    </li>
+    <li>
+      <a href="future_projects.html">Future Projects</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="about.html">About me</a>
+  <a href="past_projects.html">Experience</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -223,28 +238,37 @@ $(document).ready(function () {
 </div>
 
 
-<div id="satisfaction-data" class="section level2">
-<h2>Satisfaction data</h2>
-<p>I have downloaded the data from <a href="http://www.hcahpsonline.org/en/summary-analyses/">hcahpsonline</a>. The tables were in PDF format, as in this <a href="http://www.hcahpsonline.org/globalassets/hcahps/summary-analyses/results/2017-12_summary-analyses_state-results.pdf">example</a>. In order to extract these tables, I used the function extract_areas from the package tabulizer, which essentially asks me to select the area where the table is and then it saves it as list object with a data frame per page in the document.</p>
-<p>The process is not perfect, but I have 36 files containing the quarterly data ranging from October 2006 to March 2017. I still need to clean it, though.</p>
+<div id="weather-data-using-the-rnoaa-api-interface." class="section level1">
+<h1>Weather Data using the Rnoaa API interface.</h1>
+<p>The list of data sets available are shown below. The most important one is GSOM because it facilitates the data acquisition, since it already calculates the average temperature for the month. A lot less computation to do.</p>
+<pre class="r"><code>datasets &lt;- ncdc_datasets()$data
+
+datasets %&gt;% 
+  select(name, id, mindate, maxdate)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["id"],"name":[2],"type":["chr"],"align":["left"]},{"label":["mindate"],"name":[3],"type":["chr"],"align":["left"]},{"label":["maxdate"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"Daily Summaries","2":"GHCND","3":"1763-01-01","4":"2018-03-09"},{"1":"Global Summary of the Month","2":"GSOM","3":"1763-01-01","4":"2018-02-01"},{"1":"Global Summary of the Year","2":"GSOY","3":"1763-01-01","4":"2017-01-01"},{"1":"Weather Radar (Level II)","2":"NEXRAD2","3":"1991-06-05","4":"2018-03-10"},{"1":"Weather Radar (Level III)","2":"NEXRAD3","3":"1994-05-20","4":"2018-03-07"},{"1":"Normals Annual/Seasonal","2":"NORMAL_ANN","3":"2010-01-01","4":"2010-01-01"},{"1":"Normals Daily","2":"NORMAL_DLY","3":"2010-01-01","4":"2010-12-31"},{"1":"Normals Hourly","2":"NORMAL_HLY","3":"2010-01-01","4":"2010-12-31"},{"1":"Normals Monthly","2":"NORMAL_MLY","3":"2010-01-01","4":"2010-12-01"},{"1":"Precipitation 15 Minute","2":"PRECIP_15","3":"1970-05-12","4":"2014-01-01"},{"1":"Precipitation Hourly","2":"PRECIP_HLY","3":"1900-01-01","4":"2014-01-01"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
-<div id="weather-data" class="section level2">
-<h2>Weather data</h2>
-<p>The weather data should start at least 2 years prior the beggining of the satisfaction data. That is, October 2004. I will start with January 2004.</p>
-<p>The data also has to be a the state level. This means that we need the data for the city’s in the state that contain at least 80% of the population of the state.</p>
-<p>There is a package called “rwunderground” which allows for easy extraction of historical data from the website. It is free, however, Wunderground limits the number of “calls” to 10 per minute and 500 per day. This means that, to get the data we want for free, we will have to pay with time. A call appears to be a day, so that’s a lot.</p>
-<p>Considering we need 13 years, for 50 states, each with at least 3 cities, it will take 47.45 months to download this data.</p>
-<pre class="r"><code>library(rwunderground)
-library(XML)
-library(RCurl)
-library(rlist)
-WApiKey &lt;- &quot;4226731577c71f1a&quot;
-
-data &lt;- history_daily(set_location(territory = &quot;New York&quot;, city = &quot;New York&quot;), date = &quot;20040101&quot;,key = WApiKey)
-data &lt;- history_range(set_location(territory = &quot;New York&quot;, city = &quot;New York&quot;), date_start = &quot;200401&quot;, date_end = &quot;200401&quot;, key = WApiKey)
-
-link &lt;- &quot;https://www.wunderground.com/history/airport/KNYC/2004/1/1/CustomHistory.html?dayend=1&amp;monthend=1&amp;yearend=2005&amp;req_city=&amp;req_state=&amp;req_statename=&amp;reqdb.zip=&amp;reqdb.magic=&amp;reqdb.wmo=&quot;
-readHTMLTable(getURL(link), which = 2)</code></pre>
+<p>It is also possible to get the different stations available. However, it is also possible to specify the lat and lon, or the city.</p>
+<pre class="r"><code>location &lt;- ncdc_stations(datasetid=&#39;GHCND&#39;, limit = 20)
+location$data %&gt;% select(name, id)</code></pre>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["id"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"ST JOHNS COOLIDGE FIELD, AC","2":"GHCND:ACW00011604"},{"1":"ST JOHNS, AC","2":"GHCND:ACW00011647"},{"1":"SHARJAH INTER. AIRP, AE","2":"GHCND:AE000041196"},{"1":"DUBAI INTERNATIONAL, AE","2":"GHCND:AEM00041194"},{"1":"ABU DHABI INTERNATIONAL, AE","2":"GHCND:AEM00041217"},{"1":"AL AIN INTERNATIONAL, AE","2":"GHCND:AEM00041218"},{"1":"NORTH SALANG, AF","2":"GHCND:AF000040930"},{"1":"HERAT, AF","2":"GHCND:AFM00040938"},{"1":"KABUL INTERNATIONAL, AF","2":"GHCND:AFM00040948"},{"1":"KANDAHAR AIRPORT, AF","2":"GHCND:AFM00040990"},{"1":"ALGER DAR EL BEIDA, AG","2":"GHCND:AG000060390"},{"1":"EL GOLEA, AG","2":"GHCND:AG000060590"},{"1":"IN AMENAS, AG","2":"GHCND:AG000060611"},{"1":"TAMANRASSET, AG","2":"GHCND:AG000060680"},{"1":"ORAN HOPITAL MILITAIRE, AG","2":"GHCND:AGE00135039"},{"1":"ANNABA CAP DE GARDE","2":"GHCND:AGE00147704"},{"1":"ALGIERS VILLE UNIVERSITE","2":"GHCND:AGE00147705"},{"1":"ALGIERS BOUZAREAH, AG","2":"GHCND:AGE00147706"},{"1":"ALGIERS CAP CAXINE, AG","2":"GHCND:AGE00147707"},{"1":"TIZI OUZOU, AG","2":"GHCND:AGE00147708"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>Now, the data is downloaded by specifying a station and a period of time. I select the station “GHCND:US1FLSR0004”, located in florida, and obtain data since the year 2009 up to 2018. because the API doesn’t allow to download data for a period longer than 10 years.</p>
+<pre class="r"><code>  out &lt;- ncdc(datasetid=&#39;GHCNDMS&#39;,stationid = &quot;GHCND:AE000041196&quot;,  startdate = &#39;2009-01-01&#39;, enddate = &#39;2018-01-01&#39;, limit = 1000)</code></pre>
+<p>The variable datatype contains the specific measurement for which data is gathered. The details are found on the following <a href="https://www.ncdc.noaa.gov/cdo-web/datasets/GHCNDMS/locations/CITY:US120032/detail">link</a></p>
+<p>I selected Monthly Mean maximum temperature (MMXT), and plot it below per month.</p>
+<pre class="r"><code>out$data %&gt;% 
+  filter(datatype == &quot;MMXT&quot;) %&gt;% 
+  select(date, value) %&gt;% 
+  mutate(date = ymd_hms(date), temp = value/10) %&gt;% 
+  select(-value) %&gt;% 
+  ggplot(aes(x = date, y = temp)) + geom_line()</code></pre>
+<p><img src="cs_paper_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 
 
