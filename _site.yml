@@ -20,7 +20,7 @@ navbar:
       - text: English
         href: CVEnglish.pdf
       - text: Spanish
-        href: CVEspañol.pdf
+        href: CVSpanish.pdf
   - text: Contact
     href: contact.html
 output:
